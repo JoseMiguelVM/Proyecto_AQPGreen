@@ -2,13 +2,12 @@ package com.example.aqpgreen;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.aqpgreen.database.AdministradorUsuariosDB;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-
-import com.example.aqpgreen.database.AdministradorUsuariosDB;
 
 public class Registro extends AppCompatActivity {
     private AdministradorUsuariosDB dbManager;
@@ -19,7 +18,11 @@ public class Registro extends AppCompatActivity {
         EditText loginEdit = (EditText) findViewById(R.id.RnombreUsuarioEdit);
         EditText correoEdit = (EditText) findViewById(R.id.Rcorreo);
         EditText contrasenaEdit = (EditText) findViewById(R.id.RcontraseñaEdit);
-        Button registrarBtn = (Button) findViewById(R.id.botonRegistroCompleto);// Para dirigirse al form de registro
+        Button registrarBtn = (Button) findViewById(R.id.botonRegistroCompleto);
+        dbManager = new AdministradorUsuariosDB(this);
+        dbManager.open();
+        // Para dirigirse al form de registro
+
         registrarBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -27,6 +30,7 @@ public class Registro extends AppCompatActivity {
                 String correo = correoEdit.getText().toString();
                 String contrasena = contrasenaEdit.getText().toString();
                 dbManager.insert(login, correo, contrasena);
+                dbManager.close();
                 //iniciar Mainactivity
                 Intent intentNuevo = new Intent(Registro.this, MainActivity.class);
                 startActivity(intentNuevo);
