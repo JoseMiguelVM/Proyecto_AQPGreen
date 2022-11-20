@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/menuGeneral"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondogeneral"
@@ -42,16 +43,19 @@
         app:layout_constraintTop_toBottomOf="@+id/textView">
 
         <LinearLayout
+            android:id="@+id/huellaPlastico"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal|center_vertical"
             android:gravity="center"
             android:orientation="vertical">
 
+
             <ImageView
-                android:src="@drawable/huellaplastico"
-                android:layout_width="75dp"
-                android:layout_height="75dp" />
+                android:id="@+id/imageView"
+                android:layout_width="85dp"
+                android:layout_height="85dp"
+                app:srcCompat="@drawable/huellaplastico" />
 
             <TextView
                 android:layout_width="158dp"
@@ -84,8 +88,8 @@
             android:layout_gravity="center_horizontal|center_vertical">
             <ImageView
                 android:src="@drawable/tipoplastico"
-                android:layout_width="75dp"
-                android:layout_height="75dp"
+                android:layout_width="85dp"
+                android:layout_height="85dp"
                 />
 
             <TextView
@@ -117,8 +121,8 @@
             android:layout_gravity="center_horizontal|center_vertical">
             <ImageView
                 android:src="@drawable/reciclar"
-                android:layout_width="75dp"
-                android:layout_height="75dp"
+                android:layout_width="85dp"
+                android:layout_height="85dp"
                 />
 
             <TextView
@@ -151,8 +155,8 @@
             android:layout_gravity="center_horizontal|center_vertical">
             <ImageView
                 android:src="@drawable/estadisticas"
-                android:layout_width="75dp"
-                android:layout_height="75dp"
+                android:layout_width="85dp"
+                android:layout_height="85dp"
                 />
 
             <TextView
@@ -186,8 +190,8 @@
             android:layout_gravity="center_horizontal|center_vertical">
             <ImageView
                 android:src="@drawable/noticias"
-                android:layout_width="75dp"
-                android:layout_height="75dp"
+                android:layout_width="85dp"
+                android:layout_height="85dp"
                 />
 
             <TextView
@@ -218,8 +222,8 @@
             android:layout_gravity="center_horizontal|center_vertical">
             <ImageView
                 android:src="@drawable/hoja"
-                android:layout_width="75dp"
-                android:layout_height="75dp"
+                android:layout_width="85dp"
+                android:layout_height="85dp"
                 />
 
             <TextView

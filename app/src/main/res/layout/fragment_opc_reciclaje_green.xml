@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".FragmentOpcReciclajeGreen">
+
+    <TextView
+        android:id="@+id/titulo"
+        android:layout_width="390dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="16dp"
+        android:gravity="center"
+        android:text="Creacion de Peticiones"
+        android:textColor="@color/white"
+        android:textSize="28dp"
+        android:textStyle="bold|italic" />
+
+    <LinearLayout
+        android:layout_width="364dp"
+        android:layout_height="123dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="100dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:text="Categoria de Plastico"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold|italic" />
+
+        <Spinner
+            android:id="@+id/spinnerCaegoriaPlastico"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_weight="1"
+            android:minHeight="2dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="364dp"
+        android:layout_height="105dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="220dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:text="Cantidad por Unidad"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold|italic" />
+
+        <EditText
+            android:id="@+id/editCantidad"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="Digite un numero"
+            android:inputType="textPersonName"
+            android:textColorHint="#FFFFFF" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="364dp"
+        android:layout_height="123dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="320dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:text="Origen de Plastico"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold|italic" />
+
+        <Spinner
+            android:id="@+id/spinnerDistritos"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_weight="1"
+            android:minHeight="2dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="364dp"
+        android:layout_height="105dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="445dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:layout_weight="1"
+            android:gravity="center|left"
+            android:text="Descripcion de producto"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold|italic" />
+
+        <EditText
+            android:id="@+id/editDescripcion"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_weight="1"
+            android:ems="10"
+            android:hint="Describa el residuo brevemente"
+            android:inputType="textPersonName"
+            android:textColorHint="#FFFFFF" />
+
+    </LinearLayout>
+
+</FrameLayout>
