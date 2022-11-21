@@ -80,7 +80,6 @@
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toTopOf="@+id/cardView" >
         <LinearLayout
-            android:id="@+id/tipoPlastico"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal|center_vertical"
@@ -88,6 +87,7 @@
             android:orientation="vertical">
 
             <Button
+                android:id="@+id/tipoPlastico"
                 android:layout_width="170dp"
                 android:layout_height="100dp"
                 android:drawableTop="@drawable/tipoplastico"
@@ -213,6 +213,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView6"
         android:layout_width="175dp"
         android:layout_height="150dp"
         app:cardElevation="15dp"
