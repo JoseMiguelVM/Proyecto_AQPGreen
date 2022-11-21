@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 
 public class menuOpciones extends AppCompatActivity{
@@ -15,19 +16,20 @@ public class menuOpciones extends AppCompatActivity{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_opciones);
-        LinearLayout opcReciclaje=findViewById(R.id.huellaPlastico);
-
-        opcReciclaje.setOnClickListener(new View.OnClickListener() {
+        Button redirigeFragmentReciclar = findViewById(R.id.reciclajeGreen);
+        //Click en Opcion para redirigirse a Fragment "Reciclar"
+        redirigeFragmentReciclar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                FragmentOpcReciclajeGreen fragmentOpcReciclajeGreen = new FragmentOpcReciclajeGreen();
+                FragmentOpcReciclajeGreen fragmentReciclaje = new FragmentOpcReciclajeGreen();
 
                 FragmentManager fragmentManager=getSupportFragmentManager();
                 FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.add(R.id.menuGeneral, fragmentOpcReciclajeGreen, null);
+                fragmentTransaction.add(R.id.general, fragmentReciclaje, null);
                 fragmentTransaction.commit();
             }
         });
+
 
     }
 
