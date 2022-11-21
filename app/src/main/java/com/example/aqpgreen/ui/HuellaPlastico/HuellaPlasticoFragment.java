@@ -1,4 +1,4 @@
-package com.example.aqpgreen.FragmentsMenu;
+package com.example.aqpgreen.ui.HuellaPlastico;
 
 import android.os.Bundle;
 
@@ -12,10 +12,10 @@ import com.example.aqpgreen.R;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link FragmentHuellaPlastico#newInstance} factory method to
+ * Use the {@link HuellaPlasticoFragment#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FragmentHuellaPlastico extends Fragment {
+public class HuellaPlasticoFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,7 +26,7 @@ public class FragmentHuellaPlastico extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public FragmentHuellaPlastico() {
+    public HuellaPlasticoFragment() {
         // Required empty public constructor
     }
 
@@ -39,8 +39,8 @@ public class FragmentHuellaPlastico extends Fragment {
      * @return A new instance of fragment FragmentHuellaPlastico.
      */
     // TODO: Rename and change types and number of parameters
-    public static FragmentHuellaPlastico newInstance(String param1, String param2) {
-        FragmentHuellaPlastico fragment = new FragmentHuellaPlastico();
+    public static HuellaPlasticoFragment newInstance(String param1, String param2) {
+        HuellaPlasticoFragment fragment = new HuellaPlasticoFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);

@@ -1,4 +1,4 @@
-package com.example.aqpgreen.FragmentsMenu;
+package com.example.aqpgreen.ui.Reciclaje;
 
 import android.os.Bundle;
 
@@ -10,9 +10,9 @@ import android.view.ViewGroup;
 
 import com.example.aqpgreen.R;
 
-public class FragmentReciclajeGreen extends Fragment {
+public class ReciclajeGreenFragment extends Fragment {
 
-    public FragmentReciclajeGreen() {
+    public ReciclajeGreenFragment() {
         // Required empty public constructor
     }
 
