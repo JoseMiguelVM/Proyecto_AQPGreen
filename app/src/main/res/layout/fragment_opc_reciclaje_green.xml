@@ -58,114 +58,127 @@
 
         </RelativeLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="10dp"
-            android:text="@string/label_categoria_plastico"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            android:textStyle="bold|italic" />
-
-        <Spinner
-            android:id="@+id/spinnerCaegoriaPlastico"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:minHeight="48dp" />
-
+            android:layout_height="wrap_content">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/label_categoria_plastico"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:textStyle="bold|italic" />
 
-            <TextView
-                android:layout_width="170dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:text="@string/label_cantidad_peticion"
-                android:textColor="@android:color/white"
-                android:textSize="18sp"
-                android:textStyle="bold|italic" />
+                <Spinner
+                    android:id="@+id/spinnerCaegoriaPlastico"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:minHeight="48dp" />
 
-            <EditText
-                android:id="@+id/cantidadProducto"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:inputType="number"
-                android:minHeight="48dp"
-                android:shadowColor="@color/teal_200"
-                android:textColor="#FFFFFF" />
-        </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="10dp"
-            android:text="@string/label_lugar_origen"
-            android:textColor="@android:color/white"
-            android:textSize="18sp"
-            android:textStyle="bold|italic" />
+                    <TextView
+                        android:layout_width="170dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:text="@string/label_cantidad_peticion"
+                        android:textColor="@android:color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold|italic" />
 
-        <Spinner
-            android:id="@+id/spinnerLugarOrigen"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:minHeight="48dp"
-            android:popupBackground="#FFFFFF" />
+                    <EditText
+                        android:id="@+id/cantidadProducto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:inputType="number"
+                        android:minHeight="48dp"
+                        android:shadowColor="@color/teal_200"
+                        android:textColor="#FFFFFF" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/label_lugar_origen"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold|italic" />
+
+                <Spinner
+                    android:id="@+id/spinnerLugarOrigen"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:minHeight="48dp"
+                    android:popupBackground="#FFFFFF" />
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginTop="10dp"
-            android:text="Descripción:"
-            android:textColor="@android:color/white"
-            android:textSize="18sp"
-            android:textStyle="bold|italic" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Descripción:"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold|italic" />
 
-        <EditText
-            android:id="@+id/Descripcion"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:autofillHints="descripción"
-            android:inputType="text"
-            android:minHeight="48dp"
-            android:shadowColor="@color/teal_200"
-            android:textColor="#FFFFFF" />
+                <EditText
+                    android:id="@+id/Descripcion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:autofillHints="descripción"
+                    android:inputType="text"
+                    android:minHeight="48dp"
+                    android:shadowColor="@color/teal_200"
+                    android:textColor="#FFFFFF" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="25dp"
-                android:text="@string/label_subir_foto"
-                android:textColor="@android:color/white"
-                android:textSize="18sp"
-                android:textStyle="bold|italic" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="25dp"
+                        android:text="@string/label_subir_foto"
+                        android:textColor="@android:color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold|italic" />
 
-            <ImageButton
-                android:id="@+id/btnCamera"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                    <ImageButton
+                        android:id="@+id/btnCamera"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@android:drawable/ic_menu_camera" />
 
-                android:src="@android:drawable/ic_menu_camera" />
+                </LinearLayout>
 
-        </LinearLayout>
-
+                <ImageView
+                    android:id="@+id/imgProducto_preview"
+                    android:layout_margin="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="500dp" />
+            </LinearLayout>
+        </ScrollView>
 
     </LinearLayout>
 
