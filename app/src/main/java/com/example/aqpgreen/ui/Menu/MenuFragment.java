@@ -32,7 +32,7 @@ public class MenuFragment extends Fragment {
     private String mParam2;
 
     public MenuFragment() {
-        // Required empty public constructor
+        // Required empty publi constructor
     }
 
     /**
