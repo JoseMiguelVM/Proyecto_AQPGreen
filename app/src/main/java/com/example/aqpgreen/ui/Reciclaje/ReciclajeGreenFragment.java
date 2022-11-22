@@ -35,7 +35,7 @@ public class ReciclajeGreenFragment extends Fragment {
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_opc_reciclaje_green, container, false);
         opciones_utilidad(view);
-        tomar_captura(view);
+        //tomar_captura(view);
         return view;
     }
 
@@ -49,9 +49,9 @@ public class ReciclajeGreenFragment extends Fragment {
         sp_lugar_origen.setAdapter(adapter_origen);
     }
 
-    public void tomar_captura (View view) {
+    /*public void tomar_captura (View view) {
         btnCamara = view.findViewById(R.id.btnCamera);
-        imgCapturada = view.findViewById(R.id.imagenProducto);
+        //imgCapturada = view.findViewById(R.id.imagenProducto);
 
         btnCamara.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -60,5 +60,5 @@ public class ReciclajeGreenFragment extends Fragment {
                 actResLauncher.launch(new_intent);
             }
         });
-    }
+    }*/
 }

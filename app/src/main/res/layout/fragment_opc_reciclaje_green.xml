@@ -155,12 +155,6 @@
 
         </LinearLayout>
 
-        <androidx.camera.view.PreviewView
-            android:id="@+id/imagenProducto"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:layout_margin="20dp"/>
-
     </LinearLayout>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
