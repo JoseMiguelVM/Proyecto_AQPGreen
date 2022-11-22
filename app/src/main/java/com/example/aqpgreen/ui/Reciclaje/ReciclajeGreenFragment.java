@@ -18,7 +18,9 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
@@ -39,6 +41,14 @@ public class ReciclajeGreenFragment extends Fragment {
     private ImageButton btnCamara;
     private ImageView imgCapturada_preview;
 
+    /*
+    * Variables para la captura de datos
+     */
+    Spinner sp_categorias_plastico;
+    EditText et_cantidad_plástico;
+    Spinner sp_lugar_origen;
+    EditText et_descripcion_plástico;
+
     //private String ruta_imagen;
 
     public ReciclajeGreenFragment() {
@@ -51,12 +61,14 @@ public class ReciclajeGreenFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_opc_reciclaje_green, container, false);
         opciones_utilidad(view);
         tomar_captura(view);
+        obtener_datos_peticion(view);
         return view;
     }
 
     public void opciones_utilidad (View view) {
-        Spinner sp_categorias_plastico = (Spinner) view.findViewById(R.id.spinnerCaegoriaPlastico);
-        Spinner sp_lugar_origen = (Spinner) view.findViewById(R.id.spinnerLugarOrigen);
+
+        sp_categorias_plastico = (Spinner) view.findViewById(R.id.spinnerCaegoriaPlastico);
+        sp_lugar_origen = (Spinner) view.findViewById(R.id.spinnerLugarOrigen);
 
         ArrayAdapter<CharSequence> adapter_categorias = ArrayAdapter.createFromResource(getContext(), R.array.opciones_categorias_productos, android.R.layout.simple_spinner_item);
         ArrayAdapter<CharSequence> adapter_origen = ArrayAdapter.createFromResource(getContext(), R.array.opciones_lugar_origen, android.R.layout.simple_spinner_item);
@@ -97,6 +109,25 @@ public class ReciclajeGreenFragment extends Fragment {
                     //camaraResLauncher.launch(new Intent(MediaStore.ACTION_IMAGE_CAPTURE).putExtra(MediaStore.EXTRA_OUTPUT, foto_uri));
                 camaraResLauncher.launch(new Intent(MediaStore.ACTION_IMAGE_CAPTURE));
                 //}
+            }
+        });
+    }
+
+    private void obtener_datos_peticion (View view) {
+        sp_categorias_plastico = view.findViewById(R.id.spinnerCaegoriaPlastico);
+        et_cantidad_plástico = view.findViewById(R.id.editText_cantidadPlastico);
+        sp_lugar_origen = view.findViewById(R.id.spinnerLugarOrigen);
+        et_descripcion_plástico = view.findViewById(R.id.editText_descripcionPlastico);
+        
+        sp_categorias_plastico.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                Toast.makeText(getContext(), "Seleccionado", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
             }
         });
     }
