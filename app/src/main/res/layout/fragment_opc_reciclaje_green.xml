@@ -98,7 +98,7 @@
                         android:textStyle="bold|italic" />
 
                     <EditText
-                        android:id="@+id/cantidadProducto"
+                        android:id="@+id/editText_cantidadPlastico"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
@@ -138,7 +138,7 @@
                     android:textStyle="bold|italic" />
 
                 <EditText
-                    android:id="@+id/Descripcion"
+                    android:id="@+id/editText_descripcionPlastico"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
