@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,17 +10,17 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="@drawable/background">
+        android:background="@drawable/fondopeticion"
+        android:orientation="vertical">
 
         <RelativeLayout
             android:id="@+id/idLayoutFondo"
             android:layout_width="match_parent"
             android:layout_height="59dp"
             android:layout_marginBottom="10dp"
-            android:background="#000000"
-            android:gravity="center"
-            android:elevation="8dp">
+            android:background="#2196F3"
+            android:elevation="8dp"
+            android:gravity="center">
 
             <TextView
                 android:id="@+id/titulo"
@@ -31,26 +32,28 @@
                 android:layout_marginStart="62dp"
                 android:layout_marginLeft="62dp"
                 android:layout_marginTop="10dp"
-                android:text="@string/text_titulo_peticiones"
+                android:text="Creación de Peticiones"
                 android:textColor="@android:color/white"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                android:textStyle="bold|italic" />
 
             <ImageButton
                 android:id="@+id/btnIcoAtras"
                 android:layout_width="60dp"
                 android:layout_height="49dp"
-                android:background="#000000"
+                android:background="#03A9F4"
                 android:src="@android:drawable/ic_media_previous" />
 
 
             <ImageButton
                 android:id="@+id/btnAyuda"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="60dp"
+                android:layout_height="50dp"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="0dp"
+                android:background="#03A9F4"
                 android:src="@android:drawable/ic_menu_help" />
 
         </RelativeLayout>
@@ -58,11 +61,12 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
             android:layout_marginTop="10dp"
             android:text="@string/label_categoria_plastico"
+            android:textColor="#FFFFFF"
             android:textSize="18sp"
-            android:textColor="@android:color/black"
-            android:layout_marginLeft="5dp" />
+            android:textStyle="bold|italic" />
 
         <Spinner
             android:id="@+id/spinnerCaegoriaPlastico"
@@ -74,17 +78,17 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="170dp"
                 android:layout_height="wrap_content"
-
-                android:layout_marginLeft="5dp"
+                android:layout_marginLeft="15dp"
                 android:text="@string/label_cantidad_peticion"
-                android:textColor="@android:color/black"
-                android:textSize="18sp" />
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:textStyle="bold|italic" />
 
             <EditText
                 android:id="@+id/cantidadProducto"
@@ -93,34 +97,38 @@
                 android:layout_margin="10dp"
                 android:inputType="number"
                 android:minHeight="48dp"
-                android:shadowColor="@color/teal_200" />
+                android:shadowColor="@color/teal_200"
+                android:textColor="#FFFFFF" />
         </LinearLayout>
 
-       <TextView
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
             android:text="@string/label_lugar_origen"
+            android:textColor="@android:color/white"
             android:textSize="18sp"
-            android:textColor="@android:color/black"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="10dp"/>
+            android:textStyle="bold|italic" />
 
         <Spinner
             android:id="@+id/spinnerLugarOrigen"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:minHeight="48dp" />
+            android:minHeight="48dp"
+            android:popupBackground="#FFFFFF" />
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Descripción"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="10dp"
+            android:text="Descripción:"
+            android:textColor="@android:color/white"
             android:textSize="18sp"
-            android:textColor="@android:color/black"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="10dp" />
+            android:textStyle="bold|italic" />
 
         <EditText
             android:id="@+id/Descripcion"
@@ -130,31 +138,33 @@
             android:autofillHints="descripción"
             android:inputType="text"
             android:minHeight="48dp"
-            android:shadowColor="@color/teal_200" />
+            android:shadowColor="@color/teal_200"
+            android:textColor="#FFFFFF" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
             android:gravity="center"
-            android:layout_marginTop="10dp">
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginRight="25dp"
                 android:text="@string/label_subir_foto"
+                android:textColor="@android:color/white"
                 android:textSize="18sp"
-                android:textColor="@android:color/black"
-                android:layout_marginRight="25dp"/>
+                android:textStyle="bold|italic" />
 
             <ImageButton
                 android:id="@+id/btnCamera"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+
                 android:src="@android:drawable/ic_menu_camera" />
 
         </LinearLayout>
-
 
 
     </LinearLayout>
@@ -166,10 +176,11 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="7dp"
+        android:layout_marginEnd="20dp"
         android:layout_marginRight="7dp"
-        android:layout_marginBottom="7dp"
+        android:layout_marginBottom="20dp"
+        android:contentDescription="TODO"
         android:src="@android:drawable/ic_menu_save"
-        android:contentDescription="TODO" />
+        app:backgroundTint="#03A9F4" />
 
 </RelativeLayout>
