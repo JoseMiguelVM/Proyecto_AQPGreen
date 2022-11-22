@@ -1,19 +1,16 @@
 package com.example.aqpgreen;
 
-import static android.content.ContentValues.TAG;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-import com.example.aqpgreen.database.AdministradorUsuariosDB;
+import com.example.aqpgreen.database.Usuarios.AdministradorUsuariosDB;
 
 public class MainActivity extends AppCompatActivity {
     private AdministradorUsuariosDB dbManager;
@@ -21,6 +18,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         Button cambioaRegistro = findViewById(R.id.singUp); // Para el cambio de boton de la parte superior del formulario
         Button Login = findViewById(R.id.botonLoginCompleto); // Ingresar a la otra interfaz
         EditText loginEdit = (EditText) findViewById(R.id.LnombreUsuarioEdit);
@@ -40,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (ExisteDuplaUsuarioContrasena(dbManager.fetch(),loginEdit.getText().toString(),passwordEdit.getText().toString())){
-                    Intent i = new Intent(MainActivity.this, menuOpciones.class);
+                    Intent i = new Intent(MainActivity.this, MenuActivity.class);
                     startActivity(i);
                 }
 

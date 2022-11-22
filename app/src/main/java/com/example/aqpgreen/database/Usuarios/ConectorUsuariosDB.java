@@ -1,4 +1,4 @@
-package com.example.aqpgreen.database;
+package com.example.aqpgreen.database.Usuarios;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
