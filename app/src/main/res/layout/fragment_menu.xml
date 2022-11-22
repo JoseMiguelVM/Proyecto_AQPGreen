@@ -1,14 +1,256 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MenuFragment">
+    android:background="@drawable/fondogeneral"
+    tools:context=".ui.Menu.MenuFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:id="@+id/textView_tituloMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="16dp"
+        android:text="@string/titulo_menu"
+        android:textColor="@color/white"
+        android:textSize="28sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="206dp" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView_Huella"
+        android:layout_width="175dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="35dp"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="15dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:layout_constraintEnd_toStartOf="@+id/guideline2"
+        app:layout_constraintHorizontal_bias="0.65"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_tituloMenu">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/huellaPlastico"
+                android:layout_width="170dp"
+                android:layout_height="100dp"
+                android:src="@drawable/huellaplastico"/>
+
+            <TextView
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Calcula tu Huella de Plástico"
+                android:textSize="15sp"
+                android:textStyle="bold|italic" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView_TipoPlastico"
+        android:layout_width="175dp"
+        android:layout_height="150dp"
+        app:cardElevation="15dp"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintBottom_toBottomOf="@+id/cardView_Huella"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.35"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toTopOf="@+id/cardView_Huella" >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/tipoPlastico"
+                android:layout_width="170dp"
+                android:layout_height="100dp"
+                android:src="@drawable/tipoplastico"
+                tools:ignore="ImageContrastCheck" />
+
+            <TextView
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Tipos de Plastico"
+                android:textSize="15sp"
+                android:textStyle="bold|italic" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView_Reciclaje"
+        android:layout_width="175dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="24dp"
+        app:cardElevation="15dp"
+        app:cardCornerRadius="8dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:layout_constraintEnd_toEndOf="@+id/cardView_Huella"
+        app:layout_constraintStart_toStartOf="@+id/cardView_Huella"
+        app:layout_constraintTop_toBottomOf="@+id/cardView_Huella" >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/reciclajeGreen"
+                android:layout_width="170dp"
+                android:layout_height="100dp"
+                android:src="@drawable/reciclar"
+                tools:ignore="ImageContrastCheck" />
+
+            <TextView
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Reciclaje Green"
+                android:textSize="15sp"
+                android:textStyle="bold|italic" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView_Estadisticas"
+        android:layout_width="175dp"
+        android:layout_height="150dp"
+        app:cardElevation="15dp"
+        app:cardCornerRadius="8dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:layout_constraintBottom_toBottomOf="@+id/cardView_Reciclaje"
+        app:layout_constraintEnd_toEndOf="@+id/cardView_TipoPlastico"
+        app:layout_constraintStart_toStartOf="@+id/cardView_TipoPlastico"
+        app:layout_constraintTop_toTopOf="@+id/cardView_Reciclaje"
+        app:layout_constraintVertical_bias="0.0" >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/estadisticas"
+                android:layout_width="170dp"
+                android:layout_height="100dp"
+                android:src="@drawable/estadisticas"
+                />
+
+            <TextView
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Estadisticas"
+                android:textSize="15sp"
+                android:textStyle="bold|italic" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView_Noticias"
+        android:layout_width="175dp"
+        android:layout_height="150sp"
+        android:layout_marginTop="24dp"
+        app:cardElevation="15dp"
+        app:cardCornerRadius="8dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:layout_constraintEnd_toEndOf="@+id/cardView_Reciclaje"
+        app:layout_constraintStart_toStartOf="@+id/cardView_Reciclaje"
+        app:layout_constraintTop_toBottomOf="@+id/cardView_Reciclaje" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/noticiasGreen"
+                android:layout_width="170dp"
+                android:layout_height="100dp"
+                android:src="@drawable/noticias"
+                android:contentDescription="TODO" />
+
+            <TextView
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Noticias Green"
+                android:textSize="15sp"
+                android:textStyle="bold|italic" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView_Comunidad"
+        android:layout_width="175dp"
+        android:layout_height="150dp"
+        app:cardElevation="15dp"
+        app:cardCornerRadius="8dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        app:layout_constraintBottom_toBottomOf="@+id/cardView_Noticias"
+        app:layout_constraintEnd_toEndOf="@+id/cardView_Estadisticas"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/cardView_Estadisticas"
+        app:layout_constraintTop_toTopOf="@+id/cardView_Noticias" >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal|center_vertical"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/comunidadGreen"
+                android:layout_width="170dp"
+                android:layout_height="100dp"
+                android:src="@drawable/comunidad"/>
+
+            <TextView
+                android:layout_width="170dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Comunidad Green"
+                android:textSize="15sp"
+                android:textStyle="bold|italic" />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
