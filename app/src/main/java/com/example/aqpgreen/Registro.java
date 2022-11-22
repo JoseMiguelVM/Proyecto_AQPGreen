@@ -2,7 +2,7 @@ package com.example.aqpgreen;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.aqpgreen.database.AdministradorUsuariosDB;
+import com.example.aqpgreen.database.Usuarios.AdministradorUsuariosDB;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;

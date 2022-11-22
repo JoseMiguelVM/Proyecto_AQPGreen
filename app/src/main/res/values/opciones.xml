@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="opciones_categorias_productos">
+        <item>PET/PETE</item>
+        <item>HDPE</item>
+        <item>PVC</item>
+        <item>LDPE/PEDB</item>
+        <item>PP</item>
+        <item>PS</item>
+        <item>O</item>
+    </string-array>
+
+    <string-array name="opciones_lugar_origen">
+        <item>Alto Selva Alegre</item>
+        <item>Arequipa</item>
+        <item>Cayma</item>
+        <item>Cerro Colorado</item>
+        <item>Characato</item>
+        <item>Chiguata</item>
+        <item>Jacobo Hunter</item>
+        <item>JLByR</item>
+        <item>La Joya</item>
+        <item>Mariano Melgar</item>
+        <item>Miraflores</item>
+        <item>Mollebaya</item>
+        <item>Paucarpata</item>
+        <item>Pocsi</item>
+        <item>Polobaya</item>
+        <item>Quequeña</item>
+        <item>Sabandía</item>
+        <item>Sachaca</item>
+        <item>SJ. de Siguas</item>
+        <item>SJ. de Tarucani</item>
+        <item>S. Isabel de Siguas</item>
+        <item>S. Rita de Siguas</item>
+        <item>Socabaya</item>
+        <item>Tiabaya</item>
+        <item>Uchumayo</item>
+        <item>Vitor</item>
+        <item>Yanahuara</item>
+        <item>Yarabamba</item>
+        <item>Yura</item>
+    </string-array>
+</resources>

@@ -1,30 +1,36 @@
 package com.example.aqpgreen;
 
-import static android.content.ContentValues.TAG;
-
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 
-import com.example.aqpgreen.database.AdministradorUsuariosDB;
+import com.example.aqpgreen.database.Usuarios.AdministradorUsuariosDB;
+import com.example.aqpgreen.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
     private AdministradorUsuariosDB dbManager;
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         Button cambioaRegistro = findViewById(R.id.singUp); // Para el cambio de boton de la parte superior del formulario
         Button Login = findViewById(R.id.botonLoginCompleto); // Ingresar a la otra interfaz
         EditText loginEdit = (EditText) findViewById(R.id.LnombreUsuarioEdit);
         EditText passwordEdit = (EditText) findViewById(R.id.LcontraseñaEdit);
+
         dbManager = new AdministradorUsuariosDB(this);
         dbManager.open();
         // Para dirigirse al form de registro
@@ -40,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (ExisteDuplaUsuarioContrasena(dbManager.fetch(),loginEdit.getText().toString(),passwordEdit.getText().toString())){
-                    Intent i = new Intent(MainActivity.this, menuOpciones.class);
+                    Intent i = new Intent(MainActivity.this, MenuActivity.class);
                     startActivity(i);
                 }
 

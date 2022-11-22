@@ -3,12 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.HuellaPlastico.HuellaPlasticoFragment">
+    tools:context=".ui.Reciclaje.CamaraFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <fragment
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="match_parent" >
+        <androidx.camera.view.PreviewView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </fragment>
 
 </FrameLayout>

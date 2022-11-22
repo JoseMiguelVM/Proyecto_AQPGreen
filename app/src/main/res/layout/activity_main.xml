@@ -154,6 +154,7 @@
                     android:textColor="#616161"
                     android:textSize="11sp"
                     android:textStyle="normal" />
+
             </LinearLayout>
             <!-- Boton de login-->
             <Button

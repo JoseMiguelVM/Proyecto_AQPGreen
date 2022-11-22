@@ -1,17 +1,27 @@
-package com.example.aqpgreen.FragmentsMenu;
+package com.example.aqpgreen.ui.Reciclaje;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.aqpgreen.R;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-
-public class FragmentNoticias extends Fragment {
+/**
+ * A simple {@link Fragment} subclass.
+ * Use the {@link ListaPeticionesFragment#newInstance} factory method to
+ * create an instance of this fragment.
+ */
+public class ListaPeticionesFragment extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -22,7 +32,7 @@ public class FragmentNoticias extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public FragmentNoticias() {
+    public ListaPeticionesFragment() {
         // Required empty public constructor
     }
 
@@ -32,11 +42,11 @@ public class FragmentNoticias extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment FragmentNoticias.
+     * @return A new instance of fragment ListaPeticionesFragment.
      */
     // TODO: Rename and change types and number of parameters
-    public static FragmentNoticias newInstance(String param1, String param2) {
-        FragmentNoticias fragment = new FragmentNoticias();
+    public static ListaPeticionesFragment newInstance(String param1, String param2) {
+        ListaPeticionesFragment fragment = new ListaPeticionesFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -57,6 +67,22 @@ public class FragmentNoticias extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_noticias, container, false);
+        return inflater.inflate(R.layout.fragment_lista_peticiones, container, false);
+    }
+
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        final NavController navController = Navigation.findNavController(view);
+
+        FloatingActionButton b_reciclaje = view.findViewById(R.id.RegistroButton);
+
+        b_reciclaje.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navController.navigate(R.id.reciclajeGreenFragment);
+            }
+        });
+
     }
 }

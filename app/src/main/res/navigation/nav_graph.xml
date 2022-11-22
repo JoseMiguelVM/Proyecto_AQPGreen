@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/menuFragment">
+
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.example.aqpgreen.ui.Menu.MenuFragment"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu" >
+        <action
+            android:id="@+id/action_menuFragment_to_huellaPlasticoFragment"
+            app:destination="@id/huellaPlasticoFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_tipoPlasticoFragment"
+            app:destination="@id/tipoPlasticoFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_estadisticasFragment"
+            app:destination="@id/estadisticasFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_noticiasFragment"
+            app:destination="@id/noticiasFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_comunidadFragment"
+            app:destination="@id/comunidadFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_listaPeticionesFragment"
+            app:destination="@id/listaPeticionesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/reciclajeGreenFragment"
+        android:name="com.example.aqpgreen.ui.Reciclaje.ReciclajeGreenFragment"
+        android:label="fragment_opc_reciclaje_green"
+        tools:layout="@layout/fragment_opc_reciclaje_green" >
+
+        <action
+            android:id="@+id/action_reciclajeGreenFragment_to_listaPeticionesFragment"
+            app:destination="@id/listaPeticionesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/huellaPlasticoFragment"
+        android:name="com.example.aqpgreen.ui.HuellaPlastico.HuellaPlasticoFragment"
+        android:label="fragment_huella_plastico"
+        tools:layout="@layout/fragment_huella_plastico" >
+        <action
+            android:id="@+id/action_huellaPlasticoFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/comunidadFragment"
+        android:name="com.example.aqpgreen.ui.Comunidad.ComunidadFragment"
+        android:label="fragment_comunidad"
+        tools:layout="@layout/fragment_comunidad" >
+        <action
+            android:id="@+id/action_comunidadFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/estadisticasFragment"
+        android:name="com.example.aqpgreen.ui.Estadisticas.EstadisticasFragment"
+        android:label="fragment_estadisticas"
+        tools:layout="@layout/fragment_estadisticas" >
+        <action
+            android:id="@+id/action_estadisticasFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/noticiasFragment"
+        android:name="com.example.aqpgreen.ui.Noticias.NoticiasFragment"
+        android:label="fragment_noticias"
+        tools:layout="@layout/fragment_noticias" >
+        <action
+            android:id="@+id/action_noticiasFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/tipoPlasticoFragment"
+        android:name="com.example.aqpgreen.ui.TiposPlastico.TipoPlasticoFragment"
+        android:label="fragment_tipo_plastico"
+        tools:layout="@layout/fragment_tipo_plastico" >
+        <action
+            android:id="@+id/action_tipoPlasticoFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listaPeticionesFragment"
+        android:name="com.example.aqpgreen.ui.Reciclaje.ListaPeticionesFragment"
+        android:label="fragment_lista_peticiones"
+        tools:layout="@layout/fragment_lista_peticiones" >
+        <action
+            android:id="@+id/action_listaPeticionesFragment_to_reciclajeGreenFragment"
+            app:destination="@id/reciclajeGreenFragment" />
+        <action
+            android:id="@+id/action_listaPeticionesFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
+</navigation>

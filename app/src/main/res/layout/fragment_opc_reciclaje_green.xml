@@ -1,136 +1,199 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/fragment1"
-    android:background="@drawable/background"
-    tools:context=".FragmentsMenu.FragmentReciclajeGreen">
+    android:id="@+id/ReciclajeGreen"
+    tools:context=".ui.Reciclaje.ReciclajeGreenFragment">
 
-    <TextView
-        android:id="@+id/titulo"
-        android:layout_width="390dp"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/fondopeticion"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/idLayoutFondo"
+            android:layout_width="match_parent"
+            android:layout_height="59dp"
+            android:layout_marginBottom="10dp"
+            android:background="#2196F3"
+            android:elevation="8dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/titulo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="62dp"
+                android:layout_marginLeft="62dp"
+                android:layout_marginTop="10dp"
+                android:text="Creación de Peticiones"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:textStyle="bold|italic" />
+
+            <ImageButton
+                android:id="@+id/btnIcoAtras"
+                android:layout_width="60dp"
+                android:layout_height="49dp"
+                android:background="#03A9F4"
+                android:src="@android:drawable/ic_media_previous" />
+
+
+            <ImageButton
+                android:id="@+id/btnAyuda"
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="0dp"
+                android:background="#03A9F4"
+                android:src="@android:drawable/ic_menu_help" />
+
+        </RelativeLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/label_categoria_plastico"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:textStyle="bold|italic" />
+
+                <Spinner
+                    android:id="@+id/spinnerCaegoriaPlastico"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:minHeight="48dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="170dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:text="@string/label_cantidad_peticion"
+                        android:textColor="@android:color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold|italic" />
+
+                    <EditText
+                        android:id="@+id/cantidadProducto"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="10dp"
+                        android:inputType="number"
+                        android:minHeight="48dp"
+                        android:shadowColor="@color/teal_200"
+                        android:textColor="#FFFFFF" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/label_lugar_origen"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold|italic" />
+
+                <Spinner
+                    android:id="@+id/spinnerLugarOrigen"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:minHeight="48dp"
+                    android:popupBackground="#FFFFFF" />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="10dp"
+                    android:text="Descripción:"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    android:textStyle="bold|italic" />
+
+                <EditText
+                    android:id="@+id/Descripcion"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="10dp"
+                    android:autofillHints="descripción"
+                    android:inputType="text"
+                    android:minHeight="48dp"
+                    android:shadowColor="@color/teal_200"
+                    android:textColor="#FFFFFF" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="25dp"
+                        android:text="@string/label_subir_foto"
+                        android:textColor="@android:color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold|italic" />
+
+                    <ImageButton
+                        android:id="@+id/btnCamera"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@android:drawable/ic_menu_camera" />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/imgProducto_preview"
+                    android:layout_margin="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="500dp" />
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/idFabRegistro"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="16dp"
-        android:gravity="center"
-        android:text="Creacion de Peticiones"
-        android:textColor="@color/white"
-        android:textSize="28dp"
-        android:textStyle="bold|italic" />
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="20dp"
+        android:layout_marginRight="7dp"
+        android:layout_marginBottom="20dp"
+        android:contentDescription="TODO"
+        android:src="@android:drawable/ic_menu_save"
+        app:backgroundTint="#83CF2A" />
 
-    <LinearLayout
-        android:layout_width="364dp"
-        android:layout_height="123dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="100dp"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_weight="1"
-            android:gravity="center|left"
-            android:text="Categoria de Plastico"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp"
-            android:textStyle="bold|italic" />
-
-        <Spinner
-            android:id="@+id/spinnerCaegoriaPlastico"
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_weight="1"
-            android:minHeight="2dp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="364dp"
-        android:layout_height="105dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="220dp"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/textView5"
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_weight="1"
-            android:gravity="center|left"
-            android:text="Cantidad por Unidad"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp"
-            android:textStyle="bold|italic" />
-
-        <EditText
-            android:id="@+id/editCantidad"
-            android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:layout_weight="1"
-            android:ems="10"
-            android:hint="Digite un numero"
-            android:inputType="textPersonName"
-            android:textColorHint="#FFFFFF" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="364dp"
-        android:layout_height="123dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="320dp"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/textView6"
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_weight="1"
-            android:gravity="center|left"
-            android:text="Origen de Plastico"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp"
-            android:textStyle="bold|italic" />
-
-        <Spinner
-            android:id="@+id/spinnerDistritos"
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_weight="1"
-            android:minHeight="2dp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="364dp"
-        android:layout_height="105dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="445dp"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/textView7"
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:layout_weight="1"
-            android:gravity="center|left"
-            android:text="Descripcion de producto"
-            android:textColor="#FFFFFF"
-            android:textSize="20sp"
-            android:textStyle="bold|italic" />
-
-        <EditText
-            android:id="@+id/editDescripcion"
-            android:layout_width="match_parent"
-            android:layout_height="20dp"
-            android:layout_weight="1"
-            android:ems="10"
-            android:hint="Describa el residuo brevemente"
-            android:inputType="textPersonName"
-            android:textColorHint="#FFFFFF" />
-
-    </LinearLayout>
-
-</FrameLayout>
+</RelativeLayout>
