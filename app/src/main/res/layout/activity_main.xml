@@ -155,11 +155,6 @@
                     android:textSize="11sp"
                     android:textStyle="normal" />
 
-                <CheckBox
-                    android:id="@+id/checkBox"
-                    android:layout_width="wrap_content"
-                    android:layout_height="22dp"
-                    android:text="Recordar usuario" />
             </LinearLayout>
             <!-- Boton de login-->
             <Button
