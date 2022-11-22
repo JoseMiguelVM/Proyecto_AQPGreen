@@ -99,7 +99,7 @@ public class MenuFragment extends Fragment {
         c_reciclaje.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navController.navigate(R.id.reciclajeGreenFragment);
+                navController.navigate(R.id.listaPeticionesFragment);
             }
         });
 

@@ -11,9 +11,6 @@
         android:label="fragment_menu"
         tools:layout="@layout/fragment_menu" >
         <action
-            android:id="@+id/action_menuFragment_to_fragmentReciclajeGreen"
-            app:destination="@id/reciclajeGreenFragment" />
-        <action
             android:id="@+id/action_menuFragment_to_huellaPlasticoFragment"
             app:destination="@id/huellaPlasticoFragment" />
         <action
@@ -28,15 +25,19 @@
         <action
             android:id="@+id/action_menuFragment_to_comunidadFragment"
             app:destination="@id/comunidadFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_listaPeticionesFragment"
+            app:destination="@id/listaPeticionesFragment" />
     </fragment>
     <fragment
         android:id="@+id/reciclajeGreenFragment"
         android:name="com.example.aqpgreen.ui.Reciclaje.ReciclajeGreenFragment"
         android:label="fragment_opc_reciclaje_green"
         tools:layout="@layout/fragment_opc_reciclaje_green" >
+
         <action
-            android:id="@+id/action_fragmentReciclajeGreen_to_menuFragment"
-            app:destination="@id/menuFragment" />
+            android:id="@+id/action_reciclajeGreenFragment_to_listaPeticionesFragment"
+            app:destination="@id/listaPeticionesFragment" />
     </fragment>
     <fragment
         android:id="@+id/huellaPlasticoFragment"
@@ -81,6 +82,18 @@
         tools:layout="@layout/fragment_tipo_plastico" >
         <action
             android:id="@+id/action_tipoPlasticoFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listaPeticionesFragment"
+        android:name="com.example.aqpgreen.ui.Reciclaje.ListaPeticionesFragment"
+        android:label="fragment_lista_peticiones"
+        tools:layout="@layout/fragment_lista_peticiones" >
+        <action
+            android:id="@+id/action_listaPeticionesFragment_to_reciclajeGreenFragment"
+            app:destination="@id/reciclajeGreenFragment" />
+        <action
+            android:id="@+id/action_listaPeticionesFragment_to_menuFragment"
             app:destination="@id/menuFragment" />
     </fragment>
 </navigation>
