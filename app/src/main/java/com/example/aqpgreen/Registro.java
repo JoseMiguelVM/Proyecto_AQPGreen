@@ -21,8 +21,8 @@ public class Registro extends AppCompatActivity {
         Button registrarBtn = (Button) findViewById(R.id.botonRegistroCompleto);
         dbManager = new AdministradorUsuariosDB(this);
         dbManager.open();
-        // Para dirigirse al form de registro
 
+        // Registrando usuario con los datos a la BD
         registrarBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
