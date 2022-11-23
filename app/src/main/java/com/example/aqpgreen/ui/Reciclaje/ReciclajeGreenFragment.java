@@ -27,6 +27,8 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.aqpgreen.R;
+import com.example.aqpgreen.database.Peticiones.PeticionDBController;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.io.File;
 import java.io.IOException;
@@ -38,16 +40,30 @@ public class ReciclajeGreenFragment extends Fragment {
     private View view;
     public static final String EXTRA_INFO = "default";
     public static final int Image_Capture_Code = 1;
-    private ImageButton btnCamara;
-    private ImageView imgCapturada_preview;
 
+    private PeticionDBController db_peticiones;
     /*
     * Variables para la captura de datos
      */
-    Spinner sp_categorias_plastico;
-    EditText et_cantidad_plástico;
-    Spinner sp_lugar_origen;
-    EditText et_descripcion_plástico;
+    private Spinner sp_categorias_plastico;
+    private Spinner sp_lugar_origen;
+    private EditText et_cantidad_plastico;
+    private EditText et_descripcion_plastico;
+    private ImageButton btnCamara;
+    private ImageView imgCapturada_preview;
+    private FloatingActionButton btn_guardar_peticion;
+
+    /*
+    * Atributos de la Peticion
+    * */
+    private int idusuario = 01;
+    private int puntos_plastico = 5;
+    private int estado_peticion = 0;
+    private String urlFoto = "https://i.imgur.com/DvpvklR.png";
+    private String sp_categorias_plastico_string;
+    private int et_cantidad_plastico_string;
+    private String sp_lugar_origen_string;
+    private String et_descripcion_plastico_string;
 
     //private String ruta_imagen;
 
@@ -59,9 +75,10 @@ public class ReciclajeGreenFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_opc_reciclaje_green, container, false);
+        db_peticiones = new PeticionDBController(getContext());
         opciones_utilidad(view);
         tomar_captura(view);
-        obtener_datos_peticion(view);
+        obtener_componentes_vista(view);
         return view;
     }
 
@@ -113,23 +130,56 @@ public class ReciclajeGreenFragment extends Fragment {
         });
     }
 
-    private void obtener_datos_peticion (View view) {
+    private void obtener_componentes_vista (View view) {
+
+        btn_guardar_peticion = view.findViewById(R.id.idFabRegistro);
         sp_categorias_plastico = view.findViewById(R.id.spinnerCaegoriaPlastico);
-        et_cantidad_plástico = view.findViewById(R.id.editText_cantidadPlastico);
+        et_cantidad_plastico = (EditText) view.findViewById(R.id.editText_cantidadPlastico);
         sp_lugar_origen = view.findViewById(R.id.spinnerLugarOrigen);
-        et_descripcion_plástico = view.findViewById(R.id.editText_descripcionPlastico);
-        
+        et_descripcion_plastico = (EditText) view.findViewById(R.id.editText_descripcionPlastico);
+
+        btn_guardar_peticion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                guardar_datos_peticion ();
+            }
+        });
+
+    }
+
+    private void guardar_datos_peticion () {
+
+        et_cantidad_plastico_string = Integer.parseInt(et_cantidad_plastico.getText().toString());
+        et_descripcion_plastico_string = et_descripcion_plastico.getText().toString();
+
         sp_categorias_plastico.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(getContext(), "Seleccionado", Toast.LENGTH_SHORT).show();
+                sp_categorias_plastico_string = adapterView.getItemAtPosition(i).toString();
             }
-
             @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
+            public void onNothingSelected(AdapterView<?> adapterView) { }
         });
+        sp_lugar_origen.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                sp_lugar_origen_string = adapterView.getItemAtPosition(i).toString();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) { }
+        });
+
+        /*db_peticiones.open();
+        int confirm = db_peticiones.insert(idusuario, sp_categorias_plastico_string, et_cantidad_plastico_string,
+                sp_lugar_origen_string, et_descripcion_plastico_string, puntos_plastico, estado_peticion, urlFoto);
+        db_peticiones.close();
+
+        if (confirm == -1){
+            Toast.makeText(getContext(), "Error", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            Toast.makeText(getContext(), "Añadido", Toast.LENGTH_SHORT).show();
+        }*/
     }
 
     /*private File crear_archivo_temp () throws IOException {
