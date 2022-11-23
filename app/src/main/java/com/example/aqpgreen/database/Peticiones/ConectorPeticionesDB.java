@@ -12,20 +12,20 @@ public class ConectorPeticionesDB extends SQLiteOpenHelper {
     public static final String CATEGORIA = "categoria";
     public static final String CANTIDAD = "cantidad";
     public static final String ORIGEN = "lugarOrigen";
-    public static final String DESCRPCION = "descripcion";
+    public static final String DESCRIPCION = "descripcion";
     public static final String PUNTOS = "puntos";
     public static final String ESTADO = "estado";
-    public static final String FOTOURL = "fotoUrl";
+    public static final String URLFOTO = "fotoUrl";
 
     static final String DB_NAME = "aqpgreen.db";
     static final int DB_VERSION = 1;
 
     private static final String CREATE_TABLE = "create table " + TABLE_NAME + "(" + IDPETICION
-            + " INTEGER PRIMARY KEY AUTOINCREMENT, " + IDPETICION + " TEXT NOT NULL, "
-            + IDUSUARIO + " TEXT NOT NULL, " + CATEGORIA + "  TEXT NOT NULL,"
+            + " INTEGER PRIMARY KEY AUTOINCREMENT, " + IDUSUARIO + " INTEGER NOT NULL, "
+            + CATEGORIA + "  TEXT NOT NULL,"
             + CANTIDAD + " INTEGER NOT NULL, " + ORIGEN + " TEXT NOT NULL,"
-            + DESCRPCION + " TEXT NOT NULL," + PUNTOS + " INTEGER NOT NULL,"
-            + ESTADO + " INTEGER NOT NULL," + FOTOURL + " TEXT NOT NULL,"
+            + DESCRIPCION + " TEXT NOT NULL," + PUNTOS + " INTEGER NOT NULL,"
+            + ESTADO + " INTEGER NOT NULL," + URLFOTO + " TEXT NOT NULL,"
             + "FOREIGN KEY (" + IDUSUARIO + ") "
             + "REFERENCES USUARIOS (" + IDUSUARIO + ") ON DELETE CASCADE ON UPDATE NO ACTION);";
 
