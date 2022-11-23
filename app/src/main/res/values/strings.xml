@@ -5,6 +5,7 @@
     <string name="titulo_menu">Opciones de AQP Green</string>
     <string name="text_titulo_peticiones">Creacion de Peticiones</string>
     <string name="label_categoria_plastico">Categoria de Plástico</string>
+    <string name="label_mayores_puntos_basura">Mayores Puntos de Acopio</string>
     <string name="label_subir_foto">Sube una foto</string>
     <string name="label_cantidad_peticion">Cantidad</string>
     <string name="label_lugar_origen">Lugar de origen</string>
