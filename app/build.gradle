@@ -6,8 +6,6 @@ android {
     namespace 'com.example.aqpgreen'
     compileSdk 32
 
-    buildFeatures{viewBinding true}
-
     defaultConfig {
         applicationId "com.example.aqpgreen"
         minSdk 21
