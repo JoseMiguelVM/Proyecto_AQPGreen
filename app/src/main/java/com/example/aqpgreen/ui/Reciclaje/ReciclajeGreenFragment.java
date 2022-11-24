@@ -68,7 +68,6 @@ public class ReciclajeGreenFragment extends Fragment {
     private String et_descripcion_plastico_string;
 
     //private String ruta_imagen;
-
     public ReciclajeGreenFragment() {
         // Required empty public constructor
     }
@@ -86,7 +85,6 @@ public class ReciclajeGreenFragment extends Fragment {
         final NavController navController = Navigation.findNavController(view);
         inicializar_elementos(view);
 
-
         btn_regresar_fragment = view.findViewById(R.id.btnIcoAtras);
         btn_regresar_fragment.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -100,6 +98,7 @@ public class ReciclajeGreenFragment extends Fragment {
     }
 
     public void inicializar_elementos (View view) {
+
         btn_guardar_peticion = view.findViewById(R.id.idFabRegistro);
         sp_categorias_plastico = view.findViewById(R.id.spinner_categoriaPlastico);
         et_cantidad_plastico = (EditText) view.findViewById(R.id.editText_cantidadPlastico);
