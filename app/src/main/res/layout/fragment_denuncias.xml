@@ -103,7 +103,7 @@
         android:src="@drawable/descripcion" />
 
     <EditText
-        android:id="@+id/descricpion_denunciante"
+        android:id="@+id/descripcion_denuncia"
         android:layout_width="319dp"
         android:layout_height="wrap_content"
         android:layout_below="@id/signin"

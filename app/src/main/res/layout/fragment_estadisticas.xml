@@ -10,7 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/fondoestadisticas"
+        android:background="#7BCC1E"
         android:orientation="vertical">
 
         <RelativeLayout
@@ -29,9 +29,9 @@
                 android:layout_alignParentStart="true"
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="62dp"
-                android:layout_marginLeft="62dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginStart="139dp"
+                android:layout_marginLeft="139dp"
+                android:layout_marginTop="14dp"
                 android:text="Estadisticas"
                 android:textColor="@android:color/white"
                 android:textSize="20sp"
@@ -42,7 +42,7 @@
                 android:layout_width="60dp"
                 android:layout_height="49dp"
                 android:background="#03A9F4"
-                android:src="@android:drawable/ic_media_previous" />
+                android:src="@drawable/ic_baseline_arrow_back_ios_24" />
 
 
             <ImageButton
@@ -65,15 +65,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
+
                 <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="59dp"
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="10dp"
-                    android:text="@string/label_mayores_puntos_basura"
+                    android:text="Estadisticas referente a distritos de Arequipa donde se dquiere mas los plasticos. "
                     android:textColor="#FFFFFF"
-                    android:textSize="18sp"
-                    android:textStyle="bold|italic" />
+                    android:textSize="18sp" />
 
 
             </LinearLayout>
