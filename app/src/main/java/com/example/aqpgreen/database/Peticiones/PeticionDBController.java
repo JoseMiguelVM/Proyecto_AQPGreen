@@ -29,10 +29,10 @@ public class PeticionDBController {
         dbHelper.close();
     }
 
-    public int insert(long idusuario, String categoria, int cantidad,
+    public int insert(String usuario, String categoria, int cantidad,
                        String origen, String descripcion, int puntos, int estado, String urlFoto) {
         ContentValues contentValue = new ContentValues();
-        contentValue.put(ConectorPeticionesDB.IDUSUARIO, idusuario);
+        contentValue.put(ConectorPeticionesDB.USUARIO, usuario);
         contentValue.put(ConectorPeticionesDB.CATEGORIA, categoria);
         contentValue.put(ConectorPeticionesDB.CANTIDAD, cantidad);
         contentValue.put(ConectorPeticionesDB.ORIGEN, origen);
@@ -43,14 +43,11 @@ public class PeticionDBController {
         return (int) database.insert(ConectorPeticionesDB.TABLE_NAME, null, contentValue);
     }
 
-    /*public Cursor fetch() {
-        String[] columns = new String[] { ConectorUsuariosDB.IDUSUARIO, ConectorUsuariosDB.LOGIN, ConectorUsuariosDB.EMAIL, ConectorUsuariosDB.PASSWORD};
-        Cursor cursor = database.query(ConectorUsuariosDB.TABLE_NAME, columns, null, null, null, null, null);
-        if (cursor != null) {
-            cursor.moveToFirst();
-        }
+    public Cursor fetch(String _usuario) {
+        Cursor cursor = database.rawQuery("SELECT * FROM " + ConectorPeticionesDB.TABLE_NAME + " WHERE "
+                + ConectorPeticionesDB.USUARIO + "=\"" + _usuario + "\"", null);
         return cursor;
-    }*/
+    }
 
     public int update (long idpeticion, String categoria, int cantidad,
                        String origen, String descripcion , String urlFoto) {
