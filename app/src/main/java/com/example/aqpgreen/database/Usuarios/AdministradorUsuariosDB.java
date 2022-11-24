@@ -45,6 +45,13 @@ public class AdministradorUsuariosDB {
         return cursor;
     }
 
+    public Cursor fetch(String _usuario, String _contrasena) {
+        Cursor cursor = database.rawQuery("SELECT * FROM " + ConectorUsuariosDB.TABLE_NAME +
+                " WHERE " + ConectorUsuariosDB.LOGIN + " = \""+ _usuario +
+                "\" AND " + ConectorUsuariosDB.PASSWORD + "=\"" + _contrasena + "\"", null);
+        return cursor;
+    }
+
     public int update(long idusuario, String login, String email, String password) {
         ContentValues contentValues = new ContentValues();
         contentValues.put(ConectorUsuariosDB.LOGIN, login);

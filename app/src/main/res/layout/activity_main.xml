@@ -67,7 +67,7 @@
                     android:layout_height="38dp"/>
                 <Button
                     android:id="@+id/singUp"
-                    android:text="Sign Up"
+                    android:text="@string/label_button_registrarse"
                     app:backgroundTint="#FFFFFF"
                     android:paddingTop="5dp"
                     android:textAlignment="center"
@@ -149,17 +149,26 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Olvido su contraseña?"
+                    android:text="@string/label_olvido_contraseña"
                     android:textAlignment="textEnd"
                     android:textColor="#616161"
                     android:textSize="11sp"
+                    android:textStyle="normal" />
+
+                <CheckBox
+                    android:id="@+id/checkbox_guardarSesion"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:text="@string/label_guardar_sesion"
+                    android:textColor="#616161"
+                    android:textSize="12sp"
                     android:textStyle="normal" />
 
             </LinearLayout>
             <!-- Boton de login-->
             <Button
                 android:id="@+id/botonLoginCompleto"
-                android:text="Log In"
+                android:text="@string/label_button_acceder"
                 android:textSize="17sp"
                 android:textAllCaps="false"
                 android:elevation="15dp"
