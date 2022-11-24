@@ -1,15 +1,170 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#fff12f"
-    tools:context=".ui.Comunidad.Denuncias">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:background="@drawable/fondodenuncia"
+        tools:context=".ui.Comunidad.Denuncias">
 
-</FrameLayout>
+        <TextView
+            android:id="@+id/signin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="50dp"
+            android:gravity="center"
+            android:text="Realizar Denuncia"
+            android:textColor="@color/white"
+            android:textSize="31dp"
+            android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/imagenDNI"
+        android:layout_width="55dp"
+        android:layout_height="63dp"
+        android:layout_marginLeft="340dp"
+        android:layout_marginTop="121dp"
+        android:src="@drawable/dni" />
+
+    <EditText
+        android:id="@+id/DNI_denunciante"
+        android:layout_width="319dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/signin"
+        android:layout_marginStart="10dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="-22dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="#30ffffff"
+        android:drawablePadding="20dp"
+        android:hint="DNI del Denunciante"
+        android:padding="20dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
+
+    <ImageView
+        android:id="@+id/imagenName"
+        android:layout_width="55dp"
+        android:layout_height="53dp"
+        android:layout_marginLeft="340dp"
+        android:layout_marginTop="201dp"
+        android:src="@drawable/usuario" />
+
+    <EditText
+        android:id="@+id/nombre_denunciante"
+        android:layout_width="319dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/signin"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="55dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="#30ffffff"
+        android:drawablePadding="20dp"
+        android:hint="Nombres del Denunciante"
+        android:padding="20dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
+
+    <ImageView
+        android:id="@+id/imagenMapa"
+        android:layout_width="55dp"
+        android:layout_height="63dp"
+        android:layout_marginLeft="340dp"
+        android:layout_marginTop="280dp"
+        android:src="@drawable/mapa" />
+
+    <EditText
+        android:id="@+id/ubicacion_denunciante"
+        android:layout_width="319dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/signin"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="135dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="#30ffffff"
+        android:drawablePadding="20dp"
+        android:hint="Ubicacion de Denuncia"
+        android:padding="20dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
+
+    <ImageView
+        android:id="@+id/imagenDescripcion"
+        android:layout_width="55dp"
+        android:layout_height="63dp"
+        android:layout_marginLeft="340dp"
+        android:layout_marginTop="355dp"
+        android:src="@drawable/descripcion" />
+
+    <EditText
+        android:id="@+id/descricpion_denunciante"
+        android:layout_width="319dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/signin"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="215dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="#30ffffff"
+
+        android:drawablePadding="20dp"
+        android:hint="Descripcion de la denuncia"
+        android:padding="20dp"
+        android:textColor="@color/white"
+        android:textColorHint="@color/white" />
+
+    <Button
+        android:id="@+id/botonRegistrarDenuncia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="480dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="#FFC107"
+        android:text="Registrar denuncia" />
+
+        <TextView
+            android:id="@+id/others"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@id/socialicons"
+            android:layout_centerHorizontal="true"
+            android:text="Visita nuestras redes sociales" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/socialicons"
+            android:layout_alignParentBottom="true"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_margin="20dp"
+                android:src="@drawable/ic_google"
+                />
+
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_margin="20dp"
+                android:src="@drawable/ic_facebook"
+                />
+
+            <ImageView
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_margin="20dp"
+                android:src="@drawable/ic_twitter"
+                />
+        </LinearLayout>
+    </RelativeLayout>
