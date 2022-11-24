@@ -58,12 +58,22 @@
         </RelativeLayout>
 
 
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="204dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="170dp"
+            android:layout_marginTop="120dp"
+            android:text="Puede revisar la lista de premios ofrecidos por la organizacion y canjear el que mas desee."
+            android:textColor="#FFFDFD"
+            android:textStyle="bold|italic" />
+
         <ImageView
             android:id="@+id/imagenPremio"
             android:layout_width="84dp"
             android:layout_height="87dp"
             android:layout_marginLeft="80dp"
-            android:layout_marginTop="111dp"
+            android:layout_marginTop="-78dp"
             android:src="@drawable/premios" />
 
         <Button
@@ -80,6 +90,8 @@
             app:cornerRadius="50dp"
             app:rippleColor="#B62B2B"
             app:strokeColor="#804D4D" />
+
+
 
         <ImageView
             android:id="@+id/imagenDenuncia"
@@ -98,6 +110,16 @@
             android:gravity="center|center_vertical"
             android:text="Denuncias"
             app:cornerRadius="50dp"/>
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="208dp"
+            android:layout_height="54dp"
+            android:layout_marginLeft="170dp"
+            android:layout_marginTop="-114dp"
+            android:text="Usted puede realizar denuncias, otorgando algunos datos de la incidencia a nuestra central."
+            android:textColor="#FFFDFD"
+            android:textStyle="bold|italic" />
 
     </LinearLayout>
 
