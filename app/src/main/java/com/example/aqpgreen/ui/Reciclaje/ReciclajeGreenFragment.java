@@ -1,20 +1,22 @@
 package com.example.aqpgreen.ui.Reciclaje;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
-import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.core.content.FileProvider;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
 
-import android.os.Environment;
 import android.provider.MediaStore;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,9 +32,6 @@ import com.example.aqpgreen.R;
 import com.example.aqpgreen.database.Peticiones.PeticionDBController;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import java.io.File;
-import java.io.IOException;
-
 public class ReciclajeGreenFragment extends Fragment {
 
     ActivityResultLauncher<Intent> camaraResLauncher;
@@ -42,6 +41,8 @@ public class ReciclajeGreenFragment extends Fragment {
     public static final int Image_Capture_Code = 1;
 
     private PeticionDBController db_peticiones;
+    private SharedPreferences preferencias;
+    private SharedPreferences.Editor editor_preferencias;
     /*
     * Variables para la captura de datos
      */
@@ -52,14 +53,15 @@ public class ReciclajeGreenFragment extends Fragment {
     private ImageButton btnCamara;
     private ImageView imgCapturada_preview;
     private FloatingActionButton btn_guardar_peticion;
+    private ImageButton btn_regresar_fragment;
 
     /*
     * Atributos de la Peticion
     * */
-    private int idusuario = 01;
-    private int puntos_plastico = 5;
-    private int estado_peticion = 0;
-    private String urlFoto = "https://i.imgur.com/DvpvklR.png";
+    private String usuario_peticion;
+    private int puntos_plastico;
+    private int estado_peticion;
+    private String urlFoto;
     private String sp_categorias_plastico_string;
     private int et_cantidad_plastico_string;
     private String sp_lugar_origen_string;
@@ -74,18 +76,43 @@ public class ReciclajeGreenFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_opc_reciclaje_green, container, false);
-        db_peticiones = new PeticionDBController(getContext());
-        opciones_utilidad(view);
-        tomar_captura(view);
-        obtener_componentes_vista(view);
-        return view;
+        return inflater.inflate(R.layout.fragment_opc_reciclaje_green, container, false);
     }
 
-    public void opciones_utilidad (View view) {
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        db_peticiones = new PeticionDBController(getContext());
+        final NavController navController = Navigation.findNavController(view);
+        inicializar_elementos(view);
 
-        sp_categorias_plastico = (Spinner) view.findViewById(R.id.spinnerCaegoriaPlastico);
-        sp_lugar_origen = (Spinner) view.findViewById(R.id.spinnerLugarOrigen);
+
+        btn_regresar_fragment = view.findViewById(R.id.btnIcoAtras);
+        btn_regresar_fragment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navController.popBackStack();
+            }
+        });
+
+        tomar_captura(view);
+        obtener_componentes_vista(view);
+    }
+
+    public void inicializar_elementos (View view) {
+        btn_guardar_peticion = view.findViewById(R.id.idFabRegistro);
+        sp_categorias_plastico = view.findViewById(R.id.spinner_categoriaPlastico);
+        et_cantidad_plastico = (EditText) view.findViewById(R.id.editText_cantidadPlastico);
+        sp_lugar_origen = view.findViewById(R.id.spinner_lugarOrigen);
+        et_descripcion_plastico = (EditText) view.findViewById(R.id.editText_descripcionPlastico);
+        sp_categorias_plastico = (Spinner) view.findViewById(R.id.spinner_categoriaPlastico);
+        sp_lugar_origen = (Spinner) view.findViewById(R.id.spinner_lugarOrigen);
+
+        btnCamara = view.findViewById(R.id.btnCamera);
+        imgCapturada_preview = view.findViewById(R.id.imgProducto_preview);
+
+        preferencias = getContext().getSharedPreferences("var_sesion", Context.MODE_PRIVATE);
+        editor_preferencias = preferencias.edit();
 
         ArrayAdapter<CharSequence> adapter_categorias = ArrayAdapter.createFromResource(getContext(), R.array.opciones_categorias_productos, android.R.layout.simple_spinner_item);
         ArrayAdapter<CharSequence> adapter_origen = ArrayAdapter.createFromResource(getContext(), R.array.opciones_lugar_origen, android.R.layout.simple_spinner_item);
@@ -94,9 +121,6 @@ public class ReciclajeGreenFragment extends Fragment {
     }
 
     public void tomar_captura (View view) {
-        btnCamara = view.findViewById(R.id.btnCamera);
-        imgCapturada_preview = view.findViewById(R.id.imgProducto_preview);
-
         camaraResLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
             @Override
             public void onActivityResult(ActivityResult result) {
@@ -107,7 +131,6 @@ public class ReciclajeGreenFragment extends Fragment {
                 }
             }
         });
-
 
         btnCamara.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -132,12 +155,6 @@ public class ReciclajeGreenFragment extends Fragment {
 
     private void obtener_componentes_vista (View view) {
 
-        btn_guardar_peticion = view.findViewById(R.id.idFabRegistro);
-        sp_categorias_plastico = view.findViewById(R.id.spinnerCaegoriaPlastico);
-        et_cantidad_plastico = (EditText) view.findViewById(R.id.editText_cantidadPlastico);
-        sp_lugar_origen = view.findViewById(R.id.spinnerLugarOrigen);
-        et_descripcion_plastico = (EditText) view.findViewById(R.id.editText_descripcionPlastico);
-
         btn_guardar_peticion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -151,6 +168,11 @@ public class ReciclajeGreenFragment extends Fragment {
 
         et_cantidad_plastico_string = Integer.parseInt(et_cantidad_plastico.getText().toString());
         et_descripcion_plastico_string = et_descripcion_plastico.getText().toString();
+
+        usuario_peticion = preferencias.getString("usuario", "none");
+        puntos_plastico = 15;
+        estado_peticion = 0;
+        urlFoto = "https://i.imgur.com/DvpvklR.png";
 
         sp_categorias_plastico.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -169,8 +191,8 @@ public class ReciclajeGreenFragment extends Fragment {
             public void onNothingSelected(AdapterView<?> adapterView) { }
         });
 
-        /*db_peticiones.open();
-        int confirm = db_peticiones.insert(idusuario, sp_categorias_plastico_string, et_cantidad_plastico_string,
+        db_peticiones.open();
+        int confirm = db_peticiones.insert(usuario_peticion, sp_categorias_plastico_string, et_cantidad_plastico_string,
                 sp_lugar_origen_string, et_descripcion_plastico_string, puntos_plastico, estado_peticion, urlFoto);
         db_peticiones.close();
 
@@ -179,7 +201,9 @@ public class ReciclajeGreenFragment extends Fragment {
         }
         else {
             Toast.makeText(getContext(), "Añadido", Toast.LENGTH_SHORT).show();
-        }*/
+            et_cantidad_plastico.setText("");
+            et_descripcion_plastico.setText("");
+        }
     }
 
     /*private File crear_archivo_temp () throws IOException {
