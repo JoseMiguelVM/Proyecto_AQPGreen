@@ -1,5 +1,7 @@
 package com.example.aqpgreen.ui.Reciclaje;
 
+import android.database.Cursor;
+import android.media.Image;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -12,8 +14,11 @@ import androidx.navigation.Navigation;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.TableLayout;
 
 import com.example.aqpgreen.R;
+import com.example.aqpgreen.database.Peticiones.PeticionDBController;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 /**
@@ -31,6 +36,12 @@ public class ListaPeticionesFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+    private PeticionDBController db_peticiones;
+    private FloatingActionButton btn_crear_peticion_fragment;
+    private ImageButton btn_regresar_fragment;
+
+    private TableLayout tabla_lista_peticiones;
 
     public ListaPeticionesFragment() {
         // Required empty public constructor
@@ -72,17 +83,38 @@ public class ListaPeticionesFragment extends Fragment {
 
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        db_peticiones = new PeticionDBController(getContext());
 
         final NavController navController = Navigation.findNavController(view);
-
-        FloatingActionButton b_reciclaje = view.findViewById(R.id.RegistroButton);
-
-        b_reciclaje.setOnClickListener(new View.OnClickListener() {
+        btn_crear_peticion_fragment = view.findViewById(R.id.RegistroButton);
+        btn_regresar_fragment = view.findViewById(R.id.btnIcoAtras);
+        btn_crear_peticion_fragment.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                navController.navigate(R.id.reciclajeGreenFragment);
-            }
+            public void onClick(View v) { navController.navigate(R.id.reciclajeGreenFragment);}
+        });
+        btn_regresar_fragment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) { navController.popBackStack();}
         });
 
+        //rellenar_tabla_peticiones(view);
     }
+
+    /*private void rellenar_tabla_peticiones(View view) {
+        tabla_lista_peticiones = view.findViewById(R.id.table_listaPeticiones);
+        tabla_lista_peticiones.removeAllViews();
+        db_peticiones.open();
+        Cursor cursor = db_peticiones.fetch(01);
+        if (cursor.getCount() !=0){
+        }
+        try {
+            for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
+                //cursor.getInt(0);
+                //cursor.getString();
+            }
+        } finally {
+            cursor.close();
+        }
+        db_peticiones.close();
+    }*/
 }
