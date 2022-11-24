@@ -32,7 +32,7 @@
                 android:layout_marginStart="62dp"
                 android:layout_marginLeft="62dp"
                 android:layout_marginTop="10dp"
-                android:text="@string/titulo_creacion_peticiones"
+                android:text="Creación de Peticiones"
                 android:textColor="@android:color/white"
                 android:textSize="20sp"
                 android:textStyle="bold|italic" />
@@ -41,9 +41,8 @@
                 android:id="@+id/btnIcoAtras"
                 android:layout_width="60dp"
                 android:layout_height="49dp"
-                android:backgroundTint="#03A9F4"
-                android:src="?attr/actionModeCloseDrawable"
-                app:tint="#FFFFFF" />
+                android:background="#03A9F4"
+                android:src="@android:drawable/ic_media_previous" />
 
 
             <ImageButton
@@ -77,7 +76,7 @@
                     android:textStyle="bold|italic" />
 
                 <Spinner
-                    android:id="@+id/spinner_categoriaPlastico"
+                    android:id="@+id/spinnerCategoriaPlastico"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"
@@ -120,7 +119,7 @@
                     android:textStyle="bold|italic" />
 
                 <Spinner
-                    android:id="@+id/spinner_lugarOrigen"
+                    android:id="@+id/spinnerLugarOrigen"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="10dp"

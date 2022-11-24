@@ -56,6 +56,12 @@
         <action
             android:id="@+id/action_comunidadFragment_to_menuFragment"
             app:destination="@id/menuFragment" />
+        <action
+            android:id="@+id/action_comunidadFragment_to_listaDePremios"
+            app:destination="@id/listaDePremios" />
+        <action
+            android:id="@+id/action_comunidadFragment_to_denuncias"
+            app:destination="@id/denuncias" />
     </fragment>
     <fragment
         android:id="@+id/estadisticasFragment"
@@ -95,5 +101,23 @@
         <action
             android:id="@+id/action_listaPeticionesFragment_to_menuFragment"
             app:destination="@id/menuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listaDePremios"
+        android:name="com.example.aqpgreen.ui.Comunidad.ListaDePremios"
+        android:label="fragment_lista_de_premios"
+        tools:layout="@layout/fragment_lista_de_premios" >
+        <action
+            android:id="@+id/action_listaDePremios_to_comunidadFragment"
+            app:destination="@id/comunidadFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/denuncias"
+        android:name="com.example.aqpgreen.ui.Comunidad.Denuncias"
+        android:label="fragment_denuncias"
+        tools:layout="@layout/fragment_denuncias" >
+        <action
+            android:id="@+id/action_denuncias_to_comunidadFragment"
+            app:destination="@id/comunidadFragment" />
     </fragment>
 </navigation>

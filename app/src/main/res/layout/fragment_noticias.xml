@@ -1,14 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.Noticias.NoticiasFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:background="@drawable/background"
+        android:orientation="vertical">
 
-</FrameLayout>
+        <RelativeLayout
+            android:id="@+id/idLayoutFondo"
+            android:layout_width="match_parent"
+            android:layout_height="59dp"
+            android:layout_marginBottom="10dp"
+            android:background="#2196F3"
+            android:elevation="8dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tituloNews"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="130dp"
+                android:layout_marginLeft="130dp"
+                android:layout_marginTop="15dp"
+                android:gravity="center_horizontal"
+                android:text="Noticias Green"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:textStyle="bold|italic" />
+
+            <ImageButton
+                android:id="@+id/btnIcoAtras"
+                android:layout_width="60dp"
+                android:layout_height="49dp"
+                android:background="#03A9F4"
+                android:src="@android:drawable/ic_media_previous" />
+
+
+            <ImageButton
+                android:id="@+id/btnAyuda"
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="0dp"
+                android:background="#03A9F4"
+                android:src="@android:drawable/ic_menu_help" />
+        </RelativeLayout>
+
+
+        <Button
+            android:id="@+id/Btn_listaDePremios"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="170dp"
+            android:background="@drawable/boton_lista_premios_y_denuncias"
+            android:gravity="center|center_vertical"
+            android:text="Lista de premios" />
+
+        <Button
+            android:id="@+id/Btn_denuncias"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="100dp"
+            android:background="@drawable/boton_lista_premios_y_denuncias"
+            android:gravity="center|center_vertical"
+            android:text="Denuncias" />
+
+    </LinearLayout>
+
+</RelativeLayout>

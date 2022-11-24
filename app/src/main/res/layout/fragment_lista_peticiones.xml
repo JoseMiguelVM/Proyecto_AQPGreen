@@ -28,10 +28,11 @@
                     android:layout_alignParentStart="true"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentTop="true"
-                    android:layout_marginStart="62dp"
-                    android:layout_marginLeft="62dp"
-                    android:layout_marginTop="10dp"
-                    android:text="@string/titulo_lista_peticiones"
+                    android:layout_marginStart="130dp"
+                    android:layout_marginLeft="130dp"
+                    android:layout_marginTop="15dp"
+                    android:gravity="center_horizontal"
+                    android:text="Lista de Peticiones"
                     android:textColor="@android:color/white"
                     android:textSize="20sp"
                     android:textStyle="bold|italic" />
@@ -40,10 +41,8 @@
                     android:id="@+id/btnIcoAtras"
                     android:layout_width="60dp"
                     android:layout_height="49dp"
-                    android:backgroundTint="#03A9F4"
-                    android:src="?attr/actionModeCloseDrawable"
-                    app:tint="#FFFFFF"
-                    android:contentDescription="TODO" />
+                    android:background="#03A9F4"
+                    android:src="@android:drawable/ic_media_previous" />
 
 
                 <ImageButton
@@ -59,11 +58,6 @@
 
             </RelativeLayout>
 
-            <TableLayout
-                android:id="@+id/table_listaPeticiones"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
-
         </LinearLayout>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -77,7 +71,7 @@
             android:layout_marginRight="7dp"
             android:layout_marginBottom="20dp"
             android:contentDescription="TODO"
-            android:src="@android:drawable/ic_input_add"
+            android:src="@android:drawable/ic_menu_upload"
             app:backgroundTint="#8BC34A" />
 
     </RelativeLayout>

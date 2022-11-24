@@ -42,7 +42,7 @@
                 android:layout_width="60dp"
                 android:layout_height="49dp"
                 android:background="#03A9F4"
-                android:src="@android:drawable/ic_media_previous" />
+                android:src="@drawable/ic_baseline_arrow_back_ios_24" />
 
 
             <ImageButton
@@ -57,25 +57,47 @@
                 android:src="@android:drawable/ic_menu_help" />
         </RelativeLayout>
 
+
+        <ImageView
+            android:id="@+id/imagenPremio"
+            android:layout_width="84dp"
+            android:layout_height="87dp"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="111dp"
+            android:src="@drawable/premios" />
+
         <Button
             android:id="@+id/Btn_listaDePremios"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="80dp"
-            android:layout_marginTop="170dp"
-            android:background="@drawable/boton_lista_premios_y_denuncias"
+            android:layout_marginTop="1dp"
+            android:backgroundTint="#EDC70C"
+            android:elevation="94dp"
             android:gravity="center|center_vertical"
-            android:text="Lista de premios" />
+            android:shadowColor="#CF4949"
+            android:text="Lista de premios"
+            app:cornerRadius="50dp"
+            app:rippleColor="#B62B2B"
+            app:strokeColor="#804D4D" />
 
+        <ImageView
+            android:id="@+id/imagenDenuncia"
+            android:layout_width="84dp"
+            android:layout_height="87dp"
+            android:layout_marginLeft="80dp"
+            android:layout_marginTop="40dp"
+            android:src="@drawable/denuncias" />
         <Button
             android:id="@+id/Btn_denuncias"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="80dp"
-            android:layout_marginTop="100dp"
-            android:background="@drawable/boton_lista_premios_y_denuncias"
+            android:layout_marginTop="1dp"
+            android:backgroundTint="#C30C40"
             android:gravity="center|center_vertical"
-            android:text="Denuncias" />
+            android:text="Denuncias"
+            app:cornerRadius="50dp"/>
 
     </LinearLayout>
 

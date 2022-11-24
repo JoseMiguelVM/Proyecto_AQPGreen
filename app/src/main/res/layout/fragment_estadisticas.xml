@@ -1,90 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".ui.Estadisticas.EstadisticasFragment">
+
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/EstadisticasGreen"
-    tools:context=".ui.Estadisticas.EstadisticasFragment">
+    android:background="@drawable/fondoestadisticas"
+    android:orientation="vertical">
 
-    <LinearLayout
+    <RelativeLayout
+        android:id="@+id/idLayoutFondo"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/fondoestadisticas"
-        android:orientation="vertical">
+        android:layout_height="59dp"
+        android:layout_marginBottom="10dp"
+        android:background="#2196F3"
+        android:elevation="8dp"
+        android:gravity="center">
 
-        <RelativeLayout
-            android:id="@+id/idLayoutFondo"
-            android:layout_width="match_parent"
-            android:layout_height="59dp"
-            android:layout_marginBottom="10dp"
-            android:background="#2196F3"
-            android:elevation="8dp"
-            android:gravity="center">
-
-            <TextView
-                android:id="@+id/titulo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="62dp"
-                android:layout_marginLeft="62dp"
-                android:layout_marginTop="10dp"
-                android:text="Estadisticas"
-                android:textColor="@android:color/white"
-                android:textSize="20sp"
-                android:textStyle="bold|italic" />
-
-            <ImageButton
-                android:id="@+id/btnIcoAtras"
-                android:layout_width="60dp"
-                android:layout_height="49dp"
-                android:background="#03A9F4"
-                android:src="@android:drawable/ic_media_previous" />
-
-
-            <ImageButton
-                android:id="@+id/btnAyuda"
-                android:layout_width="60dp"
-                android:layout_height="50dp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginTop="0dp"
-                android:background="#03A9F4"
-                android:src="@android:drawable/ic_menu_help" />
-
-        </RelativeLayout>
-
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="10dp"
-                    android:text="@string/label_mayores_puntos_basura"
-                    android:textColor="#FFFFFF"
-                    android:textSize="18sp"
-                    android:textStyle="bold|italic" />
-
-
-            </LinearLayout>
-        </ScrollView>
-        <LinearLayout
-            android:id="@+id/estadisticas"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/titulo"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:orientation="horizontal"/>
-    </LinearLayout>
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="130dp"
+            android:layout_marginLeft="130dp"
+            android:layout_marginTop="15dp"
+            android:gravity="center_horizontal"
+            android:text="Estadísticas"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold|italic" />
 
+        <ImageButton
+            android:id="@+id/btnIcoAtras"
+            android:layout_width="60dp"
+            android:layout_height="49dp"
+            android:background="#03A9F4"
+            android:src="@android:drawable/ic_media_previous" />
+
+
+        <ImageButton
+            android:id="@+id/btnAyuda"
+            android:layout_width="60dp"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="0dp"
+            android:background="#03A9F4"
+            android:src="@android:drawable/ic_menu_help" />
+
+    </RelativeLayout>
+
+</LinearLayout>
+
+<com.google.android.material.floatingactionbutton.FloatingActionButton
+    android:id="@+id/RegistroButton"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_alignParentEnd="true"
+    android:layout_alignParentRight="true"
+    android:layout_alignParentBottom="true"
+    android:layout_marginEnd="20dp"
+    android:layout_marginRight="7dp"
+    android:layout_marginBottom="20dp"
+    android:contentDescription="TODO"
+    android:src="@android:drawable/ic_menu_upload"
+    app:backgroundTint="#8BC34A" />
 
 </RelativeLayout>
