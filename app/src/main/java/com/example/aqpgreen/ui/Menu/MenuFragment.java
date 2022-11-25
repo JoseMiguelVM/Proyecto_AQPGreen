@@ -21,7 +21,7 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.aqpgreen.R;
-import com.example.aqpgreen.ui.TiposPlastico.DetallePlasticoFragment;
+//import com.example.aqpgreen.ui.TiposPlastico.DetallePlasticoFragment;
 import com.example.aqpgreen.ui.TiposPlastico.TipoPlasticoFragment;
 
 public class MenuFragment extends Fragment{
