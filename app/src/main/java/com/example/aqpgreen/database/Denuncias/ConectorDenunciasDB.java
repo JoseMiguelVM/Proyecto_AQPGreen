@@ -1,8 +1,11 @@
 package com.example.aqpgreen.database.Denuncias;
 
+import static android.content.ContentValues.TAG;
+
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 public class ConectorDenunciasDB  extends SQLiteOpenHelper {
 
@@ -10,10 +13,10 @@ public class ConectorDenunciasDB  extends SQLiteOpenHelper {
     public static final String TABLE_NAME = "DENUNCIAS";
 
     public static final String IDDENUNCIAS = "iddenuncias";
-    public static final String DNI = "login";
-    public static final String NOMBRES_COMPLETOS = "email";
-    public static final String UBICACION = "password";
-    public static final String DESCRIPCION = "password";
+    public static final String DNI = "dni";
+    public static final String NOMBRES_COMPLETOS = "nombres";
+    public static final String UBICACION = "ubicacion";
+    public static final String DESCRIPCION = "descripcion";
 
     static final String DB_NAME = "aqpgreen.db";
 
@@ -27,9 +30,13 @@ public class ConectorDenunciasDB  extends SQLiteOpenHelper {
         super(context, DB_NAME, null, DB_VERSION);
     }
 
+    public void DBcreateTable(SQLiteDatabase db) {
+        db.execSQL(CREATE_TABLE);
+    }
+
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL(CREATE_TABLE);
+        DBcreateTable(db);
     }
 
     @Override

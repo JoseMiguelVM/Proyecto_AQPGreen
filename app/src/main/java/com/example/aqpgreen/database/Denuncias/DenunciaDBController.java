@@ -5,9 +5,8 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
 
-import com.example.aqpgreen.database.Denuncias.DenunciaDBController;
-import com.example.aqpgreen.database.Denuncias.ConectorDenunciasDB;
 
 public class DenunciaDBController {
     private ConectorDenunciasDB dbHelper;
@@ -31,12 +30,23 @@ public class DenunciaDBController {
     }
 
     public void insert(String dni, String nombres, String ubicacion, String descripcion) {
-        ContentValues contentValue = new ContentValues();
-        contentValue.put(ConectorDenunciasDB.DNI, dni);
-        contentValue.put(ConectorDenunciasDB.NOMBRES_COMPLETOS, nombres);
-        contentValue.put(ConectorDenunciasDB.UBICACION, ubicacion);
-        contentValue.put(ConectorDenunciasDB.DESCRIPCION, descripcion);
-        database.insert(ConectorDenunciasDB.TABLE_NAME, null, contentValue);
+        try{
+            ContentValues contentValue = new ContentValues();
+            contentValue.put(ConectorDenunciasDB.DNI, dni);
+            contentValue.put(ConectorDenunciasDB.NOMBRES_COMPLETOS, nombres);
+            contentValue.put(ConectorDenunciasDB.UBICACION, ubicacion);
+            contentValue.put(ConectorDenunciasDB.DESCRIPCION, descripcion);
+            database.insert(ConectorDenunciasDB.TABLE_NAME, null, contentValue);
+        }catch (SQLiteException e){
+            dbHelper.DBcreateTable(database);
+            ContentValues contentValue = new ContentValues();
+            contentValue.put(ConectorDenunciasDB.DNI, dni);
+            contentValue.put(ConectorDenunciasDB.NOMBRES_COMPLETOS, nombres);
+            contentValue.put(ConectorDenunciasDB.UBICACION, ubicacion);
+            contentValue.put(ConectorDenunciasDB.DESCRIPCION, descripcion);
+            database.insert(ConectorDenunciasDB.TABLE_NAME, null, contentValue);
+        }
+
     }
 
     public Cursor fetch() {
