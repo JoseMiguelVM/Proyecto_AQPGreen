@@ -8,12 +8,12 @@ import android.graphics.RectF;
 import android.view.View;
 
 public class VistaGraficoCircular extends View {
-    float start=0; // donde comienza el dibujo
-    int width; //Ancho
-    int[] data; //Arreglo de datos
-    int cx,cy; // Coordenadas
-    int numberOfparts;// dice que muchos datos o elementos se colocarán en el gráfico
-    private int[] color; //Colores de los datos
+    float start=0;
+    int width;
+    int[] data;
+    int cx,cy;
+    int numberOfparts;
+    private int[] color;
 
     //Constructor
     public VistaGraficoCircular(Context context, int numOfItems, int[] data, int[] color) {
@@ -27,44 +27,30 @@ public class VistaGraficoCircular extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        //Creamos un canvas donde le asignamos el color blanco
         canvas.drawColor(Color.WHITE);
-        //Creamos un objeto de la clase paint
         Paint p = new Paint();
-        //creamos un arreglo donde tendremos los valores que tendra cada sección
         float[] scaledValues = scale();
         
-        //Esta clase nos ayuda a crear un rectangulo
         RectF rectF = new RectF(100,100,getWidth()-100,getWidth()-100);
 
-        //Este arreglo nos sirve para asignar un color a cada dato
         for(int i=0;i<numberOfparts;i++){
             p.setColor(color[i]);
             p.setStyle(Paint.Style.FILL);
-            //Una guía visual
             canvas.drawArc(rectF,start,scaledValues[i],true,p);
             start=start+scaledValues[i];
         }
 
-        //Este es para crear el circulo de adentro
-
     }
 
-    //Este metodo nos sirve para calcular el angulo que tendra cada dato
     private float[] scale() {
-        //creamos un arreglo para los datos
         float[] scaledValues = new float[this.data.length];
-        //obtenemos el total de elementos del arreglo
         float total = getTotal();
-        //Bucle para sacar el angulo correspondiente a cada dato
         for (int i = 0; i < this.data.length; i++) {
             scaledValues[i] = (this.data[i] / total) * 360; //Scale each value
         }
-        //retorna el arreglo con los angulos
         return scaledValues;
     }
 
-    //Este es el metodo que nos devuelve el total de la suma de los datos
     private float getTotal() {
         float total = 0;
         for (float val : this.data)
