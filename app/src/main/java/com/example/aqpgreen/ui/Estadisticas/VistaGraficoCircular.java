@@ -47,13 +47,7 @@ public class VistaGraficoCircular extends View {
         }
 
         //Este es para crear el circulo de adentro
-        Paint cenPaint=new Paint();
-        //partiremos de los datos del circulo mas grande
-        int radius=getWidth()/2-280;
-        cenPaint.setStyle(Paint.Style.FILL);
-        cenPaint.setColor(Color.WHITE);
-        cx=cy=getWidth()/2;
-        canvas.drawCircle(cx,cy,radius,cenPaint);
+
     }
 
     //Este metodo nos sirve para calcular el angulo que tendra cada dato
