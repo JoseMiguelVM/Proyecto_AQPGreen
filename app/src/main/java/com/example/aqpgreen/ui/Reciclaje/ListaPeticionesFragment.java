@@ -1,5 +1,8 @@
 package com.example.aqpgreen.ui.Reciclaje;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -7,7 +10,10 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,7 +22,12 @@ import android.widget.TableLayout;
 
 import com.example.aqpgreen.R;
 import com.example.aqpgreen.database.Peticiones.PeticionDBController;
+import com.example.aqpgreen.modelo.ListaPeticionAdaptador;
+import com.example.aqpgreen.modelo.Peticion;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -35,10 +46,14 @@ public class ListaPeticionesFragment extends Fragment {
     private String mParam2;
 
     private PeticionDBController db_peticiones;
+    private RecyclerView recyclerView;
+    private SharedPreferences preferencias;
+    private SharedPreferences.Editor editor_preferencias;
     private FloatingActionButton btn_crear_peticion_fragment;
     private ImageButton btn_regresar_fragment;
 
-    private TableLayout tabla_lista_peticiones;
+    private List<Peticion> lista_peticiones;
+    private String usuario_sesion;
 
     public ListaPeticionesFragment() {
         // Required empty public constructor
@@ -81,10 +96,9 @@ public class ListaPeticionesFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         db_peticiones = new PeticionDBController(getContext());
-
         final NavController navController = Navigation.findNavController(view);
-        btn_crear_peticion_fragment = view.findViewById(R.id.RegistroButton);
-        btn_regresar_fragment = view.findViewById(R.id.btnIcoAtras);
+        inicializar_elementos(view);
+
         btn_crear_peticion_fragment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) { navController.navigate(R.id.reciclajeGreenFragment);}
@@ -94,24 +108,48 @@ public class ListaPeticionesFragment extends Fragment {
             public void onClick(View view) { navController.popBackStack();}
         });
 
-        //rellenar_tabla_peticiones(view);
+        generar_recyclerView (view);
     }
 
-    /*private void rellenar_tabla_peticiones(View view) {
-        tabla_lista_peticiones = view.findViewById(R.id.table_listaPeticiones);
-        tabla_lista_peticiones.removeAllViews();
+    public void inicializar_elementos (View view) {
+        btn_crear_peticion_fragment = view.findViewById(R.id.RegistroButton);
+        btn_regresar_fragment = view.findViewById(R.id.btnIcoAtras);
+
+        preferencias = getContext().getSharedPreferences("var_sesion", Context.MODE_PRIVATE);
+        editor_preferencias = preferencias.edit();
+
+    }
+
+    private void generar_recyclerView(View view) {
+        lista_peticiones = new ArrayList<>();
         db_peticiones.open();
-        Cursor cursor = db_peticiones.fetch(01);
-        if (cursor.getCount() !=0){
-        }
-        try {
-            for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
-                //cursor.getInt(0);
-                //cursor.getString();
+
+        // obtengo los datos y los añado al arraylist
+        // lista_peticiones.add(new Peticion());
+        usuario_sesion = preferencias.getString("usuario", "none");
+        Cursor cursor = db_peticiones.fetch(usuario_sesion);
+        if(cursor.getCount() != 0){
+            try{
+                for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
+                    lista_peticiones.add(new Peticion(cursor.getInt(0), cursor.getString(2),
+                            cursor.getInt(3), cursor.getString(4), cursor.getString(5), cursor.getInt(6), cursor.getInt(7), cursor.getString(8)));
+                }
+            } catch (Exception e){
+                    Log.e("ListaPeticionesFragment", e.toString());
+            } finally {
+                cursor.close();
             }
-        } finally {
-            cursor.close();
         }
+        else {
+            Log.e("ListaPetCursorelse", "No hay registros");
+        }
+
         db_peticiones.close();
-    }*/
+
+        ListaPeticionAdaptador adaptador = new ListaPeticionAdaptador(lista_peticiones);
+        recyclerView = view.findViewById(R.id.recycleView_listaPeticiones);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setAdapter(adaptador);
+    }
 }
