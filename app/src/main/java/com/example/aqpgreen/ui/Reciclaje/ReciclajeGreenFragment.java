@@ -59,7 +59,7 @@ public class ReciclajeGreenFragment extends Fragment {
     /*
     * Atributos de la Peticion
     * */
-    private String usuario_peticion;
+    private String usuario_sesion;
     private int puntos_plastico;
     private int estado_peticion;
     private String urlFoto;
@@ -193,23 +193,23 @@ public class ReciclajeGreenFragment extends Fragment {
         et_cantidad_plastico_string = et_cantidad_plastico.getText().toString();
         et_descripcion_plastico_string = et_descripcion_plastico.getText().toString();
 
-        usuario_peticion = preferencias.getString("usuario", "none");
+        usuario_sesion = preferencias.getString("usuario", "none");
         puntos_plastico = 15;
         estado_peticion = 0;
         urlFoto = "https://i.imgur.com/DvpvklR.png";
 
-        if (usuario_peticion.isEmpty() || sp_categorias_plastico_string == null ||
+        if (usuario_sesion.isEmpty() || sp_categorias_plastico_string == null ||
                 et_cantidad_plastico_string.isEmpty() || sp_lugar_origen_string == null ||
                 et_descripcion_plastico_string.isEmpty()) {
             Toast.makeText(getContext(), "Verifique los datos ingresados", Toast.LENGTH_SHORT).show();
-            Log.e("MainActivity", usuario_peticion + ","+ sp_categorias_plastico_string+","+Integer.parseInt(et_cantidad_plastico_string)+","
-                    +sp_lugar_origen_string+","+et_descripcion_plastico_string +"," +puntos_plastico+"," +estado_peticion+","+urlFoto);
+            /*Log.e("MainActivity", usuario_peticion + ","+ sp_categorias_plastico_string+","+Integer.parseInt(et_cantidad_plastico_string)+","
+                    +sp_lugar_origen_string+","+et_descripcion_plastico_string +"," +puntos_plastico+"," +estado_peticion+","+urlFoto);*/
         }
         else {
             db_peticiones.open();
-            Log.e("MainActivity", usuario_peticion + ","+ sp_categorias_plastico_string+","+Integer.parseInt(et_cantidad_plastico_string)+","
-                    +sp_lugar_origen_string+","+et_descripcion_plastico_string +"," +puntos_plastico+"," +estado_peticion+","+urlFoto);
-            long confirm = db_peticiones.insert(usuario_peticion, sp_categorias_plastico_string, Integer.parseInt(et_cantidad_plastico_string),
+            /*Log.e("MainActivity", usuario_peticion + ","+ sp_categorias_plastico_string+","+Integer.parseInt(et_cantidad_plastico_string)+","
+                    +sp_lugar_origen_string+","+et_descripcion_plastico_string +"," +puntos_plastico+"," +estado_peticion+","+urlFoto);*/
+            long confirm = db_peticiones.insert(usuario_sesion, sp_categorias_plastico_string, Integer.parseInt(et_cantidad_plastico_string),
                     sp_lugar_origen_string, et_descripcion_plastico_string, puntos_plastico, estado_peticion, urlFoto);
             db_peticiones.close();
 
