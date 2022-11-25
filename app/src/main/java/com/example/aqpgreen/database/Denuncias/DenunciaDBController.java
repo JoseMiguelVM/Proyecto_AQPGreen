@@ -40,8 +40,8 @@ public class DenunciaDBController {
     }
 
     public Cursor fetch() {
-        String[] columns = new String[] { ConectorDenunciasDB.DNI, ConectorDenunciasDB.NOMBRES_COMPLETOS, ConectorDenunciasDB.UBICACION,
-                ConectorDenunciasDB.DESCRIPCION, ConectorDenunciasDB.DESCRIPCION};
+        String[] columns = new String[] { ConectorDenunciasDB.IDDENUNCIAS,ConectorDenunciasDB.DNI, ConectorDenunciasDB.NOMBRES_COMPLETOS, ConectorDenunciasDB.UBICACION,
+                ConectorDenunciasDB.DESCRIPCION};
         Cursor cursor = database.query(ConectorDenunciasDB.TABLE_NAME, columns, null, null, null, null, null);
         if (cursor != null) {
             cursor.moveToFirst();
