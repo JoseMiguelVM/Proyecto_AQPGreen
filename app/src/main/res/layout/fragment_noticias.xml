@@ -41,8 +41,10 @@
                 android:id="@+id/btnIcoAtras"
                 android:layout_width="60dp"
                 android:layout_height="49dp"
-                android:background="#03A9F4"
-                android:src="@drawable/ic_baseline_arrow_back_ios_24" />
+                android:backgroundTint="#03A9F4"
+                android:contentDescription="TODO"
+                android:src="?attr/actionModeCloseDrawable"
+                app:tint="#FFFFFF" />
 
 
             <ImageButton

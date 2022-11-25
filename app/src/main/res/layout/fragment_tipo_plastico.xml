@@ -41,20 +41,20 @@
                 android:id="@+id/btnIcoAtras"
                 android:layout_width="60dp"
                 android:layout_height="49dp"
-                android:backgroundTint="#2194F1"
+                android:backgroundTint="#03A9F4"
+                android:contentDescription="TODO"
                 android:src="?attr/actionModeCloseDrawable"
                 app:tint="#FFFFFF" />
 
             <ImageButton
-                android:id="@+id/btnAyuda"
                 android:layout_width="60dp"
                 android:layout_height="50dp"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="0dp"
-                android:background="#2194F1"
-                app:tint="#FFFFFF" />
+                android:background="#03A9F4"
+                android:src="@android:drawable/ic_menu_help" />
 
         </RelativeLayout>
 
