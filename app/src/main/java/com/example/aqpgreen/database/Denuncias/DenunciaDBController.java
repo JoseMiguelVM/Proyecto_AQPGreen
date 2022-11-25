@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
+import android.database.sqlite.SQLiteConstraintException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 
@@ -36,7 +37,7 @@ public class DenunciaDBController {
             contentValue.put(ConectorDenunciasDB.NOMBRES_COMPLETOS, nombres);
             contentValue.put(ConectorDenunciasDB.UBICACION, ubicacion);
             contentValue.put(ConectorDenunciasDB.DESCRIPCION, descripcion);
-            database.insert(ConectorDenunciasDB.TABLE_NAME, null, contentValue);
+            database.insertOrThrow(ConectorDenunciasDB.TABLE_NAME, null, contentValue);
         }catch (SQLiteException e){
             dbHelper.DBcreateTable(database);
             ContentValues contentValue = new ContentValues();
