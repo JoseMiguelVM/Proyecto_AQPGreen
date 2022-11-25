@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
 
 public class AdministradorUsuariosDB {
 
@@ -29,11 +30,22 @@ public class AdministradorUsuariosDB {
     }
 
     public void insert(String login, String email, String password) {
-        ContentValues contentValue = new ContentValues();
-        contentValue.put(ConectorUsuariosDB.LOGIN, login);
-        contentValue.put(ConectorUsuariosDB.EMAIL, email);
-        contentValue.put(ConectorUsuariosDB.PASSWORD, password);
-        database.insert(ConectorUsuariosDB.TABLE_NAME, null, contentValue);
+        try{
+            ContentValues contentValue = new ContentValues();
+            contentValue.put(ConectorUsuariosDB.LOGIN, login);
+            contentValue.put(ConectorUsuariosDB.EMAIL, email);
+            contentValue.put(ConectorUsuariosDB.PASSWORD, password);
+            database.insertOrThrow(ConectorUsuariosDB.TABLE_NAME, null, contentValue);
+        }
+        catch(SQLiteException e){
+            dbHelper.DBcreateTable(database);
+            ContentValues contentValue = new ContentValues();
+            contentValue.put(ConectorUsuariosDB.LOGIN, login);
+            contentValue.put(ConectorUsuariosDB.EMAIL, email);
+            contentValue.put(ConectorUsuariosDB.PASSWORD, password);
+            database.insert(ConectorUsuariosDB.TABLE_NAME, null, contentValue);
+        }
+
     }
 
     public Cursor fetch() {

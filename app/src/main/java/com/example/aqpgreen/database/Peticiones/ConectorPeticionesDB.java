@@ -33,10 +33,15 @@ public class ConectorPeticionesDB extends SQLiteOpenHelper {
         super(context, DB_NAME, null, DB_VERSION);
     }
 
-    @Override
-    public void onCreate(SQLiteDatabase db) {
+    public void DBcreateTable(SQLiteDatabase db) {
         db.execSQL(CREATE_TABLE);
     }
+
+    @Override
+    public void onCreate(SQLiteDatabase db) {
+        DBcreateTable(db);
+    }
+
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
