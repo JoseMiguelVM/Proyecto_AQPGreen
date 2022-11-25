@@ -26,4 +26,6 @@
     <string name="label_olvido_contraseña">Olvido su contraseña?</string>
     <string name="label_button_registrarse">Unete</string>
     <string name="label_button_acceder">Ingresar</string>
+    <string name="btn_ayuda">ayuda</string>
+    <string name="btn_añadir_peticion">añadir peticion</string>
 </resources>
