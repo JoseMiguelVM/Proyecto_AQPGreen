@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.example.aqpgreen.R;
@@ -20,7 +19,7 @@ import com.example.aqpgreen.R;
  */
 public class EstadisticasFragment extends Fragment {
 
-    miPropiaVista miPropiaVista;
+    VistaGraficoCircular miPropiaVista;
     LinearLayout linearLayout;
 
     // TODO: Rename parameter arguments, choose names that match
@@ -31,7 +30,7 @@ public class EstadisticasFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    int[] data={7,5,12,8,4,6,7,9,7,8,9,9,4,5};
+    int[] data={7,5,12,8,4,6,7,9};
     int[] color={Color.argb(255,205,115,114),
             Color.argb(255,79,129,188),
             Color.argb(255,192,80,78),
@@ -40,12 +39,6 @@ public class EstadisticasFragment extends Fragment {
             Color.argb(255,74,172,197),
             Color.argb(255,247,150,71),
             Color.argb(255,44,77,118),
-            Color.argb(255,119,43,43),
-            Color.argb(255,97,117,48),
-            Color.argb(255,75,59,98),
-            Color.argb(255,39,106,123),
-            Color.argb(255,182,87,7),
-            Color.argb(255,114,154,205),
     };
 
     public EstadisticasFragment() {
@@ -87,7 +80,7 @@ public class EstadisticasFragment extends Fragment {
 
         View view =  inflater.inflate(R.layout.fragment_estadisticas, container, false);
         linearLayout=(LinearLayout) view.findViewById(R.id.estadisticas);
-        linearLayout.addView(new miPropiaVista(getContext(),14,data,color));
+        linearLayout.addView(new VistaGraficoCircular(getContext(),data.length,data,color));
         return view;
     }
 }

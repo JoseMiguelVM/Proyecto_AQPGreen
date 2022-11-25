@@ -7,7 +7,7 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.view.View;
 
-public class miPropiaVista extends View {
+public class VistaGraficoCircular extends View {
     float start=0; // donde comienza el dibujo
     int width; //Ancho
     int[] data; //Arreglo de datos
@@ -16,7 +16,7 @@ public class miPropiaVista extends View {
     private int[] color; //Colores de los datos
 
     //Constructor
-    public miPropiaVista(Context context, int numOfItems, int[] data, int[] color) {
+    public VistaGraficoCircular(Context context, int numOfItems, int[] data, int[] color) {
         super(context);
         setFocusable(true);
         this.numberOfparts=numOfItems;
@@ -47,13 +47,7 @@ public class miPropiaVista extends View {
         }
 
         //Este es para crear el circulo de adentro
-        Paint cenPaint=new Paint();
-        //partiremos de los datos del circulo mas grande
-        int radius=getWidth()/2-280;
-        cenPaint.setStyle(Paint.Style.FILL);
-        cenPaint.setColor(Color.WHITE);
-        cx=cy=getWidth()/2;
-        canvas.drawCircle(cx,cy,radius,cenPaint);
+
     }
 
     //Este metodo nos sirve para calcular el angulo que tendra cada dato
