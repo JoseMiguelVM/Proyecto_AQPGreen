@@ -29,7 +29,7 @@ public class PeticionDBController {
         dbHelper.close();
     }
 
-    public int insert(String usuario, String categoria, int cantidad,
+    public long insert(String usuario, String categoria, int cantidad,
                        String origen, String descripcion, int puntos, int estado, String urlFoto) {
         ContentValues contentValue = new ContentValues();
         contentValue.put(ConectorPeticionesDB.USUARIO, usuario);
@@ -40,7 +40,7 @@ public class PeticionDBController {
         contentValue.put(ConectorPeticionesDB.PUNTOS, puntos);
         contentValue.put(ConectorPeticionesDB.ESTADO, estado); // 3 ESTADOS (0 ESPERA, 1 ACEPTADO, 2 RECHAZADO)
         contentValue.put(ConectorPeticionesDB.URLFOTO, urlFoto);
-        return (int) database.insert(ConectorPeticionesDB.TABLE_NAME, null, contentValue);
+        return database.insert(ConectorPeticionesDB.TABLE_NAME, null, contentValue);
     }
 
     public Cursor fetch(String _usuario) {

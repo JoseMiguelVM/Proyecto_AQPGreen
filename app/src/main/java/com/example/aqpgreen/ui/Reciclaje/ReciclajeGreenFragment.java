@@ -17,6 +17,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,7 +64,7 @@ public class ReciclajeGreenFragment extends Fragment {
     private int estado_peticion;
     private String urlFoto;
     private String sp_categorias_plastico_string;
-    private int et_cantidad_plastico_string;
+    private String et_cantidad_plastico_string;
     private String sp_lugar_origen_string;
     private String et_descripcion_plastico_string;
 
@@ -82,8 +83,10 @@ public class ReciclajeGreenFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         db_peticiones = new PeticionDBController(getContext());
+
         final NavController navController = Navigation.findNavController(view);
         inicializar_elementos(view);
+        tomar_captura(view);
 
         btn_regresar_fragment = view.findViewById(R.id.btnIcoAtras);
         btn_regresar_fragment.setOnClickListener(new View.OnClickListener() {
@@ -93,8 +96,12 @@ public class ReciclajeGreenFragment extends Fragment {
             }
         });
 
-        tomar_captura(view);
-        obtener_componentes_vista(view);
+        btn_guardar_peticion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                guardar_datos_peticion ();
+            }
+        });
     }
 
     public void inicializar_elementos (View view) {
@@ -117,9 +124,27 @@ public class ReciclajeGreenFragment extends Fragment {
         ArrayAdapter<CharSequence> adapter_origen = ArrayAdapter.createFromResource(getContext(), R.array.opciones_lugar_origen, android.R.layout.simple_spinner_item);
         sp_categorias_plastico.setAdapter(adapter_categorias);
         sp_lugar_origen.setAdapter(adapter_origen);
+
+        sp_categorias_plastico.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                sp_categorias_plastico_string = adapterView.getItemAtPosition(i).toString();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {}
+        });
+        sp_lugar_origen.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                sp_lugar_origen_string = adapterView.getItemAtPosition(i).toString();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) { }
+        });
     }
 
     public void tomar_captura (View view) {
+
         camaraResLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
             @Override
             public void onActivityResult(ActivityResult result) {
@@ -152,7 +177,7 @@ public class ReciclajeGreenFragment extends Fragment {
         });
     }
 
-    private void obtener_componentes_vista (View view) {
+    /*private void obtener_componentes_vista (View view) {
 
         btn_guardar_peticion.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -161,11 +186,11 @@ public class ReciclajeGreenFragment extends Fragment {
             }
         });
 
-    }
+    }*/
 
     private void guardar_datos_peticion () {
 
-        et_cantidad_plastico_string = Integer.parseInt(et_cantidad_plastico.getText().toString());
+        et_cantidad_plastico_string = et_cantidad_plastico.getText().toString();
         et_descripcion_plastico_string = et_descripcion_plastico.getText().toString();
 
         usuario_peticion = preferencias.getString("usuario", "none");
@@ -173,35 +198,28 @@ public class ReciclajeGreenFragment extends Fragment {
         estado_peticion = 0;
         urlFoto = "https://i.imgur.com/DvpvklR.png";
 
-        sp_categorias_plastico.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                sp_categorias_plastico_string = adapterView.getItemAtPosition(i).toString();
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) { }
-        });
-        sp_lugar_origen.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                sp_lugar_origen_string = adapterView.getItemAtPosition(i).toString();
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) { }
-        });
-
-        db_peticiones.open();
-        int confirm = db_peticiones.insert(usuario_peticion, sp_categorias_plastico_string, et_cantidad_plastico_string,
-                sp_lugar_origen_string, et_descripcion_plastico_string, puntos_plastico, estado_peticion, urlFoto);
-        db_peticiones.close();
-
-        if (confirm == -1){
-            Toast.makeText(getContext(), "Error", Toast.LENGTH_SHORT).show();
+        if (usuario_peticion.isEmpty() || sp_categorias_plastico_string == null ||
+                et_cantidad_plastico_string.isEmpty() || sp_lugar_origen_string == null ||
+                et_descripcion_plastico_string.isEmpty()) {
+            Toast.makeText(getContext(), "Verifique los datos ingresados", Toast.LENGTH_SHORT).show();
+            Log.e("MainActivity", usuario_peticion + ","+ sp_categorias_plastico_string+","+Integer.parseInt(et_cantidad_plastico_string)+","
+                    +sp_lugar_origen_string+","+et_descripcion_plastico_string +"," +puntos_plastico+"," +estado_peticion+","+urlFoto);
         }
         else {
-            Toast.makeText(getContext(), "Añadido", Toast.LENGTH_SHORT).show();
-            et_cantidad_plastico.setText("");
-            et_descripcion_plastico.setText("");
+            db_peticiones.open();
+            Log.e("MainActivity", usuario_peticion + ","+ sp_categorias_plastico_string+","+Integer.parseInt(et_cantidad_plastico_string)+","
+                    +sp_lugar_origen_string+","+et_descripcion_plastico_string +"," +puntos_plastico+"," +estado_peticion+","+urlFoto);
+            long confirm = db_peticiones.insert(usuario_peticion, sp_categorias_plastico_string, Integer.parseInt(et_cantidad_plastico_string),
+                    sp_lugar_origen_string, et_descripcion_plastico_string, puntos_plastico, estado_peticion, urlFoto);
+            db_peticiones.close();
+
+            if (confirm == -1) {
+                Toast.makeText(getContext(), "Error, intentelo nuevamente ", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(getContext(), "Petición Guardada", Toast.LENGTH_SHORT).show();
+                et_cantidad_plastico.setText("");
+                et_descripcion_plastico.setText("");
+            }
         }
     }
 
