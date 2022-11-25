@@ -7,7 +7,7 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.view.View;
 
-public class miPropiaVista extends View {
+public class VistaGraficoCircular extends View {
     float start=0; // donde comienza el dibujo
     int width; //Ancho
     int[] data; //Arreglo de datos
@@ -16,7 +16,7 @@ public class miPropiaVista extends View {
     private int[] color; //Colores de los datos
 
     //Constructor
-    public miPropiaVista(Context context, int numOfItems, int[] data, int[] color) {
+    public VistaGraficoCircular(Context context, int numOfItems, int[] data, int[] color) {
         super(context);
         setFocusable(true);
         this.numberOfparts=numOfItems;

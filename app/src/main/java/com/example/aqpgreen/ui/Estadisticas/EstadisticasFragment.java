@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.example.aqpgreen.R;
@@ -20,7 +19,7 @@ import com.example.aqpgreen.R;
  */
 public class EstadisticasFragment extends Fragment {
 
-    miPropiaVista miPropiaVista;
+    VistaGraficoCircular miPropiaVista;
     LinearLayout linearLayout;
 
     // TODO: Rename parameter arguments, choose names that match
@@ -87,7 +86,7 @@ public class EstadisticasFragment extends Fragment {
 
         View view =  inflater.inflate(R.layout.fragment_estadisticas, container, false);
         linearLayout=(LinearLayout) view.findViewById(R.id.estadisticas);
-        linearLayout.addView(new miPropiaVista(getContext(),14,data,color));
+        linearLayout.addView(new VistaGraficoCircular(getContext(),14,data,color));
         return view;
     }
 }
