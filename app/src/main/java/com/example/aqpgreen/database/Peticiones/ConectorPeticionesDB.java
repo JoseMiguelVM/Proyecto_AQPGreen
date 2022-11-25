@@ -18,7 +18,7 @@ public class ConectorPeticionesDB extends SQLiteOpenHelper {
     public static final String URLFOTO = "urlFoto";
 
     static final String DB_NAME = "aqpgreen.db";
-    static final int DB_VERSION = 1;
+    static final int DB_VERSION = 2;
 
     private static final String CREATE_TABLE = "create table " + TABLE_NAME + "(" + IDPETICION
             + " INTEGER PRIMARY KEY AUTOINCREMENT, " + USUARIO + " TEXT NOT NULL, "

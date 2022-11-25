@@ -15,7 +15,7 @@ public class ConectorUsuariosDB extends SQLiteOpenHelper {
 
     static final String DB_NAME = "aqpgreen.db";
 
-    static final int DB_VERSION = 1;
+    static final int DB_VERSION = 2;
 
     private static final String CREATE_TABLE = "create table " + TABLE_NAME + "(" + IDUSUARIO
             + " INTEGER PRIMARY KEY AUTOINCREMENT, " + LOGIN + " TEXT NOT NULL, " + EMAIL + " TEXT NOT NULL, " + PASSWORD + "  TEXT NOT NULL);";
