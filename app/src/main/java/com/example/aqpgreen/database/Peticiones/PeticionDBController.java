@@ -59,9 +59,17 @@ public class PeticionDBController {
     }
 
     public Cursor fetch(String _usuario) {
-        Cursor cursor = database.rawQuery("SELECT * FROM " + ConectorPeticionesDB.TABLE_NAME + " WHERE "
-                + ConectorPeticionesDB.USUARIO + "=\"" + _usuario + "\"", null);
-        return cursor;
+        try {
+            Cursor cursor = database.rawQuery("SELECT * FROM " + ConectorPeticionesDB.TABLE_NAME + " WHERE "
+                    + ConectorPeticionesDB.USUARIO + "=\"" + _usuario + "\"", null);
+            return cursor;
+        }
+        catch(SQLiteException e){
+            dbHelper.DBcreateTable(database);
+            Cursor cursor = database.rawQuery("SELECT * FROM " + ConectorPeticionesDB.TABLE_NAME + " WHERE "
+                    + ConectorPeticionesDB.USUARIO + "=\"" + _usuario + "\"", null);
+            return cursor;
+        }
     }
 
     public int update (long idpeticion, String categoria, int cantidad,

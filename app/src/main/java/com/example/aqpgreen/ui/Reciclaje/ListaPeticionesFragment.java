@@ -3,6 +3,7 @@ package com.example.aqpgreen.ui.Reciclaje;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteException;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -129,20 +130,21 @@ public class ListaPeticionesFragment extends Fragment {
         usuario_sesion = preferencias.getString("usuario", "none");
         Cursor cursor = db_peticiones.fetch(usuario_sesion);
         if(cursor.getCount() != 0){
-            try{
-                for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
-                    lista_peticiones.add(new Peticion(cursor.getInt(0), cursor.getString(2),
-                            cursor.getInt(3), cursor.getString(4), cursor.getString(5), cursor.getInt(6), cursor.getInt(7), cursor.getString(8)));
-                }
-            } catch (Exception e){
+                try{
+                    for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
+                        lista_peticiones.add(new Peticion(cursor.getInt(0), cursor.getString(2),
+                                cursor.getInt(3), cursor.getString(4), cursor.getString(5), cursor.getInt(6), cursor.getInt(7), cursor.getString(8)));
+                    }
+                } catch (Exception e){
                     Log.e("ListaPeticionesFragment", e.toString());
-            } finally {
-                cursor.close();
+                } finally {
+                    cursor.close();
+                }
             }
-        }
-        else {
-            Log.e("ListaPetCursorelse", "No hay registros");
-        }
+            else {
+                Log.e("ListaPetCursorelse", "No hay registros");
+            }
+
 
         db_peticiones.close();
 
