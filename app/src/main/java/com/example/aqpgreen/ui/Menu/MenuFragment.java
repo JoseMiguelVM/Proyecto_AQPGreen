@@ -1,5 +1,6 @@
 package com.example.aqpgreen.ui.Menu;
 
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -13,6 +14,9 @@ import androidx.navigation.Navigation;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.Toast;
 
 import com.example.aqpgreen.R;
 
@@ -23,6 +27,7 @@ public class MenuFragment extends Fragment {
 
     private SharedPreferences preferencias;
     private SharedPreferences.Editor editor_preferencias;
+    private ImageButton btn_cerrar_sesion;
     private CardView c_huella;
     private CardView c_tipo_plastico;
     private CardView c_reciclaje;
@@ -41,6 +46,15 @@ public class MenuFragment extends Fragment {
         final NavController navController = Navigation.findNavController(view);
 
         inicializar_elementos(view);
+
+        btn_cerrar_sesion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                editor_preferencias.putBoolean("sesion", false);
+                editor_preferencias.apply();
+                Toast.makeText(getContext(), "Sesión Cerrada", Toast.LENGTH_SHORT).show();
+            }
+        });
 
         c_huella.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,6 +101,11 @@ public class MenuFragment extends Fragment {
     }
 
     private void inicializar_elementos(View view) {
+
+        preferencias = getContext().getSharedPreferences("var_sesion", Context.MODE_PRIVATE);
+        editor_preferencias = preferencias.edit();
+
+        btn_cerrar_sesion = view.findViewById(R.id.btn_cerrarSesion);
         c_huella = view.findViewById(R.id.cardView_Huella);
         c_tipo_plastico = view.findViewById(R.id.cardView_TipoPlastico);
         c_reciclaje = view.findViewById(R.id.cardView_Reciclaje);
