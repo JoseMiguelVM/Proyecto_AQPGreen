@@ -88,7 +88,7 @@ public class ReciclajeGreenFragment extends Fragment {
         inicializar_elementos(view);
         tomar_captura(view);
 
-        btn_regresar_fragment = view.findViewById(R.id.btnIcoAtras);
+
         btn_regresar_fragment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -106,6 +106,7 @@ public class ReciclajeGreenFragment extends Fragment {
 
     public void inicializar_elementos (View view) {
 
+        btn_regresar_fragment = view.findViewById(R.id.btnIcoAtras);
         btn_guardar_peticion = view.findViewById(R.id.idFabRegistro);
         sp_categorias_plastico = view.findViewById(R.id.spinner_categoriaPlastico);
         et_cantidad_plastico = (EditText) view.findViewById(R.id.editText_cantidadPlastico);

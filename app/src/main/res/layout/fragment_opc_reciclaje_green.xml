@@ -177,7 +177,7 @@
                     android:id="@+id/imgProducto_preview"
                     android:layout_margin="20dp"
                     android:layout_width="match_parent"
-                    android:layout_height="300dp" />
+                    android:layout_height="wrap_content" />
             </LinearLayout>
         </ScrollView>
 
