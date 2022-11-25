@@ -7,7 +7,7 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 
-public class AdministradorUsuariosDB {
+public class UsuariosDBController {
 
     private ConectorUsuariosDB dbHelper;
 
@@ -15,11 +15,11 @@ public class AdministradorUsuariosDB {
 
     private SQLiteDatabase database;
 
-    public AdministradorUsuariosDB(Context c) {
+    public UsuariosDBController(Context c) {
         context = c;
     }
 
-    public AdministradorUsuariosDB open() throws SQLException {
+    public UsuariosDBController open() throws SQLException {
         dbHelper = new ConectorUsuariosDB(context);
         database = dbHelper.getWritableDatabase();
         return this;

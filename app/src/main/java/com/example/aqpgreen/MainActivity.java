@@ -1,27 +1,22 @@
 package com.example.aqpgreen;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.database.Cursor;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.aqpgreen.database.Usuarios.AdministradorUsuariosDB;
-import com.example.aqpgreen.databinding.ActivityMainBinding;
+import com.example.aqpgreen.database.Usuarios.UsuariosDBController;
 
 public class MainActivity extends AppCompatActivity {
 
-    private AdministradorUsuariosDB dbManager;
+    private UsuariosDBController dbManager;
     private EditText et_usuario;
     private EditText et_contrasena;
     private Button btn_ir_registro;
@@ -39,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        dbManager = new AdministradorUsuariosDB(this);
+        dbManager = new UsuariosDBController(this);
         inicializar_elementos ();
         dbManager.open();
 

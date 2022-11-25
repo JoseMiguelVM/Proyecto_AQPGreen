@@ -2,7 +2,7 @@ package com.example.aqpgreen;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.aqpgreen.database.Usuarios.AdministradorUsuariosDB;
+import com.example.aqpgreen.database.Usuarios.UsuariosDBController;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class Registro extends AppCompatActivity {
-    private AdministradorUsuariosDB dbManager;
+    private UsuariosDBController dbManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,7 +19,7 @@ public class Registro extends AppCompatActivity {
         EditText correoEdit = (EditText) findViewById(R.id.Rcorreo);
         EditText contrasenaEdit = (EditText) findViewById(R.id.RcontraseñaEdit);
         Button registrarBtn = (Button) findViewById(R.id.botonRegistroCompleto);
-        dbManager = new AdministradorUsuariosDB(this);
+        dbManager = new UsuariosDBController(this);
         dbManager.open();
 
         // Registrando usuario con los datos a la BD

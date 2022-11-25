@@ -7,7 +7,6 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 
-import com.example.aqpgreen.database.Usuarios.AdministradorUsuariosDB;
 import com.example.aqpgreen.database.Usuarios.ConectorUsuariosDB;
 
 public class PeticionDBController {
