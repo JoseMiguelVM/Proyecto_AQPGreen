@@ -1,4 +1,4 @@
-package com.example.aqpgreen.ui.Noticias;
+package com.example.aqpgreen.ui.Reciclaje.Noticias;
 
 import android.os.Bundle;
 
