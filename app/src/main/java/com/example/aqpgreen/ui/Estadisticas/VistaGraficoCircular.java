@@ -9,14 +9,11 @@ import android.view.View;
 
 public class VistaGraficoCircular extends View {
     float start=0;
-    int width;
     int[] data;
-    int cx,cy;
     int numberOfparts;
     private int[] color;
 
-    //Constructor
-    public VistaGraficoCircular(Context context, int numOfItems, int[] data, int[] color) {
+    public VistaGraficoCircular(Context context, int numOfItems, int[] data, int[] color) {//partimos
         super(context);
         setFocusable(true);
         this.numberOfparts=numOfItems;
@@ -27,7 +24,7 @@ public class VistaGraficoCircular extends View {
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        canvas.drawColor(Color.WHITE);
+        //canvas.drawColor(Color.WHITE);
         Paint p = new Paint();
         float[] scaledValues = scale();
         
