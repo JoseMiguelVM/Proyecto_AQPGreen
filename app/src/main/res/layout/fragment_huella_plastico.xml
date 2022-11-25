@@ -7,25 +7,50 @@
     android:background="@drawable/fondogeneral"
     tools:context=".ui.HuellaPlastico.HuellaPlasticoFragment">
 
-    <LinearLayout
+    <RelativeLayout
+        android:id="@+id/idLayoutFondo"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="45dp"
-        android:orientation="horizontal">
+        android:layout_height="59dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/c_cabecera"
+        android:elevation="8dp"
+        android:gravity="center">
 
         <TextView
-            android:id="@+id/textViewHuelladePlasticoTitulo"
+            android:id="@+id/titulo"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="62dp"
+            android:layout_marginLeft="62dp"
+            android:layout_marginTop="10dp"
             android:text="Huella de Plastico"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            tools:ignore="TextContrastCheck" />
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold|italic" />
 
-    </LinearLayout>
+        <ImageButton
+            android:id="@+id/btnIcoAtras"
+            android:layout_width="60dp"
+            android:layout_height="49dp"
+            android:backgroundTint="@color/c_cabecera_boton"
+            android:contentDescription="TODO"
+            android:src="?attr/actionModeCloseDrawable"
+            app:tint="#FFFFFF" />
+
+        <ImageButton
+            android:layout_width="60dp"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="0dp"
+            android:background="@color/c_cabecera_boton"
+            android:src="@android:drawable/ic_menu_help" />
+
+    </RelativeLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

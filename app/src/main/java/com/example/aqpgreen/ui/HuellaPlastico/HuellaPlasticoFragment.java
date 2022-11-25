@@ -17,6 +17,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import com.example.aqpgreen.R;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -38,6 +40,7 @@ public class HuellaPlasticoFragment extends Fragment {
     private String mParam2;
 
     private Button button_calcular;
+    private ImageButton btn_regresar_fragment;
     private EditText BotePET,BotePlastic,EnvAlim,EnvaYogurt,EnvaLimpieza,EnvaCosmetic,CepDientes,PastaDental,VasoPlastico,OtroPlastic;
 
     public HuellaPlasticoFragment() {
@@ -76,6 +79,13 @@ public class HuellaPlasticoFragment extends Fragment {
 
         inicializar_elementos(view);
 
+        btn_regresar_fragment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                navController.popBackStack();
+            }
+        });
+
         button_calcular.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -105,7 +115,6 @@ public class HuellaPlasticoFragment extends Fragment {
 
 
             }
-
         });
 
     }
@@ -124,6 +133,9 @@ public class HuellaPlasticoFragment extends Fragment {
         VasoPlastico = view.findViewById(R.id.editTextNumVasosPlastico);
         OtroPlastic = view.findViewById(R.id.editTextNumKgDecimal);
       //  OtroPlastic = view.findViewById(R.id.editTextNumOtrosPlastic);
+
+        btn_regresar_fragment = view.findViewById(R.id.btnIcoAtras);
+
     }
     public Double CalculandHuellaPlastica(){
 
