@@ -2,12 +2,14 @@ package com.example.aqpgreen.ui.Menu;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
@@ -19,8 +21,10 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.aqpgreen.R;
+import com.example.aqpgreen.ui.TiposPlastico.DetallePlasticoFragment;
+import com.example.aqpgreen.ui.TiposPlastico.TipoPlasticoFragment;
 
-public class MenuFragment extends Fragment {
+public class MenuFragment extends Fragment{
     public MenuFragment() {
         // Required empty publi constructor
     }
@@ -35,15 +39,21 @@ public class MenuFragment extends Fragment {
     private CardView c_noticias;
     private CardView c_comunidad;
 
+
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_menu, container, false);
+
     }
+
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         final NavController navController = Navigation.findNavController(view);
+
 
         inicializar_elementos(view);
 
@@ -64,8 +74,10 @@ public class MenuFragment extends Fragment {
         });
 
         c_tipo_plastico.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
+
                 navController.navigate(R.id.tipoPlasticoFragment);
             }
         });
@@ -113,4 +125,6 @@ public class MenuFragment extends Fragment {
         c_noticias = view.findViewById(R.id.cardView_Noticias);
         c_comunidad = view.findViewById(R.id.cardView_Comunidad);
     }
+
+
 }

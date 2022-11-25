@@ -3,7 +3,9 @@ package com.example.aqpgreen.ui.TiposPlastico;
 public class Plastico {
     private String nombre;
     private String info;
+    private String descripcion;
     private int imageId;
+    private int imageDetalle;
 
     public Plastico (){
     }
