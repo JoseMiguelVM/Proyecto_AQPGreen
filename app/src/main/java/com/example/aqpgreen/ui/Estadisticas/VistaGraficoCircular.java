@@ -8,12 +8,12 @@ import android.graphics.RectF;
 import android.view.View;
 
 public class VistaGraficoCircular extends View {
-    float start=0; // donde comienza el dibujo
-    int width; //Ancho
-    int[] data; //Arreglo de datos
-    int cx,cy; // Coordenadas
-    int numberOfparts;// dice que muchos datos o elementos se colocarán en el gráfico
-    private int[] color; //Colores de los datos
+    float start=0;
+    int width;
+    int[] data;
+    int cx,cy;
+    int numberOfparts;
+    private int[] color;
 
     //Constructor
     public VistaGraficoCircular(Context context, int numOfItems, int[] data, int[] color) {
