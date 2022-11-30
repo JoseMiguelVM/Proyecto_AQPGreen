@@ -94,19 +94,19 @@ public class HuellaPlasticoFragment extends Fragment {
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
                 //AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setTitle("TU HUELLA DE PLASTICO ES: ");
+                builder.setTitle("Tu huella de plastico es: ");
                 double kgDeHuellaPlastica = CalculandHuellaPlastica();
                 String mensaje = String.valueOf(kgDeHuellaPlastica);
                 builder.setMessage(mensaje);
 
 
-                builder.setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         // User clicked OK button
 
                     }
                 });
-                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                builder.setNegativeButton("SALIR", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         // User cancelled the dialog
                     }

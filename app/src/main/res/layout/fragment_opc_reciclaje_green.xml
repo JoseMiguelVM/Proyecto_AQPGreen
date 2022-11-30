@@ -10,7 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/fondopeticion"
+        android:background="@drawable/fondogeneral"
         android:orientation="vertical">
 
         <RelativeLayout
@@ -72,7 +72,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="10dp"
                     android:text="@string/label_categoria_plastico"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#675A5A"
                     android:textSize="18sp"
                     android:textStyle="bold|italic" />
 
@@ -94,7 +94,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="15dp"
                         android:text="@string/label_cantidad_peticion"
-                        android:textColor="@android:color/white"
+                        android:textColor="#675A5A"
                         android:textSize="18sp"
                         android:textStyle="bold|italic" />
 
@@ -106,7 +106,7 @@
                         android:inputType="number"
                         android:minHeight="48dp"
                         android:shadowColor="@color/teal_200"
-                        android:textColor="#FFFFFF" />
+                        android:textColor="#0C0C0C" />
                 </LinearLayout>
 
                 <TextView
@@ -115,7 +115,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="10dp"
                     android:text="@string/label_lugar_origen"
-                    android:textColor="@android:color/white"
+                    android:textColor="#675A5A"
                     android:textSize="18sp"
                     android:textStyle="bold|italic" />
 
@@ -134,7 +134,7 @@
                     android:layout_marginLeft="15dp"
                     android:layout_marginTop="10dp"
                     android:text="Descripción:"
-                    android:textColor="@android:color/white"
+                    android:textColor="#675A5A"
                     android:textSize="18sp"
                     android:textStyle="bold|italic" />
 
@@ -147,7 +147,7 @@
                     android:inputType="text"
                     android:minHeight="48dp"
                     android:shadowColor="@color/teal_200"
-                    android:textColor="#FFFFFF" />
+                    android:textColor="#0E0D0D" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -161,7 +161,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginRight="25dp"
                         android:text="@string/label_subir_foto"
-                        android:textColor="@android:color/white"
+                        android:textColor="#675A5A"
                         android:textSize="18sp"
                         android:textStyle="bold|italic" />
 

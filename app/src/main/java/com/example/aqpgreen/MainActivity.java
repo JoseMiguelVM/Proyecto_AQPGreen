@@ -20,6 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText et_usuario;
     private EditText et_contrasena;
     private Button btn_ir_registro;
+
     private Button btn_acceder;
     private CheckBox check_guardar_sesion;
 
@@ -50,6 +51,8 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intentNuevo);
             }
         });
+
+
 
         btn_acceder.setOnClickListener(new View.OnClickListener() {
             @Override

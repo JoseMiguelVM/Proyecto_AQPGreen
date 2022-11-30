@@ -9,12 +9,12 @@
 
     <ImageButton
         android:id="@+id/btn_cerrarSesion"
-        android:layout_width="60dp"
-        android:layout_height="50dp"
+        android:layout_width="50dp"
+        android:layout_height="45dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:backgroundTint="#94EC19"
+        android:backgroundTint="#FF9800"
         android:src="@android:drawable/ic_lock_power_off"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -152,7 +152,7 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:text="Reciclaje Green"
-                android:textSize="15sp"
+                android:textSize="15dp"
                 android:textStyle="bold|italic" />
 
         </LinearLayout>

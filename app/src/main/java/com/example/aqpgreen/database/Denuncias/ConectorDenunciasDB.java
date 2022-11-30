@@ -20,7 +20,7 @@ public class ConectorDenunciasDB  extends SQLiteOpenHelper {
 
     static final String DB_NAME = "aqpgreen.db";
 
-    static final int DB_VERSION = 2;
+    static final int DB_VERSION = 3;
 
     private static final String CREATE_TABLE = "create table " + TABLE_NAME + "(" + IDDENUNCIAS
             + " INTEGER PRIMARY KEY AUTOINCREMENT, " + DNI + " TEXT NOT NULL, " + NOMBRES_COMPLETOS + " TEXT NOT NULL, " + UBICACION

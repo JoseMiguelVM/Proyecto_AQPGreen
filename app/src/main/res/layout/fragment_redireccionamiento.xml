@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#B10A0A"
     tools:context=".ui.SeccionOrganizacion.Redireccionamiento">
 
     <!-- TODO: Update blank fragment layout -->
