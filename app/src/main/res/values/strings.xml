@@ -40,4 +40,5 @@
     <string name="titulo_comunidad_green">Comunidad Green</string>
     <string name="boton_lista_premios">Lista de Premios</string>
     <string name="boton_denuncias">Denuncias</string>
+    <string name="titulo_estadisticas">Estadisticas</string>
 </resources>
