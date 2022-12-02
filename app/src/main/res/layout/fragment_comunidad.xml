@@ -1,128 +1,140 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.Comunidad.ComunidadFragment">
+    tools:context=".ui.Comunidad.ComunidadFragment"
+    android:background="@drawable/background">
 
-    <LinearLayout
+    <RelativeLayout
+        android:id="@+id/idLayoutFondo"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/background"
-        android:orientation="vertical">
-
-        <RelativeLayout
-            android:id="@+id/idLayoutFondo"
-            android:layout_width="match_parent"
-            android:layout_height="59dp"
-            android:layout_marginBottom="10dp"
-            android:background="#2196F3"
-            android:elevation="8dp"
-            android:gravity="center">
-
-            <TextView
-                android:id="@+id/titulo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="130dp"
-                android:layout_marginLeft="130dp"
-                android:layout_marginTop="15dp"
-                android:gravity="center_horizontal"
-                android:text="Comunidad Green"
-                android:textColor="@android:color/white"
-                android:textSize="20sp"
-                android:textStyle="bold|italic" />
-
-            <ImageButton
-                android:id="@+id/btnIcoAtras"
-                android:layout_width="60dp"
-                android:layout_height="49dp"
-                android:backgroundTint="#03A9F4"
-                android:contentDescription="TODO"
-                android:src="?attr/actionModeCloseDrawable"
-                app:tint="#FFFFFF" />
-
-
-            <ImageButton
-                android:id="@+id/btnAyuda"
-                android:layout_width="60dp"
-                android:layout_height="50dp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginTop="0dp"
-                android:background="#03A9F4"
-                android:src="@android:drawable/ic_menu_help" />
-        </RelativeLayout>
-
+        android:layout_height="59dp"
+        android:background="#2196F3"
+        android:elevation="8dp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/textView4"
-            android:layout_width="204dp"
+            android:id="@+id/titulo"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="170dp"
-            android:layout_marginTop="120dp"
-            android:text="Puede revisar la lista de premios ofrecidos por la organizacion y canjear el que mas desee."
-            android:textColor="#FFFDFD"
-            android:textStyle="bold|italic" />
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="130dp"
+            android:layout_marginTop="15dp"
+            android:gravity="center_horizontal"
+            android:text="@string/titulo_comunidad_green"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
-        <ImageView
-            android:id="@+id/imagenPremio"
-            android:layout_width="84dp"
-            android:layout_height="87dp"
-            android:layout_marginLeft="80dp"
-            android:layout_marginTop="-78dp"
-            android:src="@drawable/premios" />
+        <ImageButton
+            android:id="@+id/btnIcoAtras"
+            android:layout_width="60dp"
+            android:layout_height="49dp"
+            android:layout_marginStart="2dp"
+            android:backgroundTint="#03A9F4"
+            android:contentDescription="@string/boton_regresar"
+            android:src="?attr/actionModeCloseDrawable"
+            app:tint="#FFFFFF" />
+
+
+        <ImageButton
+            android:id="@+id/btnAyuda"
+            android:layout_width="60dp"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="0dp"
+            android:background="#03A9F4"
+            android:contentDescription="@string/boton_ayuda"
+            android:src="@android:drawable/ic_menu_help" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idLayoutFondo">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/imagenPremio"
+                android:layout_width="84dp"
+                android:layout_height="87dp"
+                android:src="@drawable/premios" />
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="204dp"
+                android:layout_marginStart="5dp"
+                android:layout_height="wrap_content"
+                android:text="Puede revisar la lista de premios ofrecidos por la organizacion y canjear el que mas desee."
+                android:textColor="#FFFDFD"
+                android:textStyle="bold" />
+        </LinearLayout>
 
         <Button
             android:id="@+id/Btn_listaDePremios"
             android:layout_width="250dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="80dp"
             android:layout_marginTop="1dp"
             android:backgroundTint="#EDC70C"
             android:elevation="94dp"
-            android:gravity="center|center_vertical"
+            android:layout_gravity="center"
             android:shadowColor="#CF4949"
-            android:text="Lista de premios"
+            android:text="@string/boton_lista_premios"
             app:cornerRadius="50dp"
             app:rippleColor="#B62B2B"
             app:strokeColor="#804D4D" />
 
-
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="40dp">
 
         <ImageView
             android:id="@+id/imagenDenuncia"
             android:layout_width="84dp"
             android:layout_height="87dp"
-            android:layout_marginLeft="80dp"
-            android:layout_marginTop="40dp"
             android:src="@drawable/denuncias" />
-        <Button
-            android:id="@+id/Btn_denuncias"
-            android:layout_width="250dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="80dp"
-            android:layout_marginTop="1dp"
-            android:backgroundTint="#C30C40"
-            android:gravity="center|center_vertical"
-            android:text="Denuncias"
-            app:cornerRadius="50dp"/>
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="208dp"
             android:layout_height="54dp"
-            android:layout_marginLeft="170dp"
-            android:layout_marginTop="-114dp"
+            android:layout_marginStart="5dp"
             android:text="Usted puede realizar denuncias, otorgando algunos datos de la incidencia a nuestra central."
             android:textColor="#FFFDFD"
             android:textStyle="bold|italic" />
 
     </LinearLayout>
 
-</RelativeLayout>
+        <Button
+            android:id="@+id/Btn_denuncias"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:backgroundTint="#C30C40"
+            android:layout_gravity="center"
+            android:text="@string/boton_denuncias"
+            app:cornerRadius="50dp" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
