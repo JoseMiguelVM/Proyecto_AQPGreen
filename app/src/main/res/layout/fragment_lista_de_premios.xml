@@ -8,7 +8,7 @@
     tools:context=".ui.Comunidad.ListaDePremios">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerId"
+        android:id="@+id/recyclerView_listaPremios"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 

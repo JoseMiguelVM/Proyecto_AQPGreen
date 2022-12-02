@@ -1,6 +1,5 @@
 package com.example.aqpgreen.ui.TiposPlastico;
 
-import android.app.Activity;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
@@ -15,6 +14,8 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.aqpgreen.R;
+import com.example.aqpgreen.modelo.ListaPlasticosAdaptador;
+import com.example.aqpgreen.modelo.Plastico;
 
 import java.util.ArrayList;
 
@@ -72,12 +73,12 @@ public class TipoPlasticoFragment extends Fragment {
         View vista=inflater.inflate(R.layout.fragment_tipo_plastico, container, false);
 
         listaPlastico=new ArrayList<>();
-        recyclerPlastico= (RecyclerView) vista.findViewById(R.id.recyclerId);
+        recyclerPlastico= (RecyclerView) vista.findViewById(R.id.recyclerView_listaCategorias);
         recyclerPlastico.setLayoutManager(new LinearLayoutManager(getContext()));
 
         llenarListaPersonajes();
 
-        AdaptadorPlasticos adapter=new AdaptadorPlasticos(listaPlastico);
+        ListaPlasticosAdaptador adapter=new ListaPlasticosAdaptador(listaPlastico);
         recyclerPlastico.setAdapter(adapter);
 
         adapter.setOnClickListener(new View.OnClickListener() {

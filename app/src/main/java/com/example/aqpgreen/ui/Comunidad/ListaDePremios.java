@@ -14,8 +14,8 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.aqpgreen.R;
-import com.example.aqpgreen.ui.Comunidad.Recicler.AdaptadorPremios;
-import com.example.aqpgreen.ui.Comunidad.Recicler.Premios;
+import com.example.aqpgreen.modelo.AdaptadorPremios;
+import com.example.aqpgreen.modelo.Premios;
 
 import java.util.ArrayList;
 
@@ -46,7 +46,7 @@ public class ListaDePremios extends Fragment {
                              Bundle savedInstanceState) {
         View vista=inflater.inflate(R.layout.fragment_lista_de_premios, container, false);
         listaPremios=new ArrayList<>();
-        recyclerPremios = vista.findViewById(R.id.recyclerId);
+        recyclerPremios = vista.findViewById(R.id.recyclerView_listaPremios);
         recyclerPremios.setLayoutManager(new LinearLayoutManager(getContext()));
         llenarListaPremios();
 

@@ -41,4 +41,6 @@
     <string name="boton_lista_premios">Lista de Premios</string>
     <string name="boton_denuncias">Denuncias</string>
     <string name="titulo_estadisticas">Estadisticas</string>
+    <string name="titulo_tipos_plasticos">Tipos de Plásticos</string>
+    <string name="boton_salir">Desloguearse</string>
 </resources>

@@ -27,15 +27,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="62dp"
-                android:layout_marginLeft="62dp"
                 android:layout_marginTop="10dp"
-                android:text="Tipos de Plásticos"
+                android:text="@string/titulo_tipos_plasticos"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
-                android:textStyle="bold|italic" />
+                android:textStyle="bold" />
 
             <ImageButton
                 android:id="@+id/btnIcoAtras"
@@ -60,9 +58,9 @@
         </RelativeLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerId"
-            android:layout_width="393dp"
-            android:layout_height="wrap_content"></androidx.recyclerview.widget.RecyclerView>
+            android:id="@+id/recyclerView_listaCategorias"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
 
     </LinearLayout>
 
