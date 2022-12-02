@@ -1,4 +1,4 @@
-package com.example.aqpgreen.ui.Comunidad.Recicler;
+package com.example.aqpgreen.modelo;
 
 public class Premios {
     private String nombre;

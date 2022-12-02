@@ -1,4 +1,4 @@
-package com.example.aqpgreen.ui.TiposPlastico;
+package com.example.aqpgreen.modelo;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,12 +12,12 @@ import com.example.aqpgreen.R;
 
 import java.util.ArrayList;
 
-public class AdaptadorPlasticos extends RecyclerView.Adapter<AdaptadorPlasticos.PlasticosViewHolder> implements View.OnClickListener{
+public class ListaPlasticosAdaptador extends RecyclerView.Adapter<ListaPlasticosAdaptador.PlasticosViewHolder> implements View.OnClickListener{
 
     ArrayList<Plastico> listaPlasticos;
     private View.OnClickListener listener;
 
-    public AdaptadorPlasticos (ArrayList<Plastico> listaPlasticos) {
+    public ListaPlasticosAdaptador(ArrayList<Plastico> listaPlasticos) {
         this.listaPlasticos = listaPlasticos;
     }
 

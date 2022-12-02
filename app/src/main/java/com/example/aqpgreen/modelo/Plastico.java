@@ -1,4 +1,4 @@
-package com.example.aqpgreen.ui.TiposPlastico;
+package com.example.aqpgreen.modelo;
 
 public class Plastico {
     private String nombre;
