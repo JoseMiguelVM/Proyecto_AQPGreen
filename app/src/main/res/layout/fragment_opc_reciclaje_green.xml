@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,6 +9,7 @@
     tools:context=".ui.Reciclaje.ReciclajeGreenFragment">
 
     <LinearLayout
+        android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/fondogeneral"
@@ -17,7 +19,6 @@
             android:id="@+id/idLayoutFondo"
             android:layout_width="match_parent"
             android:layout_height="59dp"
-            android:layout_marginBottom="10dp"
             android:background="#2196F3"
             android:elevation="8dp"
             android:gravity="center">
@@ -27,24 +28,23 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
                 android:layout_alignParentTop="true"
-                android:layout_marginStart="62dp"
-                android:layout_marginLeft="62dp"
+                android:layout_marginStart="68dp"
                 android:layout_marginTop="10dp"
                 android:text="@string/text_titulo_peticiones"
                 android:textColor="@android:color/white"
                 android:textSize="20sp"
-                android:textStyle="bold|italic" />
+                android:textStyle="bold" />
 
             <ImageButton
                 android:id="@+id/btnIcoAtras"
                 android:layout_width="60dp"
                 android:layout_height="49dp"
-                android:backgroundTint="#03A9F4"
+                android:backgroundTint="#03A9F5"
+                android:layout_marginStart="2dp"
+                android:contentDescription="@string/boton_regresar"
                 android:src="?attr/actionModeCloseDrawable"
                 app:tint="#FFFFFF" />
-
 
             <ImageButton
                 android:id="@+id/btnAyuda"
@@ -52,149 +52,116 @@
                 android:layout_height="50dp"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
                 android:layout_marginTop="0dp"
-                android:background="#03A9F4"
+                android:background="#03A9F5"
+                android:contentDescription="@string/boton_ayuda"
                 android:src="@android:drawable/ic_menu_help" />
 
         </RelativeLayout>
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-        <LinearLayout
+        <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="10dp"
-                    android:text="@string/label_categoria_plastico"
-                    android:textColor="#675A5A"
-                    android:textSize="18sp"
-                    android:textStyle="bold|italic" />
+            android:id="@+id/scrollView">
 
-                <Spinner
-                    android:id="@+id/spinner_categoriaPlastico"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:minHeight="48dp" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="170dp"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="15dp"
-                        android:text="@string/label_cantidad_peticion"
-                        android:textColor="#675A5A"
-                        android:textSize="18sp"
-                        android:textStyle="bold|italic" />
-
-                    <EditText
-                        android:id="@+id/editText_cantidadPlastico"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="10dp"
-                        android:inputType="number"
-                        android:minHeight="48dp"
-                        android:shadowColor="@color/teal_200"
-                        android:textColor="#0C0C0C" />
-                </LinearLayout>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="10dp"
-                    android:text="@string/label_lugar_origen"
-                    android:textColor="#675A5A"
-                    android:textSize="18sp"
-                    android:textStyle="bold|italic" />
-
-                <Spinner
-                    android:id="@+id/spinner_lugarOrigen"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:minHeight="48dp"
-                    android:popupBackground="#FFFFFF" />
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="10dp"
-                    android:text="Descripción:"
-                    android:textColor="#675A5A"
-                    android:textSize="18sp"
-                    android:textStyle="bold|italic" />
-
-                <EditText
-                    android:id="@+id/editText_descripcionPlastico"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="10dp"
-                    android:autofillHints="descripción"
-                    android:inputType="text"
-                    android:minHeight="48dp"
-                    android:shadowColor="@color/teal_200"
-                    android:textColor="#0E0D0D" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="25dp"
-                        android:text="@string/label_subir_foto"
-                        android:textColor="#675A5A"
-                        android:textSize="18sp"
-                        android:textStyle="bold|italic" />
-
-                    <ImageButton
-                        android:id="@+id/btnCamera"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@android:drawable/ic_menu_camera" />
-
-                </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
                 <ImageView
-                    android:id="@+id/imgProducto_preview"
-                    android:layout_margin="20dp"
+                    android:id="@+id/img_plasticoPreview"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="225dp"
+                    android:background="@color/grey"
+                    android:contentDescription="@string/imagen_prevista_plastico"
+                    android:src="@drawable/ic_baseline_camera_alt_128"/>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="6dp">
+                    <AutoCompleteTextView
+                        android:id="@+id/dropdown_categoriaPlastico"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/label_categoria_plastico"
+                        android:inputType="none" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="6dp"
+                    android:id="@+id/editText_cantidadPlastico"
+                    app:suffixText="@string/label_sufijo">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/label_cantidad_peticion"
+                        android:inputType="number"
+                        android:textColorHint="#546E7A" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="6dp">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/dropdown_lugarOrigen"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/label_lugar_origen"
+                        android:inputType="none"
+                        android:textColorHint="#546E7A" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/editText_descripcionPlastico"
+                    android:layout_margin="6dp"
+                    app:counterEnabled="true"
+                    app:counterMaxLength="200"
+                    app:endIconMode="clear_text">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/label_descripcion"
+                        android:inputType="text" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.floatingactionbutton.FloatingActionButton
+                    android:id="@+id/idFabRegistro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:contentDescription="@string/boton_guardar"
+                    android:src="@drawable/ic_baseline_done_24"
+                    app:backgroundTint="#83CF2A"
+                    android:layout_gravity="right"/>
+
             </LinearLayout>
-        </ScrollView>
+
+        </androidx.core.widget.NestedScrollView>
 
     </LinearLayout>
 
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/idFabRegistro"
+        android:id="@+id/btnCamera"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="20dp"
-        android:layout_marginRight="7dp"
-        android:layout_marginBottom="20dp"
-        android:contentDescription="TODO"
-        android:src="@android:drawable/ic_menu_save"
-        app:backgroundTint="#83CF2A" />
+        android:layout_margin="16dp"
+        android:contentDescription="@string/boton_camara"
+        android:src="@android:drawable/ic_menu_camera"
+        app:backgroundTint="#83CF2A"
+        app:layout_anchor="@id/img_plasticoPreview"
+        app:layout_anchorGravity="bottom|right|end"/>
 
-</RelativeLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

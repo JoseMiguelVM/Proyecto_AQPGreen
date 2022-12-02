@@ -28,4 +28,16 @@
     <string name="label_button_acceder">Ingresar</string>
     <string name="btn_ayuda">ayuda</string>
     <string name="btn_añadir_peticion">añadir peticion</string>
+    <string name="label_descripcion">Descripción</string>
+    <string name="boton_guardar">Guardar</string>
+    <string name="boton_regresar">Regresar</string>
+    <string name="boton_camara">Cámara</string>
+    <string name="boton_ayuda">Ayuda</string>
+    <string name="imagen_prevista_plastico">Prevista plastico</string>
+    <string name="label_sufijo">unidades</string>
+    <string name="titulo_noticias_green">Noticias Green</string>
+    <string name="titulo_huella_plastico">Huella de Plastico</string>
+    <string name="titulo_comunidad_green">Comunidad Green</string>
+    <string name="boton_lista_premios">Lista de Premios</string>
+    <string name="boton_denuncias">Denuncias</string>
 </resources>

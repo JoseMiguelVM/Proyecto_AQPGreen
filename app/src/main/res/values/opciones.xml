@@ -2,7 +2,6 @@
 <resources>
 
     <string-array name="opciones_categorias_productos">
-        <item>Elige una categoría</item>
         <item>PET/PETE</item>
         <item>HDPE</item>
         <item>PVC</item>
@@ -13,7 +12,6 @@
     </string-array>
 
     <string-array name="opciones_lugar_origen">
-        <item>Elige un distrito de origen</item>
         <item>Alto Selva Alegre</item>
         <item>Arequipa</item>
         <item>Cayma</item>
