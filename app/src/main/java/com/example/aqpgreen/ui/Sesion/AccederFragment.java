@@ -52,6 +52,8 @@ public class AccederFragment extends Fragment {
     private SharedPreferences preferencias;
     private SharedPreferences.Editor editor_preferencias;
 
+    private Button btn_login_organizacion;
+
     public AccederFragment() {
         // Required empty public constructor
     }
@@ -119,6 +121,14 @@ public class AccederFragment extends Fragment {
             }
         });
 
+        // Para redirigirse a Login de Organizacion
+        btn_login_organizacion.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navController.navigate(R.id.loginOrganizacion);
+            }
+        });
+
     }
 
     /*private boolean revisar_sesion_activa() {
@@ -140,5 +150,8 @@ public class AccederFragment extends Fragment {
 
         preferencias = getContext().getSharedPreferences("var_sesion", Context.MODE_PRIVATE);
         editor_preferencias = preferencias.edit();
+
+        // Login de organizacion
+        btn_login_organizacion = view.findViewById(R.id.redireccionOrganizacion);
     }
 }

@@ -74,7 +74,7 @@
     </fragment>
     <fragment
         android:id="@+id/noticiasFragment"
-        android:name="com.example.aqpgreen.ui.Reciclaje.Noticias.NoticiasFragment"
+        android:name="com.example.aqpgreen.ui.Noticias.NoticiasFragment"
         android:label="fragment_noticias"
         tools:layout="@layout/fragment_noticias" >
         <action
@@ -131,6 +131,9 @@
         <action
             android:id="@+id/action_accederFragment_to_registroFragment2"
             app:destination="@id/registroFragment" />
+        <action
+            android:id="@+id/action_accederFragment_to_loginOrganizacion"
+            app:destination="@id/loginOrganizacion" />
     </fragment>
     <fragment
         android:id="@+id/registroFragment"
@@ -141,4 +144,18 @@
             android:id="@+id/action_registroFragment_to_accederFragment"
             app:destination="@id/accederFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/loginOrganizacion"
+        android:name="com.example.aqpgreen.ui.ModuloOrganizacion.LoginOrganizacion"
+        android:label="fragment_login_organizacion"
+        tools:layout="@layout/fragment_login_organizacion" >
+        <action
+            android:id="@+id/action_loginOrganizacion_to_menuOrganizacion"
+            app:destination="@id/menuOrganizacion" />
+    </fragment>
+    <fragment
+        android:id="@+id/menuOrganizacion"
+        android:name="com.example.aqpgreen.ui.ModuloOrganizacion.MenuOrganizacion"
+        android:label="fragment_menu_organizacion"
+        tools:layout="@layout/fragment_menu_organizacion" />
 </navigation>
