@@ -100,14 +100,8 @@ public class ListaPeticionesFragment extends Fragment {
         final NavController navController = Navigation.findNavController(view);
         inicializar_elementos(view);
 
-        btn_crear_peticion_fragment.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) { navController.navigate(R.id.reciclajeGreenFragment);}
-        });
-        btn_regresar_fragment.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) { navController.popBackStack();}
-        });
+        btn_crear_peticion_fragment.setOnClickListener(v -> navController.navigate(R.id.reciclajeGreenFragment));
+        btn_regresar_fragment.setOnClickListener(view1 -> navController.popBackStack());
 
         generar_recyclerView (view);
     }

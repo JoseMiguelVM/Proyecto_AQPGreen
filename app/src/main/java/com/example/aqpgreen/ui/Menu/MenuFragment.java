@@ -57,58 +57,23 @@ public class MenuFragment extends Fragment{
 
         inicializar_elementos(view);
 
-        btn_cerrar_sesion.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                editor_preferencias.putBoolean("sesion", false);
-                editor_preferencias.apply();
-                Toast.makeText(getContext(), "Sesión Cerrada", Toast.LENGTH_SHORT).show();
-            }
+        btn_cerrar_sesion.setOnClickListener(view1 -> {
+            editor_preferencias.putBoolean("sesion", false);
+            editor_preferencias.apply();
+            Toast.makeText(getContext(), "Sesión Cerrada", Toast.LENGTH_SHORT).show();
         });
 
-        c_huella.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                navController.navigate(R.id.huellaPlasticoFragment);
-            }
-        });
+        c_huella.setOnClickListener(v -> navController.navigate(R.id.huellaPlasticoFragment));
 
-        c_tipo_plastico.setOnClickListener(new View.OnClickListener() {
+        c_tipo_plastico.setOnClickListener(v -> navController.navigate(R.id.tipoPlasticoFragment));
 
-            @Override
-            public void onClick(View v) {
+        c_reciclaje.setOnClickListener(v -> navController.navigate(R.id.listaPeticionesFragment));
 
-                navController.navigate(R.id.tipoPlasticoFragment);
-            }
-        });
+        c_estadisticas.setOnClickListener(v -> navController.navigate(R.id.estadisticasFragment));
 
-        c_reciclaje.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                navController.navigate(R.id.listaPeticionesFragment);
-            }
-        });
+        c_noticias.setOnClickListener(v -> navController.navigate(R.id.noticiasFragment));
 
-        c_estadisticas.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                navController.navigate(R.id.estadisticasFragment);
-            }
-        });
-
-        c_noticias.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                navController.navigate(R.id.noticiasFragment);
-            }
-        });
-
-        c_comunidad.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                navController.navigate(R.id.comunidadFragment);
-            }
-        });
+        c_comunidad.setOnClickListener(v -> navController.navigate(R.id.comunidadFragment));
 
     }
 

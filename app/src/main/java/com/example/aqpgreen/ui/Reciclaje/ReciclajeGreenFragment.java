@@ -85,7 +85,6 @@ public class ReciclajeGreenFragment extends Fragment {
         inicializar_elementos(view);
         tomar_captura();
 
-
         btn_regresar_fragment.setOnClickListener(view1 -> navController.popBackStack());
 
         btn_guardar_peticion.setOnClickListener(view12 -> guardar_datos_peticion ());
