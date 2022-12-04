@@ -4,6 +4,8 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -30,11 +32,9 @@ public class TipoPlasticoFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    private OnFragmentInteractionListener mListener;
-
-    ArrayList<Plastico> listaPlastico;
-    RecyclerView recyclerPlastico;
-
+    // TODO: Declaracion de variables
+    private ArrayList<Plastico> listaPlastico;
+    private RecyclerView recyclerPlastico;
 
     public TipoPlasticoFragment() {
         // Required empty public constructor
@@ -70,30 +70,30 @@ public class TipoPlasticoFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View vista=inflater.inflate(R.layout.fragment_tipo_plastico, container, false);
+        return inflater.inflate(R.layout.fragment_tipo_plastico, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
 
         listaPlastico=new ArrayList<>();
-        recyclerPlastico= (RecyclerView) vista.findViewById(R.id.recyclerView_listaCategorias);
+        recyclerPlastico= (RecyclerView) view.findViewById(R.id.recyclerView_listaCategorias);
         recyclerPlastico.setLayoutManager(new LinearLayoutManager(getContext()));
 
         llenarListaPersonajes();
 
-        ListaPlasticosAdaptador adapter=new ListaPlasticosAdaptador(listaPlastico);
+        ListaPlasticosAdaptador adapter = new ListaPlasticosAdaptador(listaPlastico);
         recyclerPlastico.setAdapter(adapter);
 
-        adapter.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getContext(),"Seleccion: "+
-                        listaPlastico.get(recyclerPlastico.
-                                getChildAdapterPosition(view)).getNombre(),Toast.LENGTH_SHORT).show();
+        adapter.setOnClickListener(view1 -> {
+            Toast.makeText(getContext(),"Seleccion: "+
+                    listaPlastico.get(recyclerPlastico.
+                            getChildAdapterPosition(view1)).getNombre(),Toast.LENGTH_SHORT).show();
 
-                //interfaceComunicaFragments.enviarPlastico(listaPlastico.get(recyclerPlastico.getChildAdapterPosition(view)));
-            }
+            //interfaceComunicaFragments.enviarPlastico(listaPlastico.get(recyclerPlastico.getChildAdapterPosition(view)));
         });
 
-
-        return vista;
     }
 
     private void llenarListaPersonajes() {
@@ -104,45 +104,5 @@ public class TipoPlasticoFragment extends Fragment {
         listaPlastico.add(new Plastico("PP","Chapas de botellas, envases para almacenar alimentos, sorbetes",R.drawable.logo_pp));
         listaPlastico.add(new Plastico("PS","Envases de comida rápida, vasos descartables, vasitos de yogurt",R.drawable.logo_ps));
         listaPlastico.add(new Plastico("OTROS","Piezas de coches, CD’s,  DVD’s, Biberones",R.drawable.logo_otros));
-    }
-
-    // TODO: Rename method, update argument and hook method into UI event
-    public void onButtonPressed(Uri uri) {
-        if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
-        }
-    }
-
-    @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
-
-        if (context instanceof OnFragmentInteractionListener) {
-            mListener = (OnFragmentInteractionListener) context;
-        } else {
-            throw new RuntimeException(context.toString()
-                    + " must implement OnFragmentInteractionListener");
-        }
-    }
-
-    @Override
-    public void onDetach() {
-        super.onDetach();
-        mListener = null;
-    }
-
-    /**
-     * This interface must be implemented by activities that contain this
-     * fragment to allow an interaction in this fragment to be communicated
-     * to the activity and potentially other fragments contained in that
-     * activity.
-     * <p>
-     * See the Android Training lesson <a href=
-     * "http://developer.android.com/training/basics/fragments/communicating.html"
-     * >Communicating with Other Fragments</a> for more information.
-     */
-    public interface OnFragmentInteractionListener {
-        // TODO: Update argument type and name
-        void onFragmentInteraction(Uri uri);
     }
 }
