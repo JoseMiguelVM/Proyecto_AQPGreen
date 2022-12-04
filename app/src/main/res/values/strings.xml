@@ -43,4 +43,12 @@
     <string name="titulo_estadisticas">Estadisticas</string>
     <string name="titulo_tipos_plasticos">Tipos de Plásticos</string>
     <string name="boton_salir">Desloguearse</string>
+    <string name="label_nombre_usuario">Nombre de Usuario</string>
+    <string name="boton_organizacion">Organizacion</string>
+    <string name="label_aqp_green">AQP Green</string>
+    <string name="boton_acceder">Acceder</string>
+    <string name="label_contraseña">Ingrese Contraseña</string>
+    <string name="label_correo_electronico">Correo Electronico</string>
+    <string name="button_registrarse">Registrarse</string>
+    <string name="label_formas_registrarse">o ingrese por</string>
 </resources>
