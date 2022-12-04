@@ -10,9 +10,7 @@ import android.database.sqlite.SQLiteException;
 public class UsuariosDBController {
 
     private ConectorUsuariosDB dbHelper;
-
-    private Context context;
-
+    private final Context context;
     private SQLiteDatabase database;
 
     public UsuariosDBController(Context c) {
@@ -29,23 +27,28 @@ public class UsuariosDBController {
         dbHelper.close();
     }
 
-    public void insert(String login, String email, String password) {
+    public int insert(String login, String email, String password) {
+
+        int exito;
+
         try{
             ContentValues contentValue = new ContentValues();
             contentValue.put(ConectorUsuariosDB.LOGIN, login);
             contentValue.put(ConectorUsuariosDB.EMAIL, email);
             contentValue.put(ConectorUsuariosDB.PASSWORD, password);
-            database.insertOrThrow(ConectorUsuariosDB.TABLE_NAME, null, contentValue);
+            exito = (int) database.insertOrThrow(ConectorUsuariosDB.TABLE_NAME, null, contentValue);
         }
+
         catch(SQLiteException e){
             dbHelper.DBcreateTable(database);
             ContentValues contentValue = new ContentValues();
             contentValue.put(ConectorUsuariosDB.LOGIN, login);
             contentValue.put(ConectorUsuariosDB.EMAIL, email);
             contentValue.put(ConectorUsuariosDB.PASSWORD, password);
-            database.insert(ConectorUsuariosDB.TABLE_NAME, null, contentValue);
+            exito = (int) database.insert(ConectorUsuariosDB.TABLE_NAME, null, contentValue);
         }
 
+        return exito;
     }
 
     public Cursor fetch() {
@@ -58,10 +61,9 @@ public class UsuariosDBController {
     }
 
     public Cursor fetch(String _usuario, String _contrasena) {
-        Cursor cursor = database.rawQuery("SELECT * FROM " + ConectorUsuariosDB.TABLE_NAME +
+        return database.rawQuery("SELECT * FROM " + ConectorUsuariosDB.TABLE_NAME +
                 " WHERE " + ConectorUsuariosDB.LOGIN + " = \""+ _usuario +
                 "\" AND " + ConectorUsuariosDB.PASSWORD + "=\"" + _contrasena + "\"", null);
-        return cursor;
     }
 
     public int update(long idusuario, String login, String email, String password) {
@@ -69,8 +71,7 @@ public class UsuariosDBController {
         contentValues.put(ConectorUsuariosDB.LOGIN, login);
         contentValues.put(ConectorUsuariosDB.EMAIL, email);
         contentValues.put(ConectorUsuariosDB.PASSWORD, password);
-        int i = database.update(ConectorUsuariosDB.TABLE_NAME, contentValues, ConectorUsuariosDB.IDUSUARIO + " = " + idusuario, null);
-        return i;
+        return database.update(ConectorUsuariosDB.TABLE_NAME, contentValues, ConectorUsuariosDB.IDUSUARIO + " = " + idusuario, null);
     }
 
     public void delete(long idusuario) {
