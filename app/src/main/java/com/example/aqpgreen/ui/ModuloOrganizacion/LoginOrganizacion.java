@@ -50,10 +50,16 @@ public class LoginOrganizacion extends Fragment {
         btn_acceder_organizacion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navController.navigate(R.id.menuOrganizacion);
+                // Para validar el usuario y contraseña de la organizacion
+                String usuario = entrada_usuario.getText().toString();
+                String contraseña = entrada_contraseña.getText().toString();
+
+                if (usuario.equals("Sabandia") && contraseña.equals("123qwerty")){
+                    navController.navigate(R.id.menuOrganizacion);
+                }else{
+                    Toast.makeText(getActivity(), "Usuario o contraseña no encontrados", Toast.LENGTH_SHORT).show();
+                }
             }
         });
-
     }
-
 }

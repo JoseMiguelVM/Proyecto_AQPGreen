@@ -81,6 +81,7 @@ public class Denuncias extends Fragment {
                 String descripcion = descripcion_denunciante_Edit.getText().toString();
                 dbManager.insert(dni, nombres, ubicacion, descripcion);
                 dbManager.close();
+                Toast.makeText(getActivity(), "Denuncia guardada exitosamente!!!", Toast.LENGTH_SHORT).show();
             }
         });
 
