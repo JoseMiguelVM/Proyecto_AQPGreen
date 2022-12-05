@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/home"
-    tools:context=".ui.ModuloOrganizacion.MenuOrganizacion">
+    android:background="#62A515"
+    tools:context=".ui.ModuloOrganizacion.TerminosYcondiciones">
 
 
     <LinearLayout
@@ -23,10 +22,9 @@
         android:background="#FFFFFF"
         android:layout_alignParentBottom="true"
         tools:targetApi="lollipop">
-        
+
         <LinearLayout
             android:id="@+id/homeLayout"
-            android:background="@drawable/round_back_home_100"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:orientation="horizontal"
@@ -46,11 +44,12 @@
                 android:id="@+id/homeTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Inicio"
+                android:text="Home"
                 android:textStyle="bold"
                 android:textColor="@color/home"
                 android:layout_marginStart="10dp"
-                android:textSize="16sp"/>
+                android:textSize="16sp"
+                android:visibility="gone"/>
         </LinearLayout>
 
         <LinearLayout
@@ -85,7 +84,6 @@
 
         <LinearLayout
             android:id="@+id/notificationLayout"
-            android:background="@android:color/transparent"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:orientation="horizontal"
@@ -115,6 +113,7 @@
 
         <LinearLayout
             android:id="@+id/termLayout"
+            android:background="@drawable/round_back_terms_100"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:orientation="horizontal"
@@ -132,15 +131,15 @@
 
             <TextView
                 android:id="@+id/termTxt"
-                android:visibility="gone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Terminos"
                 android:textStyle="bold"
-                android:textColor="@color/white"
+                android:textColor="@color/pinkColor"
                 android:layout_marginStart="10dp"
                 android:textSize="16sp"/>
         </LinearLayout>
+
 
     </LinearLayout>
 

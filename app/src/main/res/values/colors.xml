@@ -17,4 +17,14 @@
     <!-- Colores para la cabecera -->
     <color name="c_cabecera">#2193F0</color>
     <color name="c_cabecera_boton">#03A9F4</color>
+
+    <!-- Colores para la parte inferior del slide del menu -->
+    <color name="home">#1194AA</color>
+    <color name="like">#c9379d</color>
+    <color name="notification">#ae7e0f</color>
+
+    <color name="home_20">#331194AA</color>
+    <color name="like_20">#33C9379D</color>
+    <color name="notification_20">#33AE7E0F</color>
+
 </resources>

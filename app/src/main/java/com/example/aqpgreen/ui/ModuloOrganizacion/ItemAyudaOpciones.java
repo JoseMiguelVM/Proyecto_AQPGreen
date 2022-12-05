@@ -13,34 +13,30 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.Animation;
 import android.view.animation.ScaleAnimation;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.aqpgreen.R;
 
 
-public class MenuOrganizacion extends Fragment {
+public class ItemAyudaOpciones extends Fragment {
     // TODO: Declaracion de Variables
     private LinearLayout homeLayout;
     private LinearLayout likeLayout;
     private LinearLayout notificationLayout;
     private LinearLayout termLayout;
+
 /*
     private ImageView homeImage;
     private ImageView likeImage;
     private ImageView notificationImage;
-    private ImageView termImage;
 
     private TextView homeTxt;
     private TextView likeTxt;
-    private TextView notificationTxt;
-    private TextView termTxt;*/
+    private TextView notificationTxt;*/
 
-
-    public MenuOrganizacion() {
+    public ItemAyudaOpciones() {
         // Required empty public constructor
     }
 
@@ -53,12 +49,10 @@ public class MenuOrganizacion extends Fragment {
         homeImage = view.findViewById(R.id.homeImage);
         likeImage = view.findViewById(R.id.likeImage);
         notificationImage = view.findViewById(R.id.notificationImage);
-        termImage = view.findViewById(R.id.termImage);
 
         homeTxt = view.findViewById(R.id.homeTxt);
         likeTxt = view.findViewById(R.id.likeTxt);
-        notificationTxt = view.findViewById(R.id.notificationTxt);
-        termTxt = view.findViewById(R.id.termTxt );*/
+        notificationTxt = view.findViewById(R.id.notificationTxt);*/
     }
 
     @Override
@@ -71,7 +65,7 @@ public class MenuOrganizacion extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_menu_organizacion, container, false);
+        return inflater.inflate(R.layout.fragment_item_ayuda_opciones, container, false);
     }
 
     @Override
@@ -84,7 +78,7 @@ public class MenuOrganizacion extends Fragment {
             @Override
             public void onClick(View v) {
                     navController.navigate(R.id.menuOrganizacion);
-                    /*
+/*
                     likeTxt.setVisibility(View.GONE);
                     notificationTxt.setVisibility(View.GONE);
 
@@ -102,16 +96,14 @@ public class MenuOrganizacion extends Fragment {
                     scaleAnimation.setDuration(200);
                     scaleAnimation.setFillAfter(true);
                     homeLayout.startAnimation(scaleAnimation);*/
-
             }
         });
 
         likeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //if(selectedTab != 2){
                     navController.navigate(R.id.informacionOpciones);
-                    /*
+/*
                     homeTxt.setVisibility(View.GONE);
                     notificationTxt.setVisibility(View.GONE);
 
@@ -135,7 +127,6 @@ public class MenuOrganizacion extends Fragment {
         notificationLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //if(selectedTab != 3){
                     navController.navigate(R.id.itemAyudaOpciones);
 /*
                     homeTxt.setVisibility(View.GONE);

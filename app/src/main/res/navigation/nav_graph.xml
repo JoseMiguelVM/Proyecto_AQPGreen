@@ -157,5 +157,60 @@
         android:id="@+id/menuOrganizacion"
         android:name="com.example.aqpgreen.ui.ModuloOrganizacion.MenuOrganizacion"
         android:label="fragment_menu_organizacion"
-        tools:layout="@layout/fragment_menu_organizacion" />
+        tools:layout="@layout/fragment_menu_organizacion" >
+        <action
+            android:id="@+id/action_menuOrganizacion_to_itemAyudaOpciones"
+            app:destination="@id/itemAyudaOpciones" />
+        <action
+            android:id="@+id/action_menuOrganizacion_to_informacionOpciones"
+            app:destination="@id/informacionOpciones" />
+        <action
+            android:id="@+id/action_menuOrganizacion_to_terminosYcondiciones2"
+            app:destination="@id/terminosYcondiciones2" />
+    </fragment>
+    <fragment
+        android:id="@+id/informacionOpciones"
+        android:name="com.example.aqpgreen.ui.ModuloOrganizacion.InformacionOpciones"
+        android:label="fragment_informacion_opciones"
+        tools:layout="@layout/fragment_informacion_opciones" >
+        <action
+            android:id="@+id/action_informacionOpciones_to_menuOrganizacion"
+            app:destination="@id/menuOrganizacion" />
+        <action
+            android:id="@+id/action_informacionOpciones_to_itemAyudaOpciones"
+            app:destination="@id/itemAyudaOpciones" />
+        <action
+            android:id="@+id/action_informacionOpciones_to_terminosYcondiciones2"
+            app:destination="@id/terminosYcondiciones2" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemAyudaOpciones"
+        android:name="com.example.aqpgreen.ui.ModuloOrganizacion.ItemAyudaOpciones"
+        android:label="fragment_item_ayuda_opciones"
+        tools:layout="@layout/fragment_item_ayuda_opciones" >
+        <action
+            android:id="@+id/action_itemAyudaOpciones_to_informacionOpciones"
+            app:destination="@id/informacionOpciones" />
+        <action
+            android:id="@+id/action_itemAyudaOpciones_to_menuOrganizacion"
+            app:destination="@id/menuOrganizacion" />
+        <action
+            android:id="@+id/action_itemAyudaOpciones_to_terminosYcondiciones2"
+            app:destination="@id/terminosYcondiciones2" />
+    </fragment>
+    <fragment
+        android:id="@+id/terminosYcondiciones2"
+        android:name="com.example.aqpgreen.ui.ModuloOrganizacion.TerminosYcondiciones"
+        android:label="fragment_terminos_ycondiciones"
+        tools:layout="@layout/fragment_terminos_ycondiciones" >
+        <action
+            android:id="@+id/action_terminosYcondiciones2_to_menuOrganizacion"
+            app:destination="@id/menuOrganizacion" />
+        <action
+            android:id="@+id/action_terminosYcondiciones2_to_itemAyudaOpciones"
+            app:destination="@id/itemAyudaOpciones" />
+        <action
+            android:id="@+id/action_terminosYcondiciones2_to_informacionOpciones"
+            app:destination="@id/informacionOpciones" />
+    </fragment>
 </navigation>
