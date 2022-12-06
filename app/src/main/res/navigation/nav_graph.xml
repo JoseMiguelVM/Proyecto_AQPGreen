@@ -167,6 +167,18 @@
         <action
             android:id="@+id/action_menuOrganizacion_to_terminosYcondiciones2"
             app:destination="@id/terminosYcondiciones2" />
+        <action
+            android:id="@+id/action_menuOrganizacion_to_estadisticasGenerales"
+            app:destination="@id/estadisticasGenerales" />
+        <action
+            android:id="@+id/action_menuOrganizacion_to_noticiasPublicadas"
+            app:destination="@id/noticiasPublicadas" />
+        <action
+            android:id="@+id/action_menuOrganizacion_to_revisarDenuncias"
+            app:destination="@id/revisarDenuncias" />
+        <action
+            android:id="@+id/action_menuOrganizacion_to_revisionPeticiones"
+            app:destination="@id/revisionPeticiones" />
     </fragment>
     <fragment
         android:id="@+id/informacionOpciones"
@@ -212,5 +224,41 @@
         <action
             android:id="@+id/action_terminosYcondiciones2_to_informacionOpciones"
             app:destination="@id/informacionOpciones" />
+    </fragment>
+    <fragment
+        android:id="@+id/estadisticasGenerales"
+        android:name="com.example.aqpgreen.ui.ModuloOrganizacion.Estadisticas.EstadisticasGenerales"
+        android:label="fragment_estadisticas_generales"
+        tools:layout="@layout/fragment_estadisticas_generales" >
+        <action
+            android:id="@+id/action_estadisticasGenerales_to_menuOrganizacion"
+            app:destination="@id/menuOrganizacion" />
+    </fragment>
+    <fragment
+        android:id="@+id/noticiasPublicadas"
+        android:name="com.example.aqpgreen.ui.ModuloOrganizacion.Publicaciones.NoticiasPublicadas"
+        android:label="fragment_noticias_publicadas"
+        tools:layout="@layout/fragment_noticias_publicadas" >
+        <action
+            android:id="@+id/action_noticiasPublicadas_to_menuOrganizacion"
+            app:destination="@id/menuOrganizacion" />
+    </fragment>
+    <fragment
+        android:id="@+id/revisarDenuncias"
+        android:name="com.example.aqpgreen.ui.ModuloOrganizacion.DenunciasRecibidas.RevisarDenuncias"
+        android:label="fragment_revisar_denuncias"
+        tools:layout="@layout/fragment_revisar_denuncias" >
+        <action
+            android:id="@+id/action_revisarDenuncias_to_menuOrganizacion"
+            app:destination="@id/menuOrganizacion" />
+    </fragment>
+    <fragment
+        android:id="@+id/revisionPeticiones"
+        android:name="com.example.aqpgreen.ui.ModuloOrganizacion.PeticionesRecibidas.RevisionPeticiones"
+        android:label="fragment_revision_peticiones"
+        tools:layout="@layout/fragment_revision_peticiones" >
+        <action
+            android:id="@+id/action_revisionPeticiones_to_menuOrganizacion"
+            app:destination="@id/menuOrganizacion" />
     </fragment>
 </navigation>
