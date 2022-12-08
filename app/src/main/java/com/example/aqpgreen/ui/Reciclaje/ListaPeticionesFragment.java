@@ -3,7 +3,6 @@ package com.example.aqpgreen.ui.Reciclaje;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
-import android.database.sqlite.SQLiteException;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -11,7 +10,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
@@ -19,7 +18,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.TableLayout;
 
 import com.example.aqpgreen.R;
 import com.example.aqpgreen.database.Peticiones.PeticionDBController;
@@ -47,14 +45,9 @@ public class ListaPeticionesFragment extends Fragment {
     private String mParam2;
 
     private PeticionDBController db_peticiones;
-    private RecyclerView recyclerView;
     private SharedPreferences preferencias;
-    private SharedPreferences.Editor editor_preferencias;
     private FloatingActionButton btn_crear_peticion_fragment;
     private ImageButton btn_regresar_fragment;
-
-    private List<Peticion> lista_peticiones;
-    private String usuario_sesion;
 
     public ListaPeticionesFragment() {
         // Required empty public constructor
@@ -111,17 +104,17 @@ public class ListaPeticionesFragment extends Fragment {
         btn_regresar_fragment = view.findViewById(R.id.btnIcoAtras);
 
         preferencias = getContext().getSharedPreferences("var_sesion", Context.MODE_PRIVATE);
-        editor_preferencias = preferencias.edit();
+        //SharedPreferences.Editor editor_preferencias = preferencias.edit();
 
     }
 
     private void generar_recyclerView(View view) {
-        lista_peticiones = new ArrayList<>();
+        List<Peticion> lista_peticiones = new ArrayList<>();
         db_peticiones.open();
 
         // obtengo los datos y los añado al arraylist
         // lista_peticiones.add(new Peticion());
-        usuario_sesion = preferencias.getString("usuario", "none");
+        String usuario_sesion = preferencias.getString("usuario", "none");
         Cursor cursor = db_peticiones.fetch(usuario_sesion);
         if(cursor.getCount() != 0){
                 try{
@@ -134,18 +127,18 @@ public class ListaPeticionesFragment extends Fragment {
                 } finally {
                     cursor.close();
                 }
-            }
-            else {
-                Log.e("ListaPetCursorelse", "No hay registros");
-            }
+        }
+        else {
+            Log.e("ListaPetCursorelse", "No hay registros");
+        }
 
 
         db_peticiones.close();
 
         ListaPeticionAdaptador adaptador = new ListaPeticionAdaptador(lista_peticiones);
-        recyclerView = view.findViewById(R.id.recycleView_listaPeticiones);
+        RecyclerView recyclerView = view.findViewById(R.id.recycleView_listaPeticiones);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
         recyclerView.setAdapter(adaptador);
     }
 }
