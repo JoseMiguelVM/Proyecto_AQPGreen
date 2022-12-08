@@ -92,23 +92,21 @@ public class RegistroFragment extends Fragment {
         btn_registrar.setOnClickListener(v -> {
             String et_usuario_string = et_usuario.getText().toString();
             String et_correo_string = et_correo.getText().toString();
-            String st_contrasena_string = et_contrasena.getText().toString();
+            String et_contrasena_string = et_contrasena.getText().toString();
 
-            dbManager.insert(et_usuario_string, et_correo_string, et_correo_string);
+            dbManager.insert(et_usuario_string, et_correo_string, et_contrasena_string);
             dbManager.close();
             navController.popBackStack();
         });
 
-        btn_regresar_acceso.setOnClickListener(v -> {
-            navController.popBackStack();
-        });
+        btn_regresar_acceso.setOnClickListener(v -> navController.popBackStack());
     }
 
     private void inicializar_elementos (View view) {
-        et_usuario = (EditText) view.findViewById(R.id.RnombreUsuarioEdit);
-        et_correo = (EditText) view.findViewById(R.id.Rcorreo);
-        et_contrasena = (EditText) view.findViewById(R.id.RcontraseñaEdit);
-        btn_registrar = (Button) view.findViewById(R.id.botonRegistroCompleto);
-        btn_regresar_acceso = (Button) view.findViewById(R.id.logIn);
+        et_usuario = view.findViewById(R.id.RnombreUsuarioEdit);
+        et_correo = view.findViewById(R.id.Rcorreo);
+        et_contrasena = view.findViewById(R.id.RcontraseñaEdit);
+        btn_registrar = view.findViewById(R.id.botonRegistroCompleto);
+        btn_regresar_acceso = view.findViewById(R.id.logIn);
     }
 }
