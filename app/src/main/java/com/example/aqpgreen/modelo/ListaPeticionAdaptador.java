@@ -1,8 +1,8 @@
 package com.example.aqpgreen.modelo;
 
-import android.content.Context;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,35 +18,39 @@ import java.util.List;
 
 public class ListaPeticionAdaptador extends RecyclerView.Adapter<ListaPeticionAdaptador.ViewHolder> {
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        ImageView iv_foto_peticion;
-        TextView categoria_peticion, descripcion_peticion, estado_petición;
+        ImageView iv_foto_peticion, estado_peticion;
+        TextView categoria_peticion, descripcion_peticion, puntos_peticion;
 
         public ViewHolder (@NonNull View itemView) {
             super(itemView);
-            iv_foto_peticion = (ImageView) itemView.findViewById(R.id.iv_imagen_peticion);
+            iv_foto_peticion = itemView.findViewById(R.id.iv_imagen_peticion);
             descripcion_peticion = itemView.findViewById(R.id.tv_descripcion_peticion);
             categoria_peticion = itemView.findViewById(R.id.tv_categoria_peticion);
-            estado_petición = itemView.findViewById(R.id.tv_estado_peticion);
+            estado_peticion = itemView.findViewById(R.id.iv_estado_peticion);
+            puntos_peticion = itemView.findViewById(R.id.tv_puntos_peticion);
         }
 
         public void bindData (final Peticion elemento) {
-            //iv_foto_peticion.setColorFilter(Color.parseColor(elemento.getFoto()), PorterDuff.Mode.SRC_IN);
-            //iv_foto_peticion.setImageResource(R.drawable.foto_peticion);
+            Bitmap imagen_Bitmap = (Bitmap) BitmapFactory.decodeFile(elemento.getFoto());
+            iv_foto_peticion.setImageBitmap(imagen_Bitmap);
+            //iv_foto_peticion.setImageURI(Uri.parse(elemento.getFoto()));
             descripcion_peticion.setText(elemento.getDescripción());
             categoria_peticion.setText(elemento.getCategoria());
+            puntos_peticion.setText(elemento.getPuntos() + "pts.");
             switch (elemento.getEstado()) {
                 case 0 :
-                    estado_petición.setText("En espera");
+                    estado_peticion.setImageDrawable(itemView.getResources().getDrawable(R.drawable.ic_estado_en_espera_24));
                     break;
                 case 1 :
-                    estado_petición.setText("Aceptado");
+                    estado_peticion.setImageDrawable(itemView.getResources().getDrawable(R.drawable.ic_estado_aceptado_24));
                     break;
                 case 2 :
-                    estado_petición.setText("Rechazado");
+                    estado_peticion.setImageDrawable(itemView.getResources().getDrawable(R.drawable.ic_estado_rechazado_24));
                     break;
             }
+
         }
     }
 

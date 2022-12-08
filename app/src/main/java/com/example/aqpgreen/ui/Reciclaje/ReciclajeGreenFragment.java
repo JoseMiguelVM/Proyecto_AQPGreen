@@ -4,16 +4,20 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -30,17 +34,21 @@ import com.example.aqpgreen.database.Peticiones.PeticionDBController;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 public class ReciclajeGreenFragment extends Fragment {
 
     ActivityResultLauncher<Intent> camaraResLauncher;
     static int RESULT_OK = -1;
-    private View view;
-    //public static final String EXTRA_INFO = "default";
-    public static final int Image_Capture_Code = 1;
 
     private PeticionDBController db_peticiones;
     private SharedPreferences preferencias;
     //private SharedPreferences.Editor editor_preferencias;
+
     /*
     * Variables para la captura de datos
      */
@@ -53,17 +61,12 @@ public class ReciclajeGreenFragment extends Fragment {
     private FloatingActionButton btn_guardar_peticion;
     private ImageButton btn_regresar_fragment;
 
-    /*
-    * Atributos de la Peticion
-    * */
-    private String usuario_sesion;
-    private int puntos_plastico;
-    private int estado_peticion;
-    private String urlFoto;
+    private String url_foto;
     private String dd_categorias_plastico_string;
-    private String et_cantidad_plastico_string;
     private String dd_lugar_origen_string;
-    private String et_descripcion_plastico_string;
+
+    private File imagen_archivo;
+    private Uri foto_uri;
 
     //private String ruta_imagen;
     public ReciclajeGreenFragment() {
@@ -121,53 +124,59 @@ public class ReciclajeGreenFragment extends Fragment {
 
         camaraResLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
             if (result.getResultCode() == RESULT_OK){
-                Bundle extras = result.getData() != null ? result.getData().getExtras() : null;
-                Bitmap imgBitmap = (Bitmap) (extras != null ? extras.get("data") : null);
-                imgCapturada_preview.setImageBitmap(imgBitmap);
+                Bitmap imagen_Bitmap = (Bitmap) BitmapFactory.decodeFile(url_foto);
+                imgCapturada_preview.setImageBitmap(imagen_Bitmap);
             }
         });
 
         btnCamara.setOnClickListener(v -> {
 
-            /*File imagen_archivo = null;
-
             try {
                 imagen_archivo = crear_archivo_temp();
-            } catch (IOException ex) {
+                if (imagen_archivo != null) {
+                    foto_uri = FileProvider.getUriForFile(getContext(), "com.example.aqpgreen", imagen_archivo);
+                    camaraResLauncher.launch(new Intent(MediaStore.ACTION_IMAGE_CAPTURE).putExtra(MediaStore.EXTRA_OUTPUT, foto_uri));
+                }
+            }
+            catch (IOException ex) {
                 Log.e("Error", ex.toString());
             }
 
-            if (imagen_archivo != null) {
-                Uri foto_uri = FileProvider.getUriForFile(getContext(), "com.example.aqpgreen.ui.Reciclaje.fileprovider", imagen_archivo);*/
-                //camaraResLauncher.launch(new Intent(MediaStore.ACTION_IMAGE_CAPTURE).putExtra(MediaStore.EXTRA_OUTPUT, foto_uri));
-            camaraResLauncher.launch(new Intent(MediaStore.ACTION_IMAGE_CAPTURE));
-            //}
         });
     }
 
-    /*private void obtener_componentes_vista (View view) {
+    private File crear_archivo_temp() throws IOException {
 
-        btn_guardar_peticion.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                guardar_datos_peticion ();
-            }
-        });
+        String tiempo_archivo = new SimpleDateFormat("yyyyMMdd_HH-mm-ss", Locale.getDefault()).format(new Date());
+        String nombre_archivo = "IMG_" + tiempo_archivo + "_";
+        File directorio;
 
-    }*/
+        if (isExternalStorageWritable()) {
+            directorio = getContext().getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+        }
+        else {
+            directorio = getContext().getFilesDir();
+        }
+
+        File imagen_temp = File.createTempFile(nombre_archivo, ".jpg", directorio);
+        url_foto = imagen_temp.getAbsolutePath();
+        return imagen_temp;
+    }
+
+    private boolean isExternalStorageWritable() {
+        return Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED);
+    }
 
     private void guardar_datos_peticion () {
 
-        et_cantidad_plastico_string = et_cantidad_plastico.getEditText().getText().toString();
-        et_descripcion_plastico_string = et_descripcion_plastico.getEditText().getText().toString();
+        String et_cantidad_plastico_string = et_cantidad_plastico.getEditText().getText().toString();
+        String et_descripcion_plastico_string = et_descripcion_plastico.getEditText().getText().toString();
+        String usuario_sesion = preferencias.getString("usuario", "none");
+        int puntos_plastico = obtener_puntos_categoria(dd_categorias_plastico_string);
+        int estado_peticion = 0;
 
-        usuario_sesion = preferencias.getString("usuario", "none");
-        puntos_plastico = 15;
-        estado_peticion = 0;
-        urlFoto = "https://i.imgur.com/DvpvklR.png";
-
-        Log.e("MainActivity", usuario_sesion + ","+ dd_categorias_plastico_string +","+ et_cantidad_plastico_string+","
-                + dd_lugar_origen_string +","+et_descripcion_plastico_string +"," +puntos_plastico+"," +estado_peticion+","+urlFoto);
+        //Log.e("MainActivity", usuario_sesion + ","+ dd_categorias_plastico_string +","+ et_cantidad_plastico_string +","
+          //      + dd_lugar_origen_string +","+ et_descripcion_plastico_string +"," + puntos_plastico +"," + estado_peticion +","+url_foto);
 
         if (usuario_sesion.isEmpty() || dd_categorias_plastico_string == null ||
                 et_cantidad_plastico_string.isEmpty() || dd_lugar_origen_string == null ||
@@ -177,7 +186,7 @@ public class ReciclajeGreenFragment extends Fragment {
         else {
             db_peticiones.open();
             long confirm = db_peticiones.insert(usuario_sesion, dd_categorias_plastico_string, Integer.parseInt(et_cantidad_plastico_string),
-                    dd_lugar_origen_string, et_descripcion_plastico_string, puntos_plastico, estado_peticion, urlFoto);
+                    dd_lugar_origen_string, et_descripcion_plastico_string, puntos_plastico, estado_peticion, url_foto);
             db_peticiones.close();
 
             if (confirm == -1) {
@@ -186,16 +195,38 @@ public class ReciclajeGreenFragment extends Fragment {
                 Toast.makeText(getContext(), "Petición Guardada", Toast.LENGTH_SHORT).show();
                 et_cantidad_plastico.getEditText().getText().clear();
                 et_descripcion_plastico.getEditText().getText().clear();
+                imgCapturada_preview.setImageDrawable(getResources().getDrawable(R.drawable.ic_baseline_camera_alt_128));
             }
         }
     }
 
-    /*private File crear_archivo_temp () throws IOException {
-        String nombre_archivo = "foto_";
-        File dir = getContext().getExternalFilesDir(Environment.DIRECTORY_PICTURES);
-        File imagen_temp = File.createTempFile(nombre_archivo, ".jpg", dir);
+    private int obtener_puntos_categoria (String dd_categorias_plastico_string) {
+        int puntos_obtenidos = 0;
+        switch (dd_categorias_plastico_string) {
+            case "PET/PETE":
+                puntos_obtenidos = 5;
+                break;
+            case "HDPE":
+                puntos_obtenidos = 7;
+                break;
+            case "PVC":
+                puntos_obtenidos = 10;
+                break;
+            case "LDPE/PEDB":
+                puntos_obtenidos = 14;
+                break;
+            case "PP":
+                puntos_obtenidos = 15;
+                break;
+            case "PS":
+                puntos_obtenidos = 17;
+                break;
+            case "Otros":
+                puntos_obtenidos = 20;
+                break;
+        }
+        return puntos_obtenidos;
+    }
 
-        ruta_imagen = imagen_temp.getAbsolutePath();
-        return imagen_temp;
-    }*/
+
 }
