@@ -188,4 +188,123 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="376dp"
+        android:layout_height="115dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="82dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="534dp"
+        android:background="#ffffff"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="197dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:text="Pagina de Facebook"
+            android:textSize="19sp"
+            android:textStyle="bold|italic" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="239dp"
+            android:layout_height="54dp"
+            android:layout_marginLeft="12dp"
+            android:text="Pagina oficial de los desarrolladores, ingrese sus datos y el equipo de soporte se contactara con usted." />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="82dp"
+            android:layout_height="81dp"
+            android:layout_marginLeft="267dp"
+            android:layout_marginTop="-63dp"
+            android:src="@drawable/facebook" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:background="#ffffff"
+        android:layout_width="376dp"
+        android:layout_height="115dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="415dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="197dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:text="Enlace de WhatsApp"
+            android:textSize="19sp"
+            android:textStyle="bold|italic" />
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="239dp"
+            android:layout_height="54dp"
+            android:layout_marginLeft="12dp"
+            android:text="Contactese directamente con el equipo de soporte tecnico, por medio de la aplicacion WhatsApp." />
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="82dp"
+            android:layout_height="81dp"
+            android:layout_marginLeft="267dp"
+            android:layout_marginTop="-63dp"
+            android:src="@drawable/whatsapp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="376dp"
+        android:layout_height="117dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="294dp"
+        android:background="#ffffff"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="197dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:text="Realice una Llamada"
+            android:textSize="19sp"
+            android:textStyle="bold|italic" />
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="239dp"
+            android:layout_height="54dp"
+            android:layout_marginLeft="12dp"
+            android:text="Contactese directamente con el equipo de soporte tecnico, por medio de una llamada." />
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="82dp"
+            android:layout_height="81dp"
+            android:layout_marginLeft="267dp"
+            android:layout_marginTop="-63dp"
+            android:src="@drawable/telefono" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="93dp"
+        android:layout_marginBottom="179dp"
+        android:background="#2196F3"
+        android:backgroundTint="#2196F3"
+        android:text="Ver mapa de ubicacion" />
+
 </RelativeLayout>
