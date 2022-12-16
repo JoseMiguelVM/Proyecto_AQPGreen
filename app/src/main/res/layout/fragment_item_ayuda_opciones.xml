@@ -188,14 +188,14 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="375dp"
-        android:layout_height="142dp"
-        android:layout_alignParentTop="true"
+        android:layout_width="371dp"
+        android:layout_height="134dp"
+        android:layout_below="@+id/idLayoutFondo"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginTop="82dp"
-        android:layout_marginEnd="17dp"
-        android:layout_marginBottom="507dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="19dp"
+        android:layout_marginBottom="449dp"
         android:background="#ffffff"
         android:orientation="vertical">
 
@@ -235,13 +235,13 @@
     </LinearLayout>
 
     <LinearLayout
-        android:background="#ffffff"
-        android:layout_width="375dp"
-        android:layout_height="142dp"
+        android:layout_width="371dp"
+        android:layout_height="134dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="356dp"
+        android:layout_marginEnd="19dp"
+        android:layout_marginBottom="311dp"
+        android:background="#ffffff"
         android:orientation="vertical">
 
         <TextView
@@ -259,6 +259,7 @@
             android:layout_height="54dp"
             android:layout_marginLeft="12dp"
             android:text="Contactese directamente con el equipo de soporte tecnico, por medio de la aplicacion WhatsApp." />
+
         <ImageView
             android:id="@+id/imageView2"
             android:layout_width="82dp"
@@ -278,12 +279,12 @@
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="375dp"
-        android:layout_height="142dp"
+        android:layout_width="371dp"
+        android:layout_height="134dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="204dp"
+        android:layout_marginEnd="19dp"
+        android:layout_marginBottom="174dp"
         android:background="#ffffff"
         android:orientation="vertical">
 
@@ -322,16 +323,25 @@
 
     </LinearLayout>
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/round_back_notification_100"
+
+    <LinearLayout
+        android:layout_width="377dp"
+        android:layout_height="80dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="96dp"
-        android:layout_marginBottom="129dp"
-        android:backgroundTint="@color/home_20"
-        android:text="Ver mapa de ubicacion" />
+        android:layout_marginEnd="13dp"
+        android:layout_marginBottom="87dp"
+        android:background="@color/notification"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/redireccionMapa"
+            android:layout_width="259dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="62dp"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="#2196F3"
+            android:text="Ver mapa de ubicacion" />
+    </LinearLayout>
 
 </RelativeLayout>
