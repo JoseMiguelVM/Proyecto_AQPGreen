@@ -21,7 +21,7 @@ import com.example.aqpgreen.R;
 
 
 public class InformacionOpciones extends Fragment {
-    // TODO: Declaracion de Variables
+    // TODO: Declaracion de Variabless
     private LinearLayout homeLayout;
     private LinearLayout likeLayout;
     private LinearLayout notificationLayout;
