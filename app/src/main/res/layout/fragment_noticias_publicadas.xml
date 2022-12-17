@@ -1,14 +1,147 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.ModuloOrganizacion.Publicaciones.NoticiasPublicadas">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:background="#ffffff"
+        android:orientation="vertical">
 
-</FrameLayout>
+        <RelativeLayout
+            android:id="@+id/idLayoutFondo"
+            android:layout_width="match_parent"
+            android:layout_height="59dp"
+            android:layout_marginBottom="10dp"
+            android:background="#2196F3"
+            android:elevation="8dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tituloNews"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="130dp"
+                android:layout_marginTop="15dp"
+                android:gravity="center_horizontal"
+                android:text="Publicar Noticias"
+                android:textColor="@android:color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:id="@+id/btnIcoAtras"
+                android:layout_width="60dp"
+                android:layout_height="49dp"
+                android:backgroundTint="#03A9F4"
+                android:layout_marginStart="2dp"
+                android:contentDescription="@string/boton_regresar"
+                android:src="?attr/actionModeCloseDrawable"
+                app:tint="#FFFFFF" />
+
+
+            <ImageButton
+                android:id="@+id/btnAyuda"
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginTop="0dp"
+                android:background="#03A9F4"
+                android:src="@android:drawable/ic_menu_help" />
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="130dp"
+            android:layout_height="130dp"
+            android:layout_marginLeft="135dp"
+            android:src="@drawable/noticias2" />
+
+        <LinearLayout
+            android:layout_width="362dp"
+            android:layout_height="372dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/titulo1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Titulo de Noticia (*):"
+                android:textColor="#2196F3"
+                android:textSize="17sp"
+                android:textStyle="bold|italic" />
+
+            <EditText
+                android:id="@+id/tituloNoticia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Ingrese titulo de noticia breve"
+                android:inputType="textPersonName"
+                android:textColorHint="#B3ABAB"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/titulo2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="26dp"
+                android:text="Fecha de Noticia (*):"
+                android:textColor="#2196F3"
+                android:textSize="17sp"
+                android:textStyle="bold|italic" />
+
+            <EditText
+                android:id="@+id/fechaNoticia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="dd/mm/aa"
+                android:inputType="date"
+                android:textSize="16sp"/>
+
+            <TextView
+                android:id="@+id/titulo3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="26dp"
+                android:text="Descripcion de Noticia (*):"
+                android:textColor="#2196F3"
+                android:textSize="17sp"
+                android:textStyle="bold|italic" />
+
+            <EditText
+                android:id="@+id/descripcionNoticia"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="Ingrese descripcion de noticia "
+                android:inputType="textPersonName"
+                android:textColorHint="#B3ABAB"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="262dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="45dp"
+                android:layout_marginTop="46dp"
+                android:backgroundTint="#FF9800"
+                android:text="Publicar noticia" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -90,6 +90,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView_tituloMenu">
 
         <LinearLayout
+            android:id="@+id/peticionesRecibidas"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal|center_vertical"
@@ -128,6 +129,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView_tituloMenu">
 
         <LinearLayout
+            android:id="@+id/denunciasRecibidas"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal|center_vertical"
@@ -167,6 +169,7 @@
         app:layout_constraintTop_toBottomOf="@+id/cardView_Huella">
 
         <LinearLayout
+            android:id="@+id/publicarNoticias"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal|center_vertical"
@@ -205,6 +208,7 @@
         app:layout_constraintTop_toBottomOf="@+id/cardView_TipoPlastico">
 
         <LinearLayout
+            android:id="@+id/verEstadisticas"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal|center_vertical"
