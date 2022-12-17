@@ -57,10 +57,17 @@
 
         </RelativeLayout>
 
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="match_parent"
+            android:layout_height="134dp"
+            android:src="@drawable/baner" />
+
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView_listaCategorias"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_width="383dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="17dp" />
 
     </LinearLayout>
 

@@ -66,27 +66,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/idLayoutFondo">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center">
-
-            <ImageView
-                android:id="@+id/imagenPremio"
-                android:layout_width="84dp"
-                android:layout_height="87dp"
-                android:src="@drawable/premios" />
-            <TextView
-                android:id="@+id/textView4"
-                android:layout_width="204dp"
-                android:layout_marginStart="5dp"
-                android:layout_height="wrap_content"
-                android:text="Puede revisar la lista de premios ofrecidos por la organizacion y canjear el que mas desee."
-                android:textColor="#FFFDFD"
-                android:textStyle="bold" />
-        </LinearLayout>
-
         <Button
             android:id="@+id/Btn_listaDePremios"
             android:layout_width="250dp"
@@ -135,6 +114,30 @@
             android:text="@string/boton_denuncias"
             app:cornerRadius="50dp" />
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteX="-3dp"
+        tools:layout_editor_absoluteY="146dp">
+
+        <ImageView
+            android:id="@+id/imagenPremio"
+            android:layout_width="84dp"
+            android:layout_height="87dp"
+            android:src="@drawable/premios" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="204dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="Puede revisar la lista de premios ofrecidos por la organizacion y canjear el que mas desee."
+            android:textColor="#FFFDFD"
+            android:textStyle="bold|italic" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
