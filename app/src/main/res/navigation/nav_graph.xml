@@ -289,15 +289,27 @@
         android:id="@+id/infoExtraDenuncias"
         android:name="com.example.aqpgreen.ui.ModuloOrganizacion.ItemsOrganizacion.infoExtraDenuncias"
         android:label="fragment_info_extra_denuncias"
-        tools:layout="@layout/fragment_info_extra_denuncias" />
+        tools:layout="@layout/fragment_info_extra_denuncias" >
+        <action
+            android:id="@+id/action_infoExtraDenuncias_to_informacionOpciones"
+            app:destination="@id/informacionOpciones" />
+    </fragment>
     <fragment
         android:id="@+id/infoExtraNoticias"
         android:name="com.example.aqpgreen.ui.ModuloOrganizacion.ItemsOrganizacion.infoExtraNoticias"
         android:label="fragment_info_extra_noticias"
-        tools:layout="@layout/fragment_info_extra_noticias" />
+        tools:layout="@layout/fragment_info_extra_noticias" >
+        <action
+            android:id="@+id/action_infoExtraNoticias_to_informacionOpciones"
+            app:destination="@id/informacionOpciones" />
+    </fragment>
     <fragment
         android:id="@+id/infoExtraEstadistica"
         android:name="com.example.aqpgreen.ui.ModuloOrganizacion.ItemsOrganizacion.infoExtraEstadistica"
         android:label="fragment_info_extra_estadistica"
-        tools:layout="@layout/fragment_info_extra_estadistica" />
+        tools:layout="@layout/fragment_info_extra_estadistica" >
+        <action
+            android:id="@+id/action_infoExtraEstadistica_to_informacionOpciones"
+            app:destination="@id/informacionOpciones" />
+    </fragment>
 </navigation>
