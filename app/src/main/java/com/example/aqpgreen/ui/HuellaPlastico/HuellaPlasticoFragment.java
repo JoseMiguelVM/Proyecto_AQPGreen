@@ -94,9 +94,9 @@ public class HuellaPlasticoFragment extends Fragment {
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
                 //AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                builder.setTitle("Tu huella de plastico es: ");
+                builder.setTitle("Tu huella de plástico es: ");
                 double kgDeHuellaPlastica = CalculandHuellaPlastica();
-                String mensaje = String.valueOf(kgDeHuellaPlastica);
+                String mensaje = "Utilizarás "+String.valueOf(kgDeHuellaPlastica)+" kg. de plástico a lo largo de tu vida.";
                 builder.setMessage(mensaje);
 
 
@@ -132,23 +132,23 @@ public class HuellaPlasticoFragment extends Fragment {
         PastaDental = view.findViewById(R.id.editTextNumPastasDentales);
         VasoPlastico = view.findViewById(R.id.editTextNumVasosPlastico);
         OtroPlastic = view.findViewById(R.id.editTextNumKgDecimal);
-      //  OtroPlastic = view.findViewById(R.id.editTextNumOtrosPlastic);
+
 
         btn_regresar_fragment = view.findViewById(R.id.btnIcoAtras);
 
     }
     public Double CalculandHuellaPlastica(){
 
-        double botePET = Double.parseDouble(BotePET.getText().toString());
-        double botePlastic = Double.parseDouble(BotePlastic.getText().toString());
-        double envAlim = Double.parseDouble(EnvAlim.getText().toString());
-        double envaYogurt = Double.parseDouble( EnvaYogurt.getText().toString());
-        double envaLimpieza = Double.parseDouble(EnvaLimpieza.getText().toString());
-        double envaCosmetic = Double.parseDouble( EnvaCosmetic.getText().toString());
-        double cepDientes = Double.parseDouble(CepDientes.getText().toString());
-        double pastaDental = Double.parseDouble(PastaDental.getText().toString());
-        double vasoPlastico = Double.parseDouble(VasoPlastico.getText().toString());
-        double otroPlastic = Double.parseDouble(OtroPlastic.getText().toString());
+        double botePET= (BotePET.getText().toString().isEmpty()) ? 0: Double.parseDouble(BotePET.getText().toString());
+        double botePlastic = (BotePlastic.getText().toString().isEmpty())?0:Double.parseDouble(BotePlastic.getText().toString());
+        double envAlim = (EnvAlim.getText().toString().isEmpty())?0:Double.parseDouble(EnvAlim.getText().toString());
+        double envaYogurt = (EnvaYogurt.getText().toString().isEmpty())?0:Double.parseDouble( EnvaYogurt.getText().toString());
+        double envaLimpieza = (EnvaLimpieza.getText().toString().isEmpty())?0:Double.parseDouble(EnvaLimpieza.getText().toString());
+        double envaCosmetic = (EnvaCosmetic.getText().toString().isEmpty())?0:Double.parseDouble( EnvaCosmetic.getText().toString());
+        double cepDientes = (CepDientes.getText().toString().isEmpty())?0:Double.parseDouble(CepDientes.getText().toString());
+        double pastaDental = (PastaDental.getText().toString().isEmpty())?0:Double.parseDouble(PastaDental.getText().toString());
+        double vasoPlastico = (VasoPlastico.getText().toString().isEmpty())?0:Double.parseDouble(VasoPlastico.getText().toString());
+        double otroPlastic = (OtroPlastic.getText().toString().isEmpty())?0:Double.parseDouble(OtroPlastic.getText().toString());
 
         double calculandoHuellaSemanal = (
                 (botePET*0.036)
@@ -162,7 +162,9 @@ public class HuellaPlasticoFragment extends Fragment {
                 +(vasoPlastico*0.003)+(otroPlastic));
 
         double HuellaPlasticoAnual = calculandoHuellaSemanal * 48;
-        double HuellaPlasticoVida = HuellaPlasticoAnual*65;
+        double HuellaPlasticoVidasinredondear = HuellaPlasticoAnual*65;
+        double HuellaPlasticoVida = Math.round(HuellaPlasticoVidasinredondear*100.0)/100.0;
+
         System.out.println("CONSUMES  "+HuellaPlasticoVida+ "KG A LA LARGO DE TU VIDA");
 
         return HuellaPlasticoVida;
