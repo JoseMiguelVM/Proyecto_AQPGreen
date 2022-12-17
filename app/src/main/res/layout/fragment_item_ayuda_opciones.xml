@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/notification"
-    tools:context=".ui.ModuloOrganizacion.ItemAyudaOpciones">
+    tools:context=".ui.ModuloOrganizacion.ItemsOrganizacion.ItemAyudaOpciones">
 
     <RelativeLayout
         android:id="@+id/idLayoutFondo"

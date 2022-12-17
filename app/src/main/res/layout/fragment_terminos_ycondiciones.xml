@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#FFFFFF"
-    tools:context=".ui.ModuloOrganizacion.TerminosYcondiciones">
+    tools:context=".ui.ModuloOrganizacion.ItemsOrganizacion.TerminosYcondiciones">
 
     <RelativeLayout
         android:id="@+id/idLayoutFondo"

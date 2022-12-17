@@ -3,9 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/like"
+    android:background="#8E16A3"
     android:layout_height="match_parent"
-    tools:context=".ui.ModuloOrganizacion.InformacionOpciones">
+    tools:context=".ui.ModuloOrganizacion.ItemsOrganizacion.InformacionOpciones">
 
     <RelativeLayout
         android:id="@+id/idLayoutFondo"
@@ -202,5 +202,41 @@
                 android:textSize="16sp"/>
         </LinearLayout>
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/infoPeticionesRecibidas"
+        android:layout_width="322dp"
+        android:layout_height="141dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="448dp"
+        android:layout_marginLeft="25dp"
+        android:src="@drawable/peticioninfo" />
+
+    <ImageView
+        android:id="@+id/infoDenunciasRecibidas"
+        android:layout_width="322dp"
+        android:layout_height="141dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="65dp"
+        android:layout_marginBottom="335dp"
+        android:src="@drawable/denunciainfo" />
+    <ImageView
+        android:id="@+id/infoPublicarNoticias"
+        android:layout_width="322dp"
+        android:layout_height="141dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="25dp"
+        android:layout_marginBottom="222dp"
+        android:src="@drawable/noticiasinfo" />
+
+    <ImageView
+        android:id="@+id/infoEstadisticas"
+        android:layout_width="322dp"
+        android:layout_height="141dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="65dp"
+        android:layout_marginBottom="109dp"
+        android:src="@drawable/estadisticasinfo" />
+
 
 </RelativeLayout>
