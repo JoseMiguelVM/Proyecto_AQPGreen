@@ -12,6 +12,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.aqpgreen.R;
 
 import java.util.List;
@@ -32,10 +36,18 @@ public class ListaPeticionAdaptador extends RecyclerView.Adapter<ListaPeticionAd
             puntos_peticion = itemView.findViewById(R.id.tv_puntos_peticion);
         }
 
-        public void bindData (final Peticion elemento) {
-            Bitmap imagen_Bitmap = (Bitmap) BitmapFactory.decodeFile(elemento.getFoto());
-            iv_foto_peticion.setImageBitmap(imagen_Bitmap);
-            //iv_foto_peticion.setImageURI(Uri.parse(elemento.getFoto()));
+        public void bindData (final Peticion elemento, @NonNull ListaPeticionAdaptador.ViewHolder holder) {
+            //Bitmap imagen_Bitmap = (Bitmap) BitmapFactory.decodeFile(elemento.getFoto());
+            //iv_foto_peticion.setImageBitmap(imagen_Bitmap);
+
+            Glide.with(holder.itemView.getContext())
+                    .load(elemento.getFoto())
+                    .centerCrop()
+                    .placeholder(R.drawable.fragment_reciclaje_icon1)
+                    .diskCacheStrategy(DiskCacheStrategy.ALL)
+                    .apply(RequestOptions.bitmapTransform(new RoundedCorners(20)))
+                    .into(iv_foto_peticion);
+
             descripcion_peticion.setText(elemento.getDescripción());
             categoria_peticion.setText(elemento.getCategoria());
             puntos_peticion.setText(elemento.getPuntos() + "pts.");
@@ -69,7 +81,9 @@ public class ListaPeticionAdaptador extends RecyclerView.Adapter<ListaPeticionAd
 
     @Override
     public void onBindViewHolder(@NonNull ListaPeticionAdaptador.ViewHolder holder, int position) {
-        holder.bindData(lista_peticiones.get(position));
+        holder.bindData(lista_peticiones.get(position), holder);
+
+        //holder.itemView.setOnClickListener();
     }
 
     @Override

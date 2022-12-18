@@ -4,6 +4,14 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.ProgressBar;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -13,12 +21,6 @@ import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageButton;
-
 import com.example.aqpgreen.R;
 import com.example.aqpgreen.database.Peticiones.PeticionDBController;
 import com.example.aqpgreen.modelo.ListaPeticionAdaptador;
@@ -27,6 +29,8 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -48,6 +52,7 @@ public class ListaPeticionesFragment extends Fragment {
     private SharedPreferences preferencias;
     private FloatingActionButton btn_crear_peticion_fragment;
     private ImageButton btn_regresar_fragment;
+    private ProgressBar pb_icono_carga;
 
     public ListaPeticionesFragment() {
         // Required empty public constructor
@@ -102,6 +107,7 @@ public class ListaPeticionesFragment extends Fragment {
     public void inicializar_elementos (View view) {
         btn_crear_peticion_fragment = view.findViewById(R.id.RegistroButton);
         btn_regresar_fragment = view.findViewById(R.id.btnIcoAtras);
+        pb_icono_carga = view.findViewById(R.id.pb_icono_carga);
 
         preferencias = getContext().getSharedPreferences("var_sesion", Context.MODE_PRIVATE);
         //SharedPreferences.Editor editor_preferencias = preferencias.edit();
@@ -109,14 +115,17 @@ public class ListaPeticionesFragment extends Fragment {
     }
 
     private void generar_recyclerView(View view) {
-        List<Peticion> lista_peticiones = new ArrayList<>();
-        db_peticiones.open();
 
-        // obtengo los datos y los añado al arraylist
-        // lista_peticiones.add(new Peticion());
+        ExecutorService hilo = Executors.newSingleThreadExecutor();
+        Handler handler = new Handler(Looper.getMainLooper());
+
+        List<Peticion> lista_peticiones = new ArrayList<>();
         String usuario_sesion = preferencias.getString("usuario", "none");
-        Cursor cursor = db_peticiones.fetch(usuario_sesion);
-        if(cursor.getCount() != 0){
+
+        hilo.execute(() -> {
+            db_peticiones.open();
+            Cursor cursor = db_peticiones.fetch(usuario_sesion);
+            if(cursor.getCount() != 0){
                 try{
                     for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
                         lista_peticiones.add(new Peticion(cursor.getInt(0), cursor.getString(2),
@@ -127,18 +136,20 @@ public class ListaPeticionesFragment extends Fragment {
                 } finally {
                     cursor.close();
                 }
-        }
-        else {
-            Log.e("ListaPetCursorelse", "No hay registros");
-        }
+            }
+            else {
+                Log.e("ListaPetCursorelse", "No hay registros");
+            }
+            db_peticiones.close();
 
-
-        db_peticiones.close();
-
-        ListaPeticionAdaptador adaptador = new ListaPeticionAdaptador(lista_peticiones);
-        RecyclerView recyclerView = view.findViewById(R.id.recycleView_listaPeticiones);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
-        recyclerView.setAdapter(adaptador);
+            handler.post(() -> {
+                pb_icono_carga.setVisibility(View.GONE);
+                ListaPeticionAdaptador adaptor = new ListaPeticionAdaptador(lista_peticiones);
+                RecyclerView recyclerView = view.findViewById(R.id.recycleView_listaPeticiones);
+                recyclerView.setHasFixedSize(true);
+                recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
+                recyclerView.setAdapter(adaptor);
+            });
+        });
     }
 }

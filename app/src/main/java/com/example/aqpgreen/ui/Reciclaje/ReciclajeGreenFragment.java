@@ -3,20 +3,8 @@ package com.example.aqpgreen.ui.Reciclaje;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.content.FileProvider;
-import androidx.fragment.app.Fragment;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.util.Log;
@@ -29,6 +17,19 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.content.FileProvider;
+import androidx.fragment.app.Fragment;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.aqpgreen.R;
 import com.example.aqpgreen.database.Peticiones.PeticionDBController;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -61,7 +62,7 @@ public class ReciclajeGreenFragment extends Fragment {
     private FloatingActionButton btn_guardar_peticion;
     private ImageButton btn_regresar_fragment;
 
-    private String url_foto;
+    private String url_foto = "";
     private String dd_categorias_plastico_string;
     private String dd_lugar_origen_string;
 
@@ -86,10 +87,9 @@ public class ReciclajeGreenFragment extends Fragment {
 
         final NavController navController = Navigation.findNavController(view);
         inicializar_elementos(view);
-        tomar_captura();
+        tomar_captura(view);
 
         btn_regresar_fragment.setOnClickListener(view1 -> navController.popBackStack());
-
         btn_guardar_peticion.setOnClickListener(view12 -> guardar_datos_peticion ());
     }
 
@@ -120,12 +120,19 @@ public class ReciclajeGreenFragment extends Fragment {
 
     }
 
-    public void tomar_captura () {
+    public void tomar_captura (View view) {
 
         camaraResLauncher = registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), result -> {
             if (result.getResultCode() == RESULT_OK){
-                Bitmap imagen_Bitmap = (Bitmap) BitmapFactory.decodeFile(url_foto);
-                imgCapturada_preview.setImageBitmap(imagen_Bitmap);
+                Glide.with(view)
+                        .load(url_foto)
+                        .centerCrop()
+                        .placeholder(R.drawable.fragment_reciclaje_icon1)
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .apply(RequestOptions.bitmapTransform(new RoundedCorners(20)))
+                        .into(imgCapturada_preview);
+                //Bitmap imagen_Bitmap = (Bitmap) BitmapFactory.decodeFile(url_foto);
+                //imgCapturada_preview.setImageBitmap(imagen_Bitmap);
             }
         });
 
@@ -133,10 +140,8 @@ public class ReciclajeGreenFragment extends Fragment {
 
             try {
                 imagen_archivo = crear_archivo_temp();
-                if (imagen_archivo != null) {
-                    foto_uri = FileProvider.getUriForFile(getContext(), "com.example.aqpgreen", imagen_archivo);
-                    camaraResLauncher.launch(new Intent(MediaStore.ACTION_IMAGE_CAPTURE).putExtra(MediaStore.EXTRA_OUTPUT, foto_uri));
-                }
+                foto_uri = FileProvider.getUriForFile(getContext(), "com.example.aqpgreen", imagen_archivo);
+                camaraResLauncher.launch(new Intent(MediaStore.ACTION_IMAGE_CAPTURE).putExtra(MediaStore.EXTRA_OUTPUT, foto_uri));
             }
             catch (IOException ex) {
                 Log.e("Error", ex.toString());
