@@ -26,12 +26,6 @@ public class ComunidadFragment extends Fragment{
     public ComunidadFragment() {
         // Required empty public constructor
     }
-    /*
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-    }*/
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -56,7 +50,7 @@ public class ComunidadFragment extends Fragment{
         btn_ir_premios.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navController.navigate(R.id.recyclerview);
+                navController.navigate(R.id.listaDePremios);
             }
         });
 

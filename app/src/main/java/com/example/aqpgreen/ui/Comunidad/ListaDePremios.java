@@ -14,15 +14,15 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.example.aqpgreen.R;
-import com.example.aqpgreen.modelo.AdaptadorPremios;
+import com.example.aqpgreen.modelo.ListaPremiosAdaptador;
 import com.example.aqpgreen.modelo.Premios;
 
 import java.util.ArrayList;
 
 public class ListaDePremios extends Fragment {
-    ArrayList<Premios> listaPremios;
-    RecyclerView recyclerPremios;
-    ListaDePremios listaDePremios;
+    private ArrayList<Premios> listaPremios;
+    private RecyclerView recyclerPremios;
+    //ListaDePremios listaDePremios;
 
     public ListaDePremios() {
         // Required empty public constructor
@@ -44,41 +44,42 @@ public class ListaDePremios extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View vista=inflater.inflate(R.layout.fragment_lista_de_premios, container, false);
-        listaPremios=new ArrayList<>();
-        recyclerPremios = vista.findViewById(R.id.recyclerView_listaPremios);
-        recyclerPremios.setLayoutManager(new LinearLayoutManager(getContext()));
-        llenarListaPremios();
-
-        AdaptadorPremios adapter = new AdaptadorPremios(listaPremios);
-        recyclerPremios.setAdapter(adapter);
-
-        adapter.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getContext(), "Selecciona: "+listaPremios.get(recyclerPremios.getChildAdapterPosition(view)).getNombre(), Toast.LENGTH_SHORT).show();
-            }
-        });
-        return vista;
-    }
-
-    private void llenarListaPremios() {
-        listaPremios.add(new Premios("Arbol Pequeño", "", R.drawable.tipoplastico));
-        listaPremios.add(new Premios("Arbol Pequeño", "", R.drawable.tipoplastico));
-        listaPremios.add(new Premios("Arbol Pequeño", "", R.drawable.tipoplastico));
-        listaPremios.add(new Premios("Arbol Pequeño", "", R.drawable.tipoplastico));
-        listaPremios.add(new Premios("Arbol Pequeño", "", R.drawable.tipoplastico));
-        listaPremios.add(new Premios("Arbol Pequeño", "", R.drawable.tipoplastico));
-        listaPremios.add(new Premios("Arbol Pequeño", "", R.drawable.tipoplastico));
-        listaPremios.add(new Premios("Arbol Pequeño", "", R.drawable.tipoplastico));
-        listaPremios.add(new Premios("Arbol Pequeño", "", R.drawable.tipoplastico));
-        listaPremios.add(new Premios("Arbol Pequeño", "", R.drawable.tipoplastico));
-        listaPremios.add(new Premios("Arbol Pequeño", "", R.drawable.tipoplastico));
+        return inflater.inflate(R.layout.fragment_lista_de_premios, container, false);
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        listaPremios=new ArrayList<>();
+        recyclerPremios= (RecyclerView) view.findViewById(R.id.recyclerView_listaPremios);
+        recyclerPremios.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        llenarListaPremios();
+
+        ListaPremiosAdaptador adapter = new ListaPremiosAdaptador(listaPremios);
+        recyclerPremios.setAdapter(adapter);
+
+        adapter.setOnClickListener(view1 -> {
+            Toast.makeText(getContext(),"Seleccion: "+
+                    listaPremios.get(recyclerPremios.
+                            getChildAdapterPosition(view1)).getNombre(),Toast.LENGTH_SHORT).show();
+
+            //interfaceComunicaFragments.enviarPlastico(listaPlastico.get(recyclerPlastico.getChildAdapterPosition(view)));
+        });
+    }
+
+    private void llenarListaPremios() {
+        listaPremios.add(new Premios("Arbol Pequeño", "xxx", R.drawable.tipoplastico));
+        listaPremios.add(new Premios("Arbol Pequeño", "xxxx", R.drawable.tipoplastico));
+        listaPremios.add(new Premios("Arbol Pequeño", "xxxx", R.drawable.tipoplastico));
+        listaPremios.add(new Premios("Arbol Pequeño", "xxxx", R.drawable.tipoplastico));
+        listaPremios.add(new Premios("Arbol Pequeño", "xxxxx", R.drawable.tipoplastico));
+        listaPremios.add(new Premios("Arbol Pequeño", "xxxx", R.drawable.tipoplastico));
+        listaPremios.add(new Premios("Arbol Pequeño", "xxxx", R.drawable.tipoplastico));
+        listaPremios.add(new Premios("Arbol Pequeño", "xxxx", R.drawable.tipoplastico));
+        listaPremios.add(new Premios("Arbol Pequeño", "xxxx", R.drawable.tipoplastico));
+        listaPremios.add(new Premios("Arbol Pequeño", "xxxx", R.drawable.tipoplastico));
+        listaPremios.add(new Premios("Arbol Pequeño", "xxxx", R.drawable.tipoplastico));
     }
 }

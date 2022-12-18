@@ -12,31 +12,31 @@ import com.example.aqpgreen.R;
 
 import java.util.ArrayList;
 
-public class AdaptadorPremios extends RecyclerView.Adapter<AdaptadorPremios.PremiosViewHolder> implements View.OnClickListener{
+public class ListaPremiosAdaptador extends RecyclerView.Adapter<ListaPremiosAdaptador.PremiosViewHolder> implements View.OnClickListener{
 
-    ArrayList<Premios> premiosArrayList;
+    ArrayList<Premios> listaPremios;
     private View.OnClickListener listener;
 
-    public AdaptadorPremios(ArrayList<Premios> premiosArrayList){ // constructor
-        this.premiosArrayList = premiosArrayList;
+    public ListaPremiosAdaptador(ArrayList<Premios> listaPremios){ // constructor
+        this.listaPremios = listaPremios;
     }
 
     @Override
     public PremiosViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.listapremiosdesign,null,false);
+        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list_premios,null,false);
         view.setOnClickListener(this);
         return new PremiosViewHolder (view);
     }
 
     @Override
     public void onBindViewHolder(PremiosViewHolder holder, int position) {
-        holder.txtNombre.setText(premiosArrayList.get(position).getNombre());
-        holder.txtInformacion.setText(premiosArrayList.get(position).getInfo());
-        holder.foto.setImageResource(premiosArrayList.get(position).getImagenId());
+        holder.txtNombre.setText(listaPremios.get(position).getNombre());
+        holder.txtInformacion.setText(listaPremios.get(position).getInfo());
+        holder.foto.setImageResource(listaPremios.get(position).getImagenId());
     }
 
     public int getItemCount(){
-        return premiosArrayList.size();
+        return listaPremios.size();
     }
 
     public void setOnClickListener(View.OnClickListener listener){
@@ -49,7 +49,6 @@ public class AdaptadorPremios extends RecyclerView.Adapter<AdaptadorPremios.Prem
             listener.onClick(view);
         }
     }
-
 
     public class PremiosViewHolder  extends RecyclerView.ViewHolder {
         TextView txtNombre,txtInformacion;
