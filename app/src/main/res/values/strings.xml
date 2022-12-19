@@ -51,6 +51,13 @@
     <string name="label_correo_electronico">Correo Electronico</string>
     <string name="button_registrarse">Registrarse</string>
     <string name="label_formas_registrarse">o ingrese por</string>
+
+    <string name="label_denuncia_dni">Ingrese DNI</string>
+    <string name="label_denuncia_nombres">Ingrese Nombre</string>
+    <string name="label_denuncia_ubicacion">Ingrese Ubicaion</string>
+    <string name="label_denuncia_descripcion">Ingrese Descripcion</string>
+    <string name="label_boton_guardar_denuncia">Registrar Denuncia</string>
+
     <string name="large_text">
         "Material is the metaphor.\n\n"
 
