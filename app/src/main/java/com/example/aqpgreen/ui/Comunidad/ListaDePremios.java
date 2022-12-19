@@ -70,16 +70,16 @@ public class ListaDePremios extends Fragment {
     }
 
     private void llenarListaPremios() {
-        listaPremios.add(new Premios("Arbol Pequeño", "xxx", R.drawable.tipoplastico));
-        listaPremios.add(new Premios("Arbol Pequeño", "xxxx", R.drawable.tipoplastico));
-        listaPremios.add(new Premios("Arbol Pequeño", "xxxx", R.drawable.tipoplastico));
-        listaPremios.add(new Premios("Arbol Pequeño", "xxxx", R.drawable.tipoplastico));
-        listaPremios.add(new Premios("Arbol Pequeño", "xxxxx", R.drawable.tipoplastico));
-        listaPremios.add(new Premios("Arbol Pequeño", "xxxx", R.drawable.tipoplastico));
-        listaPremios.add(new Premios("Arbol Pequeño", "xxxx", R.drawable.tipoplastico));
-        listaPremios.add(new Premios("Arbol Pequeño", "xxxx", R.drawable.tipoplastico));
-        listaPremios.add(new Premios("Arbol Pequeño", "xxxx", R.drawable.tipoplastico));
-        listaPremios.add(new Premios("Arbol Pequeño", "xxxx", R.drawable.tipoplastico));
-        listaPremios.add(new Premios("Arbol Pequeño", "xxxx", R.drawable.tipoplastico));
+        listaPremios.add(new Premios("Árbol Pequeño", "Usted puede canjear este premio y poder plantarlo en su hogar, para asi promover el plantio de mas areas verdes.", R.drawable.arbol));
+        listaPremios.add(new Premios("Gorra y Polo", "Estos premios reflejan su compromiso con la contaminacion ambiental.", R.drawable.gorra));
+        listaPremios.add(new Premios("Mochila", "Es uno de los premios mas bellos, con este podras llevar todo el potencial clasico de las mochilas urbanas.", R.drawable.mochila));
+        listaPremios.add(new Premios("Ropa para Perros", "Este premio es ideal para los consentidos de la casa y la moda que pueden llevar nuestros bebes caninos.", R.drawable.ropaperros));
+        listaPremios.add(new Premios("Ropa para Gatos", "Este premio es ideal para los consentidos de la casa y la moda que pueden llevar nuestros bebes gatunos.", R.drawable.ropagatos));
+        listaPremios.add(new Premios("Realizar Donación", "El premio mas importante, usted podra donar sus puntos acumulados a alguna organizacion benefica", R.drawable.donacion));
+        listaPremios.add(new Premios("Ricocan (8KG)", "Ricocan Adulto Multisabores Todas las Razas, el mejor alimento para el engreido de casa.", R.drawable.ricocan));
+        listaPremios.add(new Premios("Ricocat (9KG)", "Ricocat Adultos Atun, Sardina Y Trucha, el mejor alimento para el engreido de casa.", R.drawable.ricocat));
+        listaPremios.add(new Premios("Patines Eléctricos", "Una moda ecológica y eficiente. Es fácil de conducir y plegar, no requiere mantenimiento y es sostenible con el medio ambiente.", R.drawable.patines));
+        listaPremios.add(new Premios("Bicicletas Eléctricas", "Cabe destacar que permiten subir fácilmente terrenos con un gran desnivel, además de fomentar la práctica deportiva.", R.drawable.bicicleta));
+        listaPremios.add(new Premios("Tablets", "El premio que puede ayudarte a estar conectado con las personas que deseas y claro, poder descargar nuestra app AQP Green.", R.drawable.tablet));
     }
 }
