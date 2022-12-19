@@ -3,6 +3,7 @@ package com.example.aqpgreen.modelo;
 public class Peticion {
 
     private long id;
+    private String usuario;
     private String categoria;
     private int cantidad;
     private String lugar_origen;
@@ -11,8 +12,9 @@ public class Peticion {
     private int estado;
     private String foto;
 
-    public Peticion(long id, String categoria, int cantidad, String lugar_origen, String descripción, int puntos, int estado, String foto) {
+    public Peticion(long id, String usuario, String categoria, int cantidad, String lugar_origen, String descripción, int puntos, int estado, String foto) {
         this.id = id;
+        this.usuario = usuario;
         this.categoria = categoria;
         this.cantidad = cantidad;
         this.lugar_origen = lugar_origen;
@@ -84,5 +86,9 @@ public class Peticion {
 
     public void setFoto(String foto) {
         this.foto = foto;
+    }
+
+    public String getUsuario() {
+        return usuario;
     }
 }
