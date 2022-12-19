@@ -7,6 +7,20 @@
     tools:context=".ui.Reciclaje.ListaPeticionesFragment"
     android:background="@drawable/fondopeticion">
 
+    <TextView
+        android:id="@+id/tv_lista_vacia"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <ProgressBar
         android:id="@+id/pb_icono_carga"
         android:layout_width="wrap_content"

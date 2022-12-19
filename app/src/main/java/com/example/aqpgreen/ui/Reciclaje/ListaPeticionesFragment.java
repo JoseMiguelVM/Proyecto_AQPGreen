@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -23,7 +24,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.aqpgreen.R;
 import com.example.aqpgreen.database.Peticiones.PeticionDBController;
-import com.example.aqpgreen.modelo.ListaPeticionAdaptador;
+import com.example.aqpgreen.modelo.ListaPeticionUsuarioAdaptador;
 import com.example.aqpgreen.modelo.Peticion;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -53,6 +54,7 @@ public class ListaPeticionesFragment extends Fragment {
     private FloatingActionButton btn_crear_peticion_fragment;
     private ImageButton btn_regresar_fragment;
     private ProgressBar pb_icono_carga;
+    private TextView tv_aviso_vacio;
 
     public ListaPeticionesFragment() {
         // Required empty public constructor
@@ -108,6 +110,7 @@ public class ListaPeticionesFragment extends Fragment {
         btn_crear_peticion_fragment = view.findViewById(R.id.RegistroButton);
         btn_regresar_fragment = view.findViewById(R.id.btnIcoAtras);
         pb_icono_carga = view.findViewById(R.id.pb_icono_carga);
+        tv_aviso_vacio = view.findViewById(R.id.tv_lista_vacia);
 
         preferencias = getContext().getSharedPreferences("var_sesion", Context.MODE_PRIVATE);
         //SharedPreferences.Editor editor_preferencias = preferencias.edit();
@@ -128,7 +131,7 @@ public class ListaPeticionesFragment extends Fragment {
             if(cursor.getCount() != 0){
                 try{
                     for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
-                        lista_peticiones.add(new Peticion(cursor.getInt(0), cursor.getString(2),
+                        lista_peticiones.add(new Peticion(cursor.getInt(0), cursor.getString(1), cursor.getString(2),
                                 cursor.getInt(3), cursor.getString(4), cursor.getString(5), cursor.getInt(6), cursor.getInt(7), cursor.getString(8)));
                     }
                 } catch (Exception e){
@@ -138,13 +141,14 @@ public class ListaPeticionesFragment extends Fragment {
                 }
             }
             else {
-                Log.e("ListaPetCursorelse", "No hay registros");
+                //Log.e("ListaPetCursorelse", "No hay registros");
+                tv_aviso_vacio.setText("No tienes peticiones\nCrea una nueva.");
             }
             db_peticiones.close();
 
             handler.post(() -> {
                 pb_icono_carga.setVisibility(View.GONE);
-                ListaPeticionAdaptador adaptor = new ListaPeticionAdaptador(lista_peticiones);
+                ListaPeticionUsuarioAdaptador adaptor = new ListaPeticionUsuarioAdaptador(lista_peticiones);
                 RecyclerView recyclerView = view.findViewById(R.id.recycleView_listaPeticiones);
                 recyclerView.setHasFixedSize(true);
                 recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
