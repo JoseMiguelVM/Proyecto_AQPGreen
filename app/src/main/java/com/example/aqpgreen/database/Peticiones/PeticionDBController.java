@@ -58,6 +58,18 @@ public class PeticionDBController {
         }
     }
 
+    public Cursor fetch (){
+        try {
+            Cursor cursor = database.rawQuery("SELECT * FROM " + ConectorPeticionesDB.TABLE_NAME, null);
+            return cursor;
+        }
+        catch(SQLiteException e){
+            dbHelper.DBcreateTable(database);
+            Cursor cursor = database.rawQuery("SELECT * FROM " + ConectorPeticionesDB.TABLE_NAME, null);
+            return cursor;
+        }
+    }
+
     public Cursor fetch(String _usuario) {
         try {
             Cursor cursor = database.rawQuery("SELECT * FROM " + ConectorPeticionesDB.TABLE_NAME + " WHERE "
