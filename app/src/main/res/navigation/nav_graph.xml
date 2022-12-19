@@ -266,7 +266,7 @@
     </fragment>
     <fragment
         android:id="@+id/revisionPeticiones"
-        android:name="com.example.aqpgreen.ui.ModuloOrganizacion.PeticionesRecibidas.RevisionPeticiones"
+        android:name="com.example.aqpgreen.ui.ModuloOrganizacion.PeticionesRecibidas.RevisionPeticionesFragment"
         android:label="fragment_revision_peticiones"
         tools:layout="@layout/fragment_revision_peticiones" >
         <action
