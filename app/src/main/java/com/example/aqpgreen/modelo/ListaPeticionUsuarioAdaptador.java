@@ -1,8 +1,5 @@
 package com.example.aqpgreen.modelo;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +17,7 @@ import com.example.aqpgreen.R;
 
 import java.util.List;
 
-public class ListaPeticionAdaptador extends RecyclerView.Adapter<ListaPeticionAdaptador.ViewHolder> {
+public class ListaPeticionUsuarioAdaptador extends RecyclerView.Adapter<ListaPeticionUsuarioAdaptador.ViewHolder> {
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
@@ -36,10 +33,7 @@ public class ListaPeticionAdaptador extends RecyclerView.Adapter<ListaPeticionAd
             puntos_peticion = itemView.findViewById(R.id.tv_puntos_peticion);
         }
 
-        public void bindData (final Peticion elemento, @NonNull ListaPeticionAdaptador.ViewHolder holder) {
-            //Bitmap imagen_Bitmap = (Bitmap) BitmapFactory.decodeFile(elemento.getFoto());
-            //iv_foto_peticion.setImageBitmap(imagen_Bitmap);
-
+        public void bindData (final Peticion elemento, @NonNull ListaPeticionUsuarioAdaptador.ViewHolder holder) {
             Glide.with(holder.itemView.getContext())
                     .load(elemento.getFoto())
                     .centerCrop()
@@ -68,19 +62,19 @@ public class ListaPeticionAdaptador extends RecyclerView.Adapter<ListaPeticionAd
 
     private List<Peticion> lista_peticiones;
 
-    public ListaPeticionAdaptador (List<Peticion> _lista_peticiones) {
+    public ListaPeticionUsuarioAdaptador(List<Peticion> _lista_peticiones) {
         this.lista_peticiones = _lista_peticiones;
     }
 
     @NonNull
     @Override
-    public ListaPeticionAdaptador.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.elemento_lista_peticiones, null, false);
-        return new ListaPeticionAdaptador.ViewHolder(view);
+    public ListaPeticionUsuarioAdaptador.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.elemento_lista_peticiones_usuario, null, false);
+        return new ListaPeticionUsuarioAdaptador.ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ListaPeticionAdaptador.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ListaPeticionUsuarioAdaptador.ViewHolder holder, int position) {
         holder.bindData(lista_peticiones.get(position), holder);
 
         //holder.itemView.setOnClickListener();
