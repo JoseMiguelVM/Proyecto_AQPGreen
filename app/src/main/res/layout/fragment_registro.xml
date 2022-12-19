@@ -6,24 +6,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/background"
+    android:background="@drawable/aqp"
     tools:context=".ui.Sesion.RegistroFragment">
 
-    <!-- Titulo de Marca -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="45dp"
-        android:gravity="center"
-        android:text="@string/label_aqp_green"
-        android:textColor="@color/white"
-        android:textSize="30sp"
-        android:textStyle="bold|normal" />
+    <!-- Logo de Marca -->
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="257dp"
+        android:layout_height="179dp"
+        android:layout_marginLeft="69dp"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/aqpgreen_logo" />
+
     <androidx.cardview.widget.CardView
         app:cardCornerRadius="25dp"
         app:cardElevation="10dp"
         android:layout_gravity="center"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="-40dp"
         android:layout_marginStart="38dp"
         android:layout_marginEnd="38dp"
         app:cardUseCompatPadding="true"
@@ -50,22 +49,22 @@
 
                 <Button
                     android:id="@+id/logIn"
-                    android:text="@string/boton_acceder"
+                    android:layout_width="1dp"
+                    android:layout_height="39dp"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:background="@drawable/switch_trcks"
+                    android:gravity="center"
+                    android:paddingLeft="15dp"
                     android:paddingTop="5dp"
+                    android:paddingRight="15dp"
+                    android:paddingBottom="5dp"
+                    android:text="@string/boton_acceder"
                     android:textAlignment="center"
                     android:textColor="#43CC48"
-                    app:backgroundTint="#FFFFFF"
                     android:textSize="14sp"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:paddingBottom="5dp"
-                    android:paddingRight="15dp"
-                    android:paddingLeft="15dp"
                     android:textStyle="bold|normal"
-                    android:background="@drawable/switch_trcks"
-                    android:layout_weight="1"
-                    android:layout_width="1dp"
-                    android:layout_height="48dp"/>
+                    app:backgroundTint="#FFFFFF" />
                 <Button
                     android:id="@+id/singUp"
                     android:text="@string/label_button_registrarse"
@@ -83,7 +82,7 @@
                     android:textStyle="bold|normal"
                     android:layout_weight="0.9"
                     android:layout_width="0dp"
-                    android:layout_height="48dp"/>
+                    android:layout_height="40dp"/>
             </LinearLayout>
 
             <!-- Contenedor de ingreso de datos -->
@@ -176,15 +175,6 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <!-- TextView de olviso su contraseña -->
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Olvido su contraseña?"
-                    android:textAlignment="textEnd"
-                    android:textColor="#616161"
-                    android:textSize="11sp"
-                    android:textStyle="normal" />
             </LinearLayout>
 
             <!-- Boton de login-->
@@ -211,7 +201,7 @@
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="16dp"
                 android:gravity="center"
-                android:text="@string/label_formas_registrarse"
+                android:text="registrarse por medio de"
                 android:textAlignment="center"
                 android:textColor="#474646"
                 android:textSize="14sp"

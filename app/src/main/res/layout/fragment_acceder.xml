@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/background"
+    android:background="@drawable/aqp"
     tools:context=".ui.Sesion.AccederFragment">
 
     <!-- Titulo de Marca -->
@@ -21,22 +21,20 @@
         android:text="@string/boton_organizacion"
         android:textSize="13sp" />
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:gravity="center"
-        android:text="@string/label_aqp_green"
-        android:textColor="@color/white"
-        android:textSize="30sp"
-        android:textStyle="bold|normal" />
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="221dp"
+        android:layout_height="146dp"
+        android:layout_marginLeft="94dp"
+        android:layout_marginTop="-50dp"
+        android:src="@drawable/aqpgreen_logo" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginStart="38dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="-20dp"
         android:layout_marginEnd="38dp"
         app:cardCornerRadius="25dp"
         app:cardElevation="10dp"
@@ -62,8 +60,9 @@
 
                 <Button
                     android:id="@+id/logIn"
+                    style="?android:attr/buttonBarButtonStyle"
                     android:layout_width="1dp"
-                    android:layout_height="48dp"
+                    android:layout_height="40dp"
                     android:layout_gravity="center"
                     android:layout_weight="1"
                     android:background="@drawable/switch_trcks"
@@ -77,8 +76,7 @@
                     android:textColor="@color/textColor"
                     android:textSize="14sp"
                     android:textStyle="bold|normal"
-                    app:backgroundTint="#3FC644"
-                    style="?android:attr/buttonBarButtonStyle" />
+                    app:backgroundTint="#3FC644" />
 
                 <Button
                     android:id="@+id/singUp"
@@ -103,7 +101,7 @@
             <LinearLayout
                 android:id="@+id/logInLayout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="213dp"
                 android:background="@color/white"
                 android:gravity="center"
                 android:orientation="vertical"
@@ -180,6 +178,7 @@
 
             </LinearLayout>
             <!-- Boton de login-->
+
             <Button
                 android:id="@+id/botonLoginCompleto"
                 android:layout_width="match_parent"
@@ -237,4 +236,5 @@
             </LinearLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
+
 </LinearLayout>
