@@ -70,61 +70,25 @@ public class MenuOrganizacion extends Fragment {
         final NavController navController = Navigation.findNavController(view);
         inicializar_elementos(view);
 
-        homeLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                    navController.navigate(R.id.menuOrganizacion);
-            }
+        homeLayout.setOnClickListener(v -> navController.navigate(R.id.menuOrganizacion));
+
+        likeLayout.setOnClickListener(v -> {
+            //if(selectedTab != 2){
+                navController.navigate(R.id.informacionOpciones);
         });
 
-        likeLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //if(selectedTab != 2){
-                    navController.navigate(R.id.informacionOpciones);
-            }
+        notificationLayout.setOnClickListener(v -> {
+            //if(selectedTab != 3){
+                navController.navigate(R.id.itemAyudaOpciones);
         });
 
-        notificationLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //if(selectedTab != 3){
-                    navController.navigate(R.id.itemAyudaOpciones);
-            }
-        });
-
-        termLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                navController.navigate(R.id.terminosYcondiciones2);
-            }
-        });
+        termLayout.setOnClickListener(v -> navController.navigate(R.id.terminosYcondiciones2));
 
 
         // TODO: Redireccion a los menus generales
-        peticionesRecibidas.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                navController.navigate(R.id.revisionPeticiones);
-            }
-        });
-        denunciasRecibidas.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                navController.navigate(R.id.revisarDenuncias);
-            }
-        });
-        publicarNoticias.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                navController.navigate(R.id.noticiasPublicadas);
-            }
-        });
-        verEstadisticas.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                navController.navigate(R.id.estadisticasGenerales);
-            }
-        });
+        peticionesRecibidas.setOnClickListener(v -> navController.navigate(R.id.revisionPeticiones));
+        denunciasRecibidas.setOnClickListener(v -> navController.navigate(R.id.revisarDenuncias));
+        publicarNoticias.setOnClickListener(v -> navController.navigate(R.id.noticiasPublicadas));
+        verEstadisticas.setOnClickListener(v -> navController.navigate(R.id.estadisticasGenerales));
     }
 }
