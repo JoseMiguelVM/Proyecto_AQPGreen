@@ -101,10 +101,6 @@ public class AccederFragment extends Fragment {
         inicializar_elementos(view);
         dbManager.open();
 
-        /*if (revisar_sesion_activa()) {
-            startActivity(new Intent(this, MenuActivity.class));
-        }*/
-
         btn_ir_registro.setOnClickListener(v -> navController.navigate(R.id.registroFragment));
 
         btn_acceder.setOnClickListener(v -> {
@@ -113,7 +109,7 @@ public class AccederFragment extends Fragment {
             et_contrasena_string = et_contrasena.getText().toString();
 
             if (dbManager.fetch(et_usuario_string, et_contrasena_string).getCount() != 0){
-                //guardar_sesion(et_usuario_string, check_guardar_sesion.isChecked());
+                guardar_sesion(et_usuario_string, check_guardar_sesion.isChecked());
                 navController.navigate(R.id.menuFragment);
             }
             else {
@@ -122,12 +118,7 @@ public class AccederFragment extends Fragment {
         });
 
         // Para redirigirse a Login de Organizacion
-        btn_login_organizacion.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                navController.navigate(R.id.loginOrganizacion);
-            }
-        });
+        btn_login_organizacion.setOnClickListener(v -> navController.navigate(R.id.loginOrganizacion));
 
     }
 
@@ -144,8 +135,8 @@ public class AccederFragment extends Fragment {
     private void inicializar_elementos(View view) {
         btn_ir_registro = view.findViewById(R.id.singUp); // Para el cambio de boton de la parte superior del formulario
         btn_acceder = view.findViewById(R.id.botonLoginCompleto); // Ingresar a la otra interfaz
-        et_usuario = (EditText) view.findViewById(R.id.LnombreUsuarioEdit);
-        et_contrasena = (EditText) view.findViewById(R.id.LcontraseñaEdit);
+        et_usuario = view.findViewById(R.id.LnombreUsuarioEdit);
+        et_contrasena = view.findViewById(R.id.LcontraseñaEdit);
         check_guardar_sesion = view.findViewById(R.id.checkbox_guardarSesion);
 
         preferencias = getContext().getSharedPreferences("var_sesion", Context.MODE_PRIVATE);
