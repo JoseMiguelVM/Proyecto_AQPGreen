@@ -1,45 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginHorizontal="8dp"
-    android:background="#579A37"
-    android:foreground="?android:attr/selectableItemBackground"
-    android:paddingTop="8dp">
+    app:cardCornerRadius="10dp"
+    app:cardElevation="2dp"
+    app:cardUseCompatPadding="true">
 
+    <LinearLayout
+        android:layout_width="364dp"
+        android:layout_height="125dp"
+        android:layout_marginLeft="11dp"
+        android:orientation="horizontal"
+        android:padding="2dp">
 
-    <ImageView
-        android:id="@+id/idImagen"
-        android:src="@drawable/premios"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        tools:ignore="MissingConstraints" />
+        <ImageView
+            android:id="@+id/idImagen"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_margin="2dp"
+            android:src="@drawable/premios" />
 
-    <TextView
-        android:id="@+id/idNombre"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="136dp"
-        android:text="Premio Arbol Pequeño"
-        android:textColor="@color/white"
-        android:textSize="16dp"
-        android:textStyle="bold|italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="2dp"
+            android:gravity="center"
+            android:orientation="vertical">
 
+            <TextView
+                android:id="@+id/idNombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="2dp"
+                android:text="Nombre"
+                android:textColor="@color/c_cabecera"
+                android:textSize="17sp"
+                android:textStyle="bold|italic" />
 
-    <TextView
-        android:id="@+id/idInfo"
-        android:layout_width="286dp"
-        android:layout_height="45dp"
-        android:layout_marginBottom="8dp"
-        android:text="El premio consta de un arbol o una planta de su eleccion, que  usted podra escoger."
-        android:textColor="#F3F1F1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="96dp" />
+            <TextView
+                android:id="@+id/idInfo"
+                android:layout_width="219dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-17dp"
+                android:textSize="14sp" />
+        </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
