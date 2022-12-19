@@ -141,4 +141,5 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
     <string name="Calcular_huella">CALCULAR</string>
+    <string name="titulo_peticiones_recibidas">Peticiones recibidas</string>
 </resources>
