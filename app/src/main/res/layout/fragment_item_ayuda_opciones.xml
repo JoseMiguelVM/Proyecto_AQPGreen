@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/notification"
+    android:background="@drawable/fondo4"
     tools:context=".ui.ModuloOrganizacion.ItemsOrganizacion.ItemAyudaOpciones">
 
     <RelativeLayout
@@ -229,7 +229,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="-15dp"
-            android:backgroundTint="#3F51B5"
+            android:backgroundTint="#199EDA"
             android:text="ir a Facebook" />
 
     </LinearLayout>
@@ -274,7 +274,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="-15dp"
-            android:backgroundTint="#4CAF50"
+            android:backgroundTint="#4FD154"
             android:text="ir a WhatsApp" />
     </LinearLayout>
 
@@ -318,7 +318,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="15dp"
             android:layout_marginTop="-15dp"
-            android:backgroundTint="#E91E63"
+            android:backgroundTint="#E62668"
             android:text="ir a Llamadas" />
 
     </LinearLayout>
@@ -331,7 +331,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="13dp"
         android:layout_marginBottom="87dp"
-        android:background="@color/notification"
+
         android:orientation="vertical">
 
         <Button
@@ -340,7 +340,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="62dp"
             android:layout_marginTop="12dp"
-            android:backgroundTint="#2196F3"
+            android:backgroundTint="#FF9800"
             android:text="Ver mapa de ubicacion" />
     </LinearLayout>
 
