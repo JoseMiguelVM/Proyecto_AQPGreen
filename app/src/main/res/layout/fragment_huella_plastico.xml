@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fondo_huella_plastico"
+    android:background="@drawable/background2"
     tools:context=".ui.HuellaPlastico.HuellaPlasticoFragment">
 
     <RelativeLayout
@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="59dp"
         android:layout_marginBottom="10dp"
-        android:background="@color/c_cabecera"
+        android:background="#2196F3"
         android:elevation="8dp"
         android:gravity="center">
 
@@ -22,10 +22,10 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="114dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginStart="139dp"
+            android:layout_marginTop="14dp"
             android:text="@string/titulo_huella_plastico"
-            android:textColor="#FFFFFF"
+            android:textColor="@android:color/white"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -33,20 +33,21 @@
             android:id="@+id/btnIcoAtras"
             android:layout_width="60dp"
             android:layout_height="49dp"
-            android:backgroundTint="@color/c_cabecera_boton"
-            android:contentDescription="TODO"
+            android:backgroundTint="#03A9F4"
+            android:contentDescription="@string/boton_regresar"
             android:src="?attr/actionModeCloseDrawable"
             app:tint="#FFFFFF" />
 
+
         <ImageButton
+            android:id="@+id/btnAyuda"
             android:layout_width="60dp"
             android:layout_height="50dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
             android:layout_marginTop="0dp"
-            android:background="@color/c_cabecera_boton"
-            android:contentDescription="@string/Calcular_huella"
+            android:background="#03A9F4"
+            android:contentDescription="@string/boton_ayuda"
             android:src="@android:drawable/ic_menu_help" />
 
     </RelativeLayout>
@@ -57,14 +58,12 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout"
-            android:layout_width="407dp"
-            android:layout_height="460dp"
+            android:layout_width="412dp"
+            android:layout_height="407dp"
             android:layout_marginBottom="120dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewEsteCuestionario"
-            app:layout_constraintVertical_bias="1.0">
+            app:layout_constraintStart_toStartOf="parent">
 
             <EditText
                 android:id="@+id/editTextNumBotellasPet"
@@ -401,26 +400,10 @@
             app:iconTint="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
             app:layout_constraintVertical_bias="0.0" />
-
-        <TextView
-            android:id="@+id/textViewEsteCuestionario"
-            android:layout_width="410dp"
-            android:layout_height="38dp"
-            android:layout_weight="1"
-            android:text="Este cuestionario nos ayudará a calcular la cantidad de plástico que utilizará a lo largo de su vida."
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.087" />
 
         <LinearLayout
             android:layout_width="409dp"
@@ -428,29 +411,24 @@
             android:orientation="vertical"
             app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewEsteCuestionario">
+            app:layout_constraintStart_toStartOf="parent">
+
+            <TextView
+                android:id="@+id/textViewEsteCuestionario"
+                android:layout_width="410dp"
+                android:layout_height="38dp"
+                android:layout_marginTop="-4dp"
+                android:layout_weight="1"
+                android:text="Este cuestionario nos ayudará a calcular la cantidad de plástico que utilizará a lo largo de su vida."
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="italic" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"/>
 
-                <TextView
-                    android:id="@+id/textViewCuantoConsume"
-                    android:layout_width="400dp"
-                    android:layout_height="31dp"
-                    android:text="¿Cuantas unidades consume por semana?"
-                    android:textAlignment="center"
-                    android:textColor="#7C7575"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.567"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.0" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
