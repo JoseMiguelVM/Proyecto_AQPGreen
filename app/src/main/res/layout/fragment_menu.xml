@@ -28,9 +28,9 @@
         android:layout_marginTop="36dp"
         android:layout_marginEnd="16dp"
         android:text="@string/titulo_menu"
-        android:textColor="@color/white"
-        android:textSize="28sp"
-        android:textStyle="bold"
+        android:textColor="#0A6524"
+        android:textSize="26sp"
+        android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -64,8 +64,8 @@
 
             <ImageView
                 android:id="@+id/huellaPlastico"
-                android:layout_width="170dp"
-                android:layout_height="100dp"
+                android:layout_width="133dp"
+                android:layout_height="77dp"
                 android:src="@drawable/huellaplastico" />
 
             <TextView
@@ -102,8 +102,8 @@
 
             <ImageView
                 android:id="@+id/tipoPlastico"
-                android:layout_width="170dp"
-                android:layout_height="100dp"
+                android:layout_width="133dp"
+                android:layout_height="77dp"
                 android:src="@drawable/tipoplastico"
                 tools:ignore="ImageContrastCheck" />
 
@@ -141,8 +141,8 @@
 
             <ImageView
                 android:id="@+id/reciclajeGreen"
-                android:layout_width="170dp"
-                android:layout_height="100dp"
+                android:layout_width="133dp"
+                android:layout_height="77dp"
                 android:src="@drawable/reciclar"
                 tools:ignore="ImageContrastCheck" />
 
@@ -179,8 +179,8 @@
 
             <ImageView
                 android:id="@+id/estadisticas"
-                android:layout_width="170dp"
-                android:layout_height="100dp"
+                android:layout_width="133dp"
+                android:layout_height="77dp"
                 android:src="@drawable/estadisticas" />
 
             <TextView
@@ -217,8 +217,8 @@
 
             <ImageView
                 android:id="@+id/noticiasGreen"
-                android:layout_width="170dp"
-                android:layout_height="100dp"
+                android:layout_width="133dp"
+                android:layout_height="77dp"
                 android:contentDescription="TODO"
                 android:src="@drawable/noticias" />
 
@@ -256,8 +256,8 @@
 
             <ImageView
                 android:id="@+id/comunidadGreen"
-                android:layout_width="170dp"
-                android:layout_height="100dp"
+                android:layout_width="133dp"
+                android:layout_height="77dp"
                 android:src="@drawable/comunidad" />
 
             <TextView
