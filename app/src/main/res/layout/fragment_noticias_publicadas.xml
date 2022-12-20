@@ -10,7 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#ffffff"
+        android:background="@drawable/background2"
         android:orientation="vertical">
 
         <RelativeLayout
@@ -61,7 +61,7 @@
 
         <ImageView
             android:id="@+id/imageView6"
-            android:layout_width="130dp"
+            android:layout_width="110dp"
             android:layout_height="130dp"
             android:layout_marginLeft="135dp"
             android:src="@drawable/noticias2" />
@@ -137,7 +137,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="45dp"
                 android:layout_marginTop="46dp"
-                android:backgroundTint="#FF9800"
+                android:backgroundTint="#2196F3"
                 android:text="Publicar noticia" />
         </LinearLayout>
 

@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.ModuloOrganizacion.PeticionesRecibidas.RevisionPeticionesFragment" android:background="@drawable/fondopeticion">
+    tools:context=".ui.ModuloOrganizacion.PeticionesRecibidas.RevisionPeticionesFragment"
+    android:background="@drawable/fondo4">
 
     <TextView
         android:id="@+id/tv_lista_vacia"
