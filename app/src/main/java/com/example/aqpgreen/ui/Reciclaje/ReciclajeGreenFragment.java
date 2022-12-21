@@ -131,8 +131,6 @@ public class ReciclajeGreenFragment extends Fragment {
                         .diskCacheStrategy(DiskCacheStrategy.ALL)
                         .apply(RequestOptions.bitmapTransform(new RoundedCorners(20)))
                         .into(imgCapturada_preview);
-                //Bitmap imagen_Bitmap = (Bitmap) BitmapFactory.decodeFile(url_foto);
-                //imgCapturada_preview.setImageBitmap(imagen_Bitmap);
             }
         });
 
