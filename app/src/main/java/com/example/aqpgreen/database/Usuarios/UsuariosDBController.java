@@ -60,6 +60,11 @@ public class UsuariosDBController {
         return cursor;
     }
 
+    public Cursor fetch(String _usuario) {
+        return database.rawQuery("SELECT * FROM " + ConectorUsuariosDB.TABLE_NAME +
+                " WHERE " + ConectorUsuariosDB.LOGIN + " = \""+ _usuario + "\"", null);
+    }
+
     public Cursor fetch(String _usuario, String _contrasena) {
         return database.rawQuery("SELECT * FROM " + ConectorUsuariosDB.TABLE_NAME +
                 " WHERE " + ConectorUsuariosDB.LOGIN + " = \""+ _usuario +

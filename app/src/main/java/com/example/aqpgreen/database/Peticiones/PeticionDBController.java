@@ -70,6 +70,20 @@ public class PeticionDBController {
         }
     }
 
+    public Cursor fetch(Long _id) {
+        try {
+            Cursor cursor = database.rawQuery("SELECT * FROM " + ConectorPeticionesDB.TABLE_NAME + " WHERE "
+                    + ConectorPeticionesDB.IDPETICION + "=\"" + _id + "\"", null);
+            return cursor;
+        }
+        catch(SQLiteException e){
+            dbHelper.DBcreateTable(database);
+            Cursor cursor = database.rawQuery("SELECT * FROM " + ConectorPeticionesDB.TABLE_NAME + " WHERE "
+                    + ConectorPeticionesDB.IDPETICION + "=\"" + _id + "\"", null);
+            return cursor;
+        }
+    }
+
     public Cursor fetch(String _usuario) {
         try {
             Cursor cursor = database.rawQuery("SELECT * FROM " + ConectorPeticionesDB.TABLE_NAME + " WHERE "

@@ -123,7 +123,7 @@
             </androidx.cardview.widget.CardView>
 
             <ImageView
-                android:id="@+id/img_plastico_preview"
+                android:id="@+id/img_foto_peticion"
                 android:layout_width="match_parent"
                 android:layout_height="225dp"
                 android:background="@color/grey"
@@ -204,7 +204,7 @@
             </androidx.cardview.widget.CardView>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/editText_cantidadPlastico"
+                android:id="@+id/et_puntos_peticion"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -219,20 +219,35 @@
                     android:textColorHint="#546E7A" />
             </com.google.android.material.textfield.TextInputLayout>
 
-
-            <com.google.android.material.floatingactionbutton.FloatingActionButton
-                android:id="@+id/btn_actualizar_datos"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:layout_marginEnd="20dp"
-                android:contentDescription="@string/boton_guardar"
-                android:src="@drawable/ic_baseline_done_24"
-                app:backgroundTint="#83CF2A" />
-
         </LinearLayout>
 
     </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btn_rechazar_peticion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="20dp"
+        android:contentDescription="@string/boton_guardar"
+        android:src="@android:drawable/ic_delete"
+        app:backgroundTint="#EF4D1D"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/btn_actualizar_peticion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:contentDescription="@string/boton_guardar"
+        android:src="@drawable/ic_baseline_done_24"
+        app:backgroundTint="#83CF2A"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
