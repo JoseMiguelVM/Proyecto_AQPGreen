@@ -84,6 +84,40 @@ public class PeticionDBController {
         }
     }
 
+    public int fetch_Distrito_Origen_count (String distrito){
+        try {
+            Cursor cursor = database.rawQuery("SELECT COUNT(*) FROM  PETICIONES where lugarOrigen = '" + distrito + "'", null);
+            int count=0;
+            if(null != cursor)
+                if(cursor.getCount() > 0){
+                    cursor.moveToFirst();
+                    count = cursor.getInt(0);
+                }
+            cursor.close();
+            return count;
+        }
+        catch(SQLiteException e){
+            return 0;
+        }
+    }
+
+    public int fetch_Distrito_Origen_cantidad (String distrito){
+        try {
+            Cursor cursor = database.rawQuery("SELECT cantidad FROM  PETICIONES where lugarOrigen = '" + distrito + "'", null);
+            int cantidad=0;
+            if(null != cursor)
+                if(cursor.getCount() > 0){
+                    cursor.moveToFirst();
+                    cantidad = cursor.getInt(0);
+                }
+            cursor.close();
+            return cantidad;
+        }
+        catch(SQLiteException e){
+            return 0;
+        }
+    }
+
     public Cursor fetch(String _usuario) {
         try {
             Cursor cursor = database.rawQuery("SELECT * FROM " + ConectorPeticionesDB.TABLE_NAME + " WHERE "

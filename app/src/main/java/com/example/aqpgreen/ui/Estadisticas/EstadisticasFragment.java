@@ -11,6 +11,10 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.example.aqpgreen.R;
+import com.example.aqpgreen.database.Peticiones.PeticionDBController;
+import com.example.aqpgreen.database.Usuarios.UsuariosDBController;
+
+import java.util.Random;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -30,16 +34,10 @@ public class EstadisticasFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    int[] data={7,5,12,8,4,6,7,9};
-    int[] color={Color.argb(255,205,115,114),
-            Color.argb(255,79,129,188),
-            Color.argb(255,192,80,78),
-            Color.argb(255,155,187,88),
-            Color.argb(255,128,100,161),
-            Color.argb(255,74,172,197),
-            Color.argb(255,247,150,71),
-            Color.argb(255,44,77,118),
-    };
+    String[] Lista;
+    int[] data;
+    int[] color;
+    private PeticionDBController dbManager;
 
     public EstadisticasFragment() {
         // Required empty public constructor
@@ -80,7 +78,19 @@ public class EstadisticasFragment extends Fragment {
 
         View view =  inflater.inflate(R.layout.fragment_estadisticas, container, false);
         linearLayout=(LinearLayout) view.findViewById(R.id.estadisticas);
+        String[] Lista = getResources().getStringArray(R.array.opciones_lugar_origen);
+        data=new int[Lista.length];
+        color=new int[Lista.length];
+        dbManager = new PeticionDBController(getContext());
+        dbManager.open();
+
+        Random r = new Random();
+        for (int i = 0; i < Lista.length; i++) {
+            data[i]=dbManager.fetch_Distrito_Origen_cantidad(Lista[i])*dbManager.fetch_Distrito_Origen_count(Lista[i]);
+            color[i]=Color.argb(255,r.nextInt(210-70) + 70,r.nextInt(210-70) + 70,r.nextInt(210-70) + 70);
+        }
         linearLayout.addView(new VistaGraficoCircular(getContext(),data.length,data,color));
+
         return view;
     }
 }
