@@ -10,15 +10,17 @@ import android.view.View;
 public class VistaGraficoCircular extends View {
     float start=0;
     int[] data;
+    String[] lugares;
     int numberOfparts;
     private int[] color;
 
-    public VistaGraficoCircular(Context context, int numOfItems, int[] data, int[] color) {//partimos
+    public VistaGraficoCircular(Context context, int numOfItems, int[] data, int[] color, String[] lugares) {//partimos
         super(context);
         setFocusable(true);
         this.numberOfparts=numOfItems;
         this.data=data;
         this.color=color;
+        this.lugares=lugares;
     }
 
     @Override
@@ -29,11 +31,21 @@ public class VistaGraficoCircular extends View {
         float[] scaledValues = scale();
         
         RectF rectF = new RectF(100,100,getWidth()-100,getWidth()-100);
-
+        int centerX = (int)(rectF.left + rectF.right) / 2;
+        int centerY = (int)(rectF.top + rectF.bottom) / 2;
+        int radius = (int)(rectF.right - rectF.left) / 2;
         for(int i=0;i<numberOfparts;i++){
             p.setColor(color[i]);
             p.setStyle(Paint.Style.FILL);
             canvas.drawArc(rectF,start,scaledValues[i],true,p);
+            p.setColor(Color.BLACK);
+            float medianAngle = (start + (scaledValues[i] / 2f)) * (float)Math.PI / 180f;
+            if(data[i]!=0) {
+                p.setTextSize(40);
+                p.setTextAlign(Paint.Align.CENTER);
+                canvas.drawText(lugares[i], (float) (centerX + (radius * Math.cos(medianAngle))), (float) (centerY + (radius * Math.sin(medianAngle))), p);
+
+            }
             start=start+scaledValues[i];
         }
 

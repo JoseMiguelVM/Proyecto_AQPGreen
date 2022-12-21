@@ -34,7 +34,7 @@ public class EstadisticasFragment extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-    String[] Lista;
+    static public String[] Lista;
     int[] data;
     int[] color;
     private PeticionDBController dbManager;
@@ -89,7 +89,7 @@ public class EstadisticasFragment extends Fragment {
             data[i]=dbManager.fetch_Distrito_Origen_cantidad(Lista[i])*dbManager.fetch_Distrito_Origen_count(Lista[i]);
             color[i]=Color.argb(255,r.nextInt(210-70) + 70,r.nextInt(210-70) + 70,r.nextInt(210-70) + 70);
         }
-        linearLayout.addView(new VistaGraficoCircular(getContext(),data.length,data,color));
+        linearLayout.addView(new VistaGraficoCircular(getContext(),data.length,data,color,Lista));
 
         return view;
     }
