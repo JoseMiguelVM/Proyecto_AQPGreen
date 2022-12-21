@@ -23,7 +23,7 @@ public class ListaPeticionOrganizacionAdaptador
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
-        ImageView iv_foto_peticion;
+        ImageView iv_foto_peticion, iv_estado_peticion;
         TextView usuario_peticion, categoria_peticion;
 
         public ViewHolder (@NonNull View itemView) {
@@ -31,6 +31,7 @@ public class ListaPeticionOrganizacionAdaptador
             iv_foto_peticion = itemView.findViewById(R.id.iv_imagen_peticion);
             categoria_peticion = itemView.findViewById(R.id.tv_categoria_peticion);
             usuario_peticion = itemView.findViewById(R.id.tv_usuario_peticion);
+            iv_estado_peticion = itemView.findViewById(R.id.iv_estado_peticion);
         }
 
         public void bindData (final Peticion elemento, @NonNull ListaPeticionOrganizacionAdaptador.ViewHolder holder) {
@@ -43,6 +44,17 @@ public class ListaPeticionOrganizacionAdaptador
                     .into(iv_foto_peticion);
             usuario_peticion.setText("Usuario: " + elemento.getUsuario());
             categoria_peticion.setText("Peticion de: " + elemento.getCategoria());
+            switch (elemento.getEstado()) {
+                case 0 :
+                    iv_estado_peticion.setImageDrawable(itemView.getResources().getDrawable(R.drawable.ic_estado_en_espera_24));
+                    break;
+                case 1 :
+                    iv_estado_peticion.setImageDrawable(itemView.getResources().getDrawable(R.drawable.ic_estado_aceptado_24));
+                    break;
+                case 2 :
+                    iv_estado_peticion.setImageDrawable(itemView.getResources().getDrawable(R.drawable.ic_estado_rechazado_24));
+                    break;
+            }
         }
     }
 

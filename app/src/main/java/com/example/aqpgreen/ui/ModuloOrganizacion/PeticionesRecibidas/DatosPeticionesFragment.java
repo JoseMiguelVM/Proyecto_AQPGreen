@@ -2,21 +2,20 @@ package com.example.aqpgreen.ui.ModuloOrganizacion.PeticionesRecibidas;
 
 import android.database.Cursor;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
@@ -38,9 +37,14 @@ public class DatosPeticionesFragment extends Fragment {
             tv_categoria_peticion;
     private TextInputLayout et_puntos_peticion;
     private FloatingActionButton btn_actualizar_peticion, btn_rechazar_peticion;
+    private ImageButton btn_regresar_fragment;
 
-    PeticionDBController db_peticiones;
-    UsuariosDBController db_usuarios;
+    private PeticionDBController db_peticiones;
+    private UsuariosDBController db_usuarios;
+    private NavController navController;
+
+    private String usuario;
+    private Long idpeticion;
 
     public DatosPeticionesFragment() {
         // Required empty public constructor
@@ -63,14 +67,22 @@ public class DatosPeticionesFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         db_peticiones = new PeticionDBController(getContext());
         db_usuarios = new UsuariosDBController(getContext());
-        NavController navController = Navigation.findNavController(view);
+        navController = Navigation.findNavController(view);
 
         inicializar_elementos(view);
         mostrar_datos(view);
 
+        btn_regresar_fragment.setOnClickListener(view1 -> navController.popBackStack());
+        btn_actualizar_peticion.setOnClickListener(view1 -> actualizar_puntaje());
+        btn_rechazar_peticion.setOnClickListener(view12 -> rechazar_peticion());
+
     }
 
     public void inicializar_elementos (View view) {
+
+        usuario = getArguments().getString("usuario");
+        idpeticion = getArguments().getLong("idpeticion");
+
         tv_usuario = view.findViewById(R.id.tv_usuario);
         tv_correo_usuario = view.findViewById(R.id.tv_correo_usuario);
         img_foto_peticion = view.findViewById(R.id.img_foto_peticion);
@@ -79,17 +91,13 @@ public class DatosPeticionesFragment extends Fragment {
         tv_categoria_peticion = view.findViewById(R.id.tv_categoria_peticion);
         et_puntos_peticion = view.findViewById(R.id.et_puntos_peticion);
 
-        //String et_puntos_peticion_string = et_puntos_peticion.getEditText().getText().toString();
-
         btn_actualizar_peticion = view.findViewById(R.id. btn_actualizar_peticion);
         btn_rechazar_peticion = view.findViewById(R.id.btn_rechazar_peticion);
+        btn_regresar_fragment = view.findViewById(R.id.btnIcoAtras);
     }
 
     public void mostrar_datos (View view) {
         try {
-            String usuario = getArguments().getString("usuario");
-            Long idpeticion = getArguments().getLong("idpeticion");
-
             db_peticiones.open();
             Cursor cursor_pet = db_peticiones.fetch(idpeticion);
             if (cursor_pet.getCount() != 0) {
@@ -125,6 +133,29 @@ public class DatosPeticionesFragment extends Fragment {
         catch (Exception e) {
             Log.e("DatosPeticion", e.toString());
         }
+    }
 
+    private void actualizar_puntaje() {
+        String et_puntos_peticion_string = et_puntos_peticion.getEditText().getText().toString();
+        if (et_puntos_peticion_string.isEmpty()){
+            Toast.makeText(getContext(), "Debes actualizar el puntaje\nde la petición", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            db_peticiones.open();
+            db_peticiones.update(idpeticion, "puntos", Integer.parseInt(et_puntos_peticion_string));
+            db_peticiones.update(idpeticion, "estado", 1);
+            db_peticiones.close();
+            Toast.makeText(getContext(), "Peticion aceptada\nPuntaje actualizado", Toast.LENGTH_SHORT).show();
+            navController.popBackStack();
+        }
+    }
+
+    // 0 espera, 1 aceptado, 2 rechazado
+    private void rechazar_peticion(){
+        db_peticiones.open();
+        db_peticiones.update(idpeticion, "estado", 2);
+        db_peticiones.close();
+        Toast.makeText(getContext(), "Petición rechazada", Toast.LENGTH_SHORT).show();
+        navController.popBackStack();
     }
 }

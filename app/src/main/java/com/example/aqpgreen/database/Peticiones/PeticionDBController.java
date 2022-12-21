@@ -7,8 +7,6 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 
-import com.example.aqpgreen.database.Usuarios.ConectorUsuariosDB;
-
 public class PeticionDBController {
 
     private ConectorPeticionesDB dbHelper;
@@ -132,15 +130,15 @@ public class PeticionDBController {
         }
     }
 
-    public int update (long idpeticion, String categoria, int cantidad,
-                       String origen, String descripcion , String urlFoto) {
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(ConectorPeticionesDB.CATEGORIA, categoria);
-        contentValues.put(ConectorPeticionesDB.CANTIDAD, cantidad);
-        contentValues.put(ConectorPeticionesDB.ORIGEN, origen);
-        contentValues.put(ConectorPeticionesDB.DESCRIPCION, descripcion);
-        contentValues.put(ConectorPeticionesDB.URLFOTO, urlFoto);
-        return database.update(ConectorUsuariosDB.TABLE_NAME, contentValues, ConectorPeticionesDB.IDPETICION + " = " + idpeticion, null);
+    public int update(long _idpeticion, String key, int valor){
+        ContentValues valores = new ContentValues();
+        valores.put(key, valor);
+        return database.update(ConectorPeticionesDB.TABLE_NAME, valores, ConectorPeticionesDB.IDPETICION + " = " + _idpeticion, null);
+    }
+    public int update(long _idpeticion, String key, String valor){
+        ContentValues valores = new ContentValues();
+        valores.put(key, valor);
+        return database.update(ConectorPeticionesDB.TABLE_NAME, valores, ConectorPeticionesDB.IDPETICION + " = " + _idpeticion, null);
     }
 
     public void delete(long idpeticion) {
