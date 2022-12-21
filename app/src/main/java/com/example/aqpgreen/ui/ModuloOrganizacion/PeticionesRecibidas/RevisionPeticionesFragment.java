@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -35,6 +36,8 @@ import java.util.concurrent.Executors;
 
 public class RevisionPeticionesFragment extends Fragment {
 
+
+    private NavController navController;
     private PeticionDBController db_peticiones;
     private SharedPreferences preferencias;
     private FloatingActionButton btn_crear_peticion_fragment;
@@ -62,7 +65,7 @@ public class RevisionPeticionesFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         db_peticiones = new PeticionDBController(getContext());
-        final NavController navController = Navigation.findNavController(view);
+        navController = Navigation.findNavController(view);
         inicializar_elementos(view);
 
         btn_regresar_fragment.setOnClickListener(view1 -> navController.popBackStack());
@@ -108,10 +111,18 @@ public class RevisionPeticionesFragment extends Fragment {
 
             handler.post(() -> {
                 pb_icono_carga.setVisibility(View.GONE);
-                ListaPeticionOrganizacionAdaptador adaptor = new ListaPeticionOrganizacionAdaptador(lista_peticiones);
                 RecyclerView recyclerView = view.findViewById(R.id.recycleView_listaPeticiones);
                 recyclerView.setHasFixedSize(true);
                 recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 1));
+                ListaPeticionOrganizacionAdaptador adaptor = new ListaPeticionOrganizacionAdaptador(lista_peticiones);
+
+                adaptor.setOnClickListener(v -> {
+                    Bundle bundle = new Bundle();
+                    bundle.putLong("idpeticion", lista_peticiones.get(recyclerView.getChildAdapterPosition(v)).getId());
+                    bundle.putString("usuario", lista_peticiones.get(recyclerView.getChildAdapterPosition(v)).getUsuario());
+                    navController.navigate(R.id.datosPeticionesFragment, bundle);
+                });
+
                 recyclerView.setAdapter(adaptor);
             });
         });
