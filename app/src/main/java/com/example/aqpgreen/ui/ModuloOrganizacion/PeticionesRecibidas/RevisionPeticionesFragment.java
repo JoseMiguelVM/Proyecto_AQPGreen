@@ -102,7 +102,6 @@ public class RevisionPeticionesFragment extends Fragment {
                 }
             }
             else {
-                //Log.e("ListaPetCursorelse", "No hay registros");
                 tv_aviso_vacio.setText("No hay peticiones");
             }
             db_peticiones.close();
