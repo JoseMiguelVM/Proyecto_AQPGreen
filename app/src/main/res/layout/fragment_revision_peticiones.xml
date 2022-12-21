@@ -74,7 +74,7 @@
             android:layout_alignParentRight="true"
             android:layout_marginTop="0dp"
             android:background="#03A9F4"
-            android:contentDescription="@string/btn_ayuda"
+            android:contentDescription="@string/boton_ayuda"
             android:src="@android:drawable/ic_menu_search" />
 
     </RelativeLayout>
