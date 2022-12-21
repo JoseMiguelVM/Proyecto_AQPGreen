@@ -48,9 +48,9 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="68dp"
-            android:layout_marginTop="10dp"
-            android:text="@string/titulo_peticiones_recibidas"
+            android:layout_marginStart="67dp"
+            android:layout_marginTop="14dp"
+            android:text="@string/titulo_denuncias_recibidas"
             android:textColor="@android:color/white"
             android:textSize="20sp"
             android:textStyle="bold" />

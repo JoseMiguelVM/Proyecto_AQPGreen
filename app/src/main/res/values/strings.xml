@@ -73,7 +73,8 @@
     <string name="titulo_peticion_datos">Datos Petición</string>
     <string name="label_actualizar_puntaje">Actualizar puntaje</string>
 
-
+    <!-- Denuncias -->
+    <string name="titulo_denuncias_recibidas">Denuncias Recibidas</string>
     <!-- IDK -->
     <string name="btn_ayuda">Ayuda</string>
 </resources>

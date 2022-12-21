@@ -9,6 +9,7 @@ public class Denuncia {
 
     public Denuncia(long id, int dni, String nombre, String ubicacion, String descripcion) {
         this.id = id;
+        this.dni = dni;
         this.nombre = nombre;
         this.ubicacion = ubicacion;
         this.descripcion = descripcion;
