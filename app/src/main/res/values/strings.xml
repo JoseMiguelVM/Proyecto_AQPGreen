@@ -72,4 +72,8 @@
     <string name="boton_guardar_noticia">Publicar noticia</string>
     <string name="titulo_peticion_datos">Datos Petición</string>
     <string name="label_actualizar_puntaje">Actualizar puntaje</string>
+
+
+    <!-- IDK -->
+    <string name="btn_ayuda">Ayuda</string>
 </resources>
