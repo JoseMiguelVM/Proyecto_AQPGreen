@@ -41,9 +41,12 @@ public class VistaGraficoCircular extends View {
             p.setColor(Color.BLACK);
             float medianAngle = (start + (scaledValues[i] / 2f)) * (float)Math.PI / 180f;
             if(data[i]!=0) {
-                p.setTextSize(40);
-                p.setTextAlign(Paint.Align.CENTER);
-                canvas.drawText(lugares[i], (float) (centerX + (radius * Math.cos(medianAngle))), (float) (centerY + (radius * Math.sin(medianAngle))), p);
+                p.setTextSize(38);
+                if  ((medianAngle>=0 && medianAngle<=Math.PI/2) || (medianAngle>=0 && medianAngle<=Math.PI/2))
+                    p.setTextAlign(Paint.Align.RIGHT);
+                else
+                    p.setTextAlign(Paint.Align.LEFT);
+                canvas.drawText(lugares[i]+" "+data[i], (float) (centerX + (radius * Math.cos(medianAngle))), (float) (centerY + (radius * Math.sin(medianAngle))), p);
 
             }
             start=start+scaledValues[i];
