@@ -1,147 +1,152 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".ui.ModuloOrganizacion.Publicaciones.NoticiasPublicadas">
+    android:background="@drawable/background2"
+    tools:context=".ui.ModuloOrganizacion.Publicaciones.NoticiasPublicadasFragment">
 
+
+    <RelativeLayout
+        android:id="@+id/idLayoutFondo"
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:background="#2196F3"
+        android:elevation="8dp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/tituloNoticias"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="130dp"
+            android:layout_marginTop="15dp"
+            android:gravity="center_horizontal"
+            android:text="@string/titulo_publicar_noticias"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/btnIcoAtras"
+            android:layout_width="60dp"
+            android:layout_height="49dp"
+            android:layout_marginStart="2dp"
+            android:backgroundTint="#03A9F4"
+            android:contentDescription="@string/boton_regresar"
+            android:src="?attr/actionModeCloseDrawable"
+            app:tint="#FFFFFF" />
+
+
+        <ImageButton
+            android:id="@+id/btnAyuda"
+            android:layout_width="60dp"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="0dp"
+            android:background="#03A9F4"
+            android:contentDescription="@string/boton_ayuda"
+            android:src="@android:drawable/ic_menu_help" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="110dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="15dp"
+        android:src="@drawable/noticias2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idLayoutFondo" />
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/background2"
-        android:orientation="vertical">
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView6">
 
-        <RelativeLayout
-            android:id="@+id/idLayoutFondo"
+        <TextView
+            android:id="@+id/titulo1"
             android:layout_width="match_parent"
-            android:layout_height="59dp"
-            android:layout_marginBottom="10dp"
-            android:background="#2196F3"
-            android:elevation="8dp"
-            android:gravity="center">
+            android:layout_height="wrap_content"
+            android:text="@string/label_titulo_de_noticia"
+            android:textColor="#2196F3"
+            android:textSize="17sp"
+            android:textStyle="bold|italic" />
 
-            <TextView
-                android:id="@+id/tituloNews"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="130dp"
-                android:layout_marginTop="15dp"
-                android:gravity="center_horizontal"
-                android:text="Publicar Noticias"
-                android:textColor="@android:color/white"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+        <EditText
+            android:id="@+id/et_titulo_noticia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/placeholder_titulo_de_noticia"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:textColorHint="#B3ABAB"
+            android:textSize="16sp" />
 
-            <ImageButton
-                android:id="@+id/btnIcoAtras"
-                android:layout_width="60dp"
-                android:layout_height="49dp"
-                android:backgroundTint="#03A9F4"
-                android:layout_marginStart="2dp"
-                android:contentDescription="@string/boton_regresar"
-                android:src="?attr/actionModeCloseDrawable"
-                app:tint="#FFFFFF" />
+        <TextView
+            android:id="@+id/titulo2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:text="@string/label_fecha_noticia"
+            android:textColor="#2196F3"
+            android:textSize="17sp"
+            android:textStyle="bold|italic" />
 
+        <EditText
+            android:id="@+id/et_fecha_noticia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/placeholder_fecha_noticia"
+            android:inputType="date"
+            android:minHeight="48dp"
+            android:textSize="16sp" />
 
-            <ImageButton
-                android:id="@+id/btnAyuda"
-                android:layout_width="60dp"
-                android:layout_height="50dp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginTop="0dp"
-                android:background="#03A9F4"
-                android:src="@android:drawable/ic_menu_help" />
-        </RelativeLayout>
+        <TextView
+            android:id="@+id/titulo3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:text="@string/label_descripcion_noticia"
+            android:textColor="#2196F3"
+            android:textSize="17sp"
+            android:textStyle="bold|italic" />
 
-        <ImageView
-            android:id="@+id/imageView6"
-            android:layout_width="110dp"
-            android:layout_height="130dp"
-            android:layout_marginLeft="135dp"
-            android:src="@drawable/noticias2" />
+        <EditText
+            android:id="@+id/et_descripcion_noticia"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/placeholder_descripcion_noticia"
+            android:inputType="textPersonName"
+            android:minHeight="48dp"
+            android:textColorHint="#B3ABAB"
+            android:textSize="16sp" />
 
-        <LinearLayout
-            android:layout_width="362dp"
-            android:layout_height="372dp"
-            android:layout_marginLeft="25dp"
-            android:layout_marginTop="20dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/titulo1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Titulo de Noticia (*):"
-                android:textColor="#2196F3"
-                android:textSize="17sp"
-                android:textStyle="bold|italic" />
-
-            <EditText
-                android:id="@+id/tituloNoticia"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Ingrese titulo de noticia breve"
-                android:inputType="textPersonName"
-                android:textColorHint="#B3ABAB"
-                android:textSize="16sp" />
-
-            <TextView
-                android:id="@+id/titulo2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="26dp"
-                android:text="Fecha de Noticia (*):"
-                android:textColor="#2196F3"
-                android:textSize="17sp"
-                android:textStyle="bold|italic" />
-
-            <EditText
-                android:id="@+id/fechaNoticia"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="dd/mm/aa"
-                android:inputType="date"
-                android:textSize="16sp"/>
-
-            <TextView
-                android:id="@+id/titulo3"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="26dp"
-                android:text="Descripcion de Noticia (*):"
-                android:textColor="#2196F3"
-                android:textSize="17sp"
-                android:textStyle="bold|italic" />
-
-            <EditText
-                android:id="@+id/descripcionNoticia"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="Ingrese descripcion de noticia "
-                android:inputType="textPersonName"
-                android:textColorHint="#B3ABAB"
-                android:textSize="16sp" />
-
-            <Button
-                android:id="@+id/button"
-                android:layout_width="262dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="45dp"
-                android:layout_marginTop="46dp"
-                android:backgroundTint="#2196F3"
-                android:text="Publicar noticia" />
-        </LinearLayout>
-
-
+        <Button
+            android:id="@+id/btn_publicar_noticia"
+            android:layout_width="262dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="46dp"
+            android:layout_marginEnd="30dp"
+            android:backgroundTint="#2196F3"
+            android:text="@string/boton_guardar_noticia" />
     </LinearLayout>
 
-</RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
