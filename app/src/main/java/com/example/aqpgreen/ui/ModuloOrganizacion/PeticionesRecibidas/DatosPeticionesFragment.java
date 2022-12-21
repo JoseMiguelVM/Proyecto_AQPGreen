@@ -18,6 +18,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.aqpgreen.R;
 import com.example.aqpgreen.database.Peticiones.PeticionDBController;
 import com.example.aqpgreen.database.Usuarios.UsuariosDBController;
@@ -62,14 +66,14 @@ public class DatosPeticionesFragment extends Fragment {
         NavController navController = Navigation.findNavController(view);
 
         inicializar_elementos(view);
-        mostrar_datos();
+        mostrar_datos(view);
 
     }
 
     public void inicializar_elementos (View view) {
-        img_foto_peticion = view.findViewById(R.id.img_foto_peticion);
         tv_usuario = view.findViewById(R.id.tv_usuario);
         tv_correo_usuario = view.findViewById(R.id.tv_correo_usuario);
+        img_foto_peticion = view.findViewById(R.id.img_foto_peticion);
         tv_descripcion_peticion = view.findViewById(R.id.tv_descripcion_peticion);
         tv_cantidad_peticion = view.findViewById(R.id.tv_cantidad_peticion);
         tv_categoria_peticion = view.findViewById(R.id.tv_categoria_peticion);
@@ -81,34 +85,46 @@ public class DatosPeticionesFragment extends Fragment {
         btn_rechazar_peticion = view.findViewById(R.id.btn_rechazar_peticion);
     }
 
-    public void mostrar_datos () {
+    public void mostrar_datos (View view) {
         try {
-            assert getArguments() != null;
             String usuario = getArguments().getString("usuario");
             Long idpeticion = getArguments().getLong("idpeticion");
 
             db_peticiones.open();
             Cursor cursor_pet = db_peticiones.fetch(idpeticion);
-            tv_descripcion_peticion.setText(cursor_pet.getString(5));
-            tv_cantidad_peticion.setText(cursor_pet.getInt(3));
-            tv_categoria_peticion.setText(cursor_pet.getString(2));
-            et_puntos_peticion.setPlaceholderText(cursor_pet.getInt(6)+"");
+            if (cursor_pet.getCount() != 0) {
+                cursor_pet.moveToFirst();
+                Glide.with(view)
+                        .load(cursor_pet.getString(8))
+                        .centerCrop()
+                        .placeholder(R.drawable.fragment_reciclaje_icon1)
+                        .diskCacheStrategy(DiskCacheStrategy.ALL)
+                        .apply(RequestOptions.bitmapTransform(new RoundedCorners(10)))
+                        .into(img_foto_peticion);
+                tv_descripcion_peticion.setText(cursor_pet.getString(5));
+                tv_cantidad_peticion.setText(cursor_pet.getInt(3) + " unidades");
+                tv_categoria_peticion.setText(cursor_pet.getString(2));
+                et_puntos_peticion.setPlaceholderText("Actualmente tiene " + cursor_pet.getInt(6));
+            }
+            else { Log.e("DatosPetFragment", "No se encontro la petición"); }
             cursor_pet.close();
             db_peticiones.close();
 
             db_usuarios.open();
-
             Cursor cursor_usu = db_usuarios.fetch(usuario);
+            if (cursor_usu.getCount() != 0) {
+                cursor_usu.moveToFirst();
+                tv_usuario.setText(cursor_usu.getString(1));
+                tv_correo_usuario.setText(cursor_usu.getString(2));
+            }
+            else { Log.e("DatosPetFragment", "No se encontro el usuario"); }
             cursor_usu.close();
-
             db_usuarios.close();
 
         }
         catch (Exception e) {
             Log.e("DatosPeticion", e.toString());
         }
-
-
 
     }
 }

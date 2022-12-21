@@ -104,7 +104,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="2dp"
-                            android:text="Nombreusuario"
+                            android:text="@string/hello_blank_fragment"
                             android:textColor="@android:color/black"
                             android:textSize="20sp"
                             android:textStyle="bold" />
@@ -113,8 +113,8 @@
                             android:id="@+id/tv_correo_usuario"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="correo"
-                            android:textSize="14sp" />
+                            android:text="@string/hello_blank_fragment"
+                            android:textSize="16sp" />
 
                     </LinearLayout>
 
@@ -155,9 +155,9 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="2dp"
-                            android:text="Descripción de la petición"
+                            android:text="@string/label_descripcion_peticion"
                             android:textColor="@android:color/black"
-                            android:textSize="18sp"
+                            android:textSize="16sp"
                             android:textStyle="bold" />
 
                         <TextView
@@ -165,7 +165,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="@string/hello_blank_fragment"
-                            android:textSize="14sp" />
+                            android:textSize="18sp" />
 
                     </LinearLayout>
 
@@ -181,7 +181,7 @@
                             android:id="@+id/tv_categoria_peticion"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Tipo de Plástico"
+                            android:text="@string/hello_blank_fragment"
                             android:textAlignment="textStart"
                             android:textColor="@android:color/black"
                             android:textSize="16sp"
@@ -191,7 +191,7 @@
                             android:id="@+id/tv_cantidad_peticion"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="... unidades"
+                            android:text="@string/hello_blank_fragment"
                             android:textAlignment="textEnd"
                             android:textColor="@android:color/black"
                             android:textSize="16sp"
