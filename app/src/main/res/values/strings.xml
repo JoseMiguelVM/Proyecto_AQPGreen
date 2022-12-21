@@ -70,4 +70,6 @@
     <string name="placeholder_descripcion_noticia">Ingrese descripcion de noticia</string>
     <string name="titulo_publicar_noticias">Publicar Noticias</string>
     <string name="boton_guardar_noticia">Publicar noticia</string>
+    <string name="titulo_peticion_datos">Datos Petición</string>
+    <string name="label_actualizar_puntaje">Actualizar puntaje</string>
 </resources>
