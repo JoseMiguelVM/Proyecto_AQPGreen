@@ -93,9 +93,10 @@
             android:layout_height="wrap_content"
             android:layout_margin="6dp"
             android:text="example"
+            android:background="#FFFFFF"
             android:textColor="#0C0C0C"
-            android:textSize="14sp"
-            android:textStyle="italic" />
+            android:textSize="18sp"
+            android:textStyle="bold" />
         </ScrollView>
     </LinearLayout>
 </RelativeLayout>
