@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.Comunidad.ComunidadFragment"
-    android:background="@drawable/background">
+    android:background="@drawable/background2">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/idLayoutFondo"
@@ -86,8 +86,8 @@
                 android:layout_marginStart="5dp"
                 android:layout_height="wrap_content"
                 android:text="Puede revisar la lista de premios ofrecidos por la organizacion y canjear el que mas desee."
-                android:textColor="#FFFDFD"
-                android:textStyle="bold" />
+                android:textColor="#736D6D"
+                android:textStyle="bold|italic" />
         </LinearLayout>
 
         <Button
@@ -123,7 +123,7 @@
             android:layout_height="54dp"
             android:layout_marginStart="5dp"
             android:text="Usted puede realizar denuncias, otorgando algunos datos de la incidencia a nuestra central."
-            android:textColor="#FFFDFD"
+            android:textColor="#736D6D"
             android:textStyle="bold|italic" />
 
     </LinearLayout>
@@ -136,6 +136,40 @@
             android:backgroundTint="#C30C40"
             android:layout_gravity="center"
             android:text="@string/boton_denuncias"
+            app:cornerRadius="50dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="40dp">
+
+            <ImageView
+                android:id="@+id/imagenONG"
+                android:layout_width="84dp"
+                android:layout_height="87dp"
+                android:src="@drawable/ong" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="208dp"
+                android:layout_height="54dp"
+                android:layout_marginStart="5dp"
+                android:text="Usted puede realizar donaciones a ONGs ue necesiten de su ayuda, unete al cambio."
+                android:textColor="#736D6D"
+                android:textStyle="bold|italic" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/Btn_ong"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:backgroundTint="#2196F3"
+            android:layout_gravity="center"
+            android:text="AYUDA ONG"
             app:cornerRadius="50dp" />
 
     </LinearLayout>

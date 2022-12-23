@@ -22,6 +22,7 @@ public class ComunidadFragment extends Fragment{
     private ImageButton btn_regresar_fragment;
     private Button btn_ir_premios;
     private Button btn_ir_denuncia;
+    private Button btn_ir_ong;
 
     public ComunidadFragment() {
         // Required empty public constructor
@@ -60,11 +61,19 @@ public class ComunidadFragment extends Fragment{
                 navController.navigate(R.id.denuncias);
             }
         });
+
+        btn_ir_ong.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navController.navigate(R.id.ong_inicio);
+            }
+        });
     }
 
     public void inicializar_elementos (View view) {
         btn_regresar_fragment = view.findViewById(R.id.btnIcoAtras);
         btn_ir_premios = view.findViewById(R.id.Btn_listaDePremios);
         btn_ir_denuncia = view.findViewById(R.id.Btn_denuncias);
+        btn_ir_ong = view.findViewById(R.id.Btn_ong);
     }
 }

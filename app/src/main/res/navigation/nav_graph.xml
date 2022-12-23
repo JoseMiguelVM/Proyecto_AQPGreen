@@ -62,6 +62,9 @@
         <action
             android:id="@+id/action_comunidadFragment_to_denuncias"
             app:destination="@id/denuncias" />
+        <action
+            android:id="@+id/action_comunidadFragment_to_ong_inicio"
+            app:destination="@id/ong_inicio" />
     </fragment>
     <fragment
         android:id="@+id/estadisticasFragment"
@@ -324,4 +327,9 @@
             android:id="@+id/action_datosPeticionesFragment_to_revisionPeticiones"
             app:destination="@id/revisionPeticiones" />
     </fragment>
+    <fragment
+        android:id="@+id/ong_inicio"
+        android:name="com.example.aqpgreen.ui.Comunidad.ong_inicio"
+        android:label="fragment_ong_inicio"
+        tools:layout="@layout/fragment_ong_inicio" />
 </navigation>
