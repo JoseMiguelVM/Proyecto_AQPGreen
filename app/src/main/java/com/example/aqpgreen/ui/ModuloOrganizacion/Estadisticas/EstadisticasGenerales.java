@@ -72,8 +72,7 @@ public class EstadisticasGenerales extends Fragment {
         Random r = new Random();
         String leyenda_text = "";
         for (int i = 0; i < Lista.length; i++) {
-            data[i] = db_peticiones.fetch_Distrito_Origen_cantidad(Lista[i])
-                    * db_peticiones.fetch_Distrito_Origen_count(Lista[i]);
+            data[i] = db_peticiones.fetch_Distrito_Origen_sum(Lista[i]);
             color[i] = Color.argb(255,r.nextInt(210-70) + 70,
                     r.nextInt(210-70) + 70,
                     r.nextInt(210-70) + 70);

@@ -99,6 +99,23 @@ public class PeticionDBController {
         }
     }
 
+    public int fetch_Distrito_Origen_sum (String distrito){
+        try {
+            Cursor cursor = database.rawQuery("SELECT SUM(cantidad) FROM  PETICIONES where lugarOrigen = '" + distrito + "'", null);
+            int count=0;
+            if(null != cursor)
+                if(cursor.getCount() > 0){
+                    cursor.moveToFirst();
+                    count = cursor.getInt(0);
+                }
+            cursor.close();
+            return count;
+        }
+        catch(SQLiteException e){
+            return 0;
+        }
+    }
+
     public int fetch_Distrito_Origen_cantidad (String distrito){
         try {
             Cursor cursor = database.rawQuery("SELECT cantidad FROM  PETICIONES where lugarOrigen = '" + distrito + "'", null);
