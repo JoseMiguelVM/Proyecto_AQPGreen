@@ -7,8 +7,6 @@ import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 
-import com.example.aqpgreen.database.Usuarios.ConectorUsuariosDB;
-
 public class NoticiaDBController {
 
     private ConectorNoticiasDB dbHelper;
@@ -64,7 +62,7 @@ public class NoticiaDBController {
         contentValues.put(ConectorNoticiasDB.TITULO, titulo);
         contentValues.put(ConectorNoticiasDB.FECHA_PUBLICACION, fecha_publicacion);
         contentValues.put(ConectorNoticiasDB.DESCRIPCION, descripcion);
-        return database.update(ConectorUsuariosDB.TABLE_NAME, contentValues, ConectorNoticiasDB.IDNOTICIA + " = " + idnoticia, null);
+        return database.update(ConectorNoticiasDB.TABLE_NAME, contentValues, ConectorNoticiasDB.IDNOTICIA + " = " + idnoticia, null);
     }
 
     public void delete(long idnoticia) {
