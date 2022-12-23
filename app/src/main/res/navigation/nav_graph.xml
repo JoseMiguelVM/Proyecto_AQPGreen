@@ -331,5 +331,18 @@
         android:id="@+id/ong_inicio"
         android:name="com.example.aqpgreen.ui.Comunidad.ong_inicio"
         android:label="fragment_ong_inicio"
-        tools:layout="@layout/fragment_ong_inicio" />
+        tools:layout="@layout/fragment_ong_inicio" >
+        <action
+            android:id="@+id/action_ong_inicio_to_listaDeOng"
+            app:destination="@id/listaDeOng" />
+    </fragment>
+    <fragment
+        android:id="@+id/listaDeOng"
+        android:name="com.example.aqpgreen.ui.Comunidad.ListaDeOng"
+        android:label="fragment_lista_de_ong"
+        tools:layout="@layout/fragment_lista_de_ong" >
+        <action
+            android:id="@+id/action_listaDeOng_to_ong_inicio"
+            app:destination="@id/ong_inicio" />
+    </fragment>
 </navigation>
