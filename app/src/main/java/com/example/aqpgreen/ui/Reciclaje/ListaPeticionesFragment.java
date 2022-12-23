@@ -87,14 +87,14 @@ public class ListaPeticionesFragment extends Fragment {
 
         ExecutorService hilo = Executors.newSingleThreadExecutor();
         Handler handler = new Handler(Looper.getMainLooper());
-
         List<Peticion> lista_peticiones = new ArrayList<>();
-        String usuario_sesion = preferencias.getString("usuario", "none");
 
-        hilo.execute(() -> {
-            db_peticiones.open();
-            Cursor cursor = db_peticiones.fetch(usuario_sesion);
-            if(cursor.getCount() != 0){
+        String usuario_sesion = preferencias.getString("usuario", "none");
+        db_peticiones.open();
+        Cursor cursor = db_peticiones.fetch(usuario_sesion);
+
+        if(cursor.getCount() != 0){
+            hilo.execute(() -> {
                 try{
                     for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
                         lista_peticiones.add(new Peticion(cursor.getInt(0), cursor.getString(1), cursor.getString(2),
@@ -105,23 +105,26 @@ public class ListaPeticionesFragment extends Fragment {
                 } finally {
                     cursor.close();
                 }
-            }
-            else {
-                //Log.e("ListaPetCursorelse", "No hay registros");
-                recyclerView.setVisibility(View.GONE);
-                tv_aviso_vacio.setText("No tienes peticiones\nCrea una nueva.");
-            }
-            db_peticiones.close();
-
-            handler.post(() -> {
-                recyclerView.setVisibility(View.VISIBLE);
-                tv_aviso_vacio.setVisibility(View.GONE);
-                pb_icono_carga.setVisibility(View.GONE);
-                ListaPeticionUsuarioAdaptador adaptor = new ListaPeticionUsuarioAdaptador(lista_peticiones);
-                recyclerView.setHasFixedSize(true);
-                recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
-                recyclerView.setAdapter(adaptor);
+                handler.post(() -> {
+                    if (recyclerView.getVisibility() != View.GONE) {
+                        tv_aviso_vacio.setVisibility(View.GONE);
+                        pb_icono_carga.setVisibility(View.GONE);
+                        ListaPeticionUsuarioAdaptador adaptor = new ListaPeticionUsuarioAdaptador(lista_peticiones);
+                        recyclerView.setHasFixedSize(true);
+                        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
+                        recyclerView.setAdapter(adaptor);
+                    }
+                });
             });
-        });
+        }
+        else {
+            recyclerView.setVisibility(View.GONE);
+            pb_icono_carga.setVisibility(View.GONE);
+            tv_aviso_vacio.setText("No tienes peticiones\nCrea una nueva.");
+        }
+        db_peticiones.close();
+
+
+
     }
 }

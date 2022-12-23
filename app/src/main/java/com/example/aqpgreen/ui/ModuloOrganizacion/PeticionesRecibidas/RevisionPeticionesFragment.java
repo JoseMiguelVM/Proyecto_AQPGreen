@@ -88,45 +88,43 @@ public class RevisionPeticionesFragment extends Fragment {
         Handler handler = new Handler(Looper.getMainLooper());
         List<Peticion> lista_peticiones = new ArrayList<>();
 
-        hilo.execute(() -> {
-            db_peticiones.open();
-            Cursor cursor = db_peticiones.fetch();
-            if(cursor.getCount() != 0){
-                try{
+        db_peticiones.open();
+        Cursor cursor = db_peticiones.fetch();
+
+        if(cursor.getCount() != 0) {
+            hilo.execute(() -> {
+                try {
                     for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
                         lista_peticiones.add(new Peticion(cursor.getInt(0), cursor.getString(1), cursor.getString(2),
                                 cursor.getInt(3), cursor.getString(4), cursor.getString(5), cursor.getInt(6), cursor.getInt(7), cursor.getString(8)));
                     }
-                } catch (Exception e){
+                } catch (Exception e) {
                     Log.e("ListaPetOrgFragment", e.toString());
                 } finally {
                     cursor.close();
                 }
-            }
-            else {
-                recyclerView.setVisibility(View.GONE);
-                tv_aviso_vacio.setText("No hay peticiones");
-            }
-            db_peticiones.close();
-
-            handler.post(() -> {
-                recyclerView.setVisibility(View.VISIBLE);
-                tv_aviso_vacio.setVisibility(View.GONE);
-                pb_icono_carga.setVisibility(View.GONE);
-
-                recyclerView.setHasFixedSize(true);
-                recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 1));
-                ListaPeticionOrganizacionAdaptador adaptor = new ListaPeticionOrganizacionAdaptador(lista_peticiones);
-
-                adaptor.setOnClickListener(v -> {
-                    Bundle bundle = new Bundle();
-                    bundle.putLong("idpeticion", lista_peticiones.get(recyclerView.getChildAdapterPosition(v)).getId());
-                    bundle.putString("usuario", lista_peticiones.get(recyclerView.getChildAdapterPosition(v)).getUsuario());
-                    navController.navigate(R.id.datosPeticionesFragment, bundle);
+                handler.post(() -> {
+                    tv_aviso_vacio.setVisibility(View.GONE);
+                    pb_icono_carga.setVisibility(View.GONE);
+                    recyclerView.setHasFixedSize(true);
+                    recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 1));
+                    ListaPeticionOrganizacionAdaptador adaptor = new ListaPeticionOrganizacionAdaptador(lista_peticiones);
+                    adaptor.setOnClickListener(v -> {
+                        Bundle bundle = new Bundle();
+                        bundle.putLong("idpeticion", lista_peticiones.get(recyclerView.getChildAdapterPosition(v)).getId());
+                        bundle.putString("usuario", lista_peticiones.get(recyclerView.getChildAdapterPosition(v)).getUsuario());
+                        navController.navigate(R.id.datosPeticionesFragment, bundle);
+                    });
+                    recyclerView.setAdapter(adaptor);
                 });
-
-                recyclerView.setAdapter(adaptor);
             });
-        });
+        }
+        else {
+            recyclerView.setVisibility(View.GONE);
+            pb_icono_carga.setVisibility(View.GONE);
+            tv_aviso_vacio.setText("No hay peticiones");
+        }
+        db_peticiones.close();
+
     }
 }
