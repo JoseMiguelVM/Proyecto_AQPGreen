@@ -58,35 +58,44 @@
 
         </RelativeLayout>
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_margin="6dp"
-                    android:text="Estadisticas referente a distritos de Arequipa donde se adquiere mas los plasticos. "
-                    android:textAlignment="center"
-                    android:textColor="#0C0C0C"
-                    android:textSize="18sp"
-                    android:textStyle="italic" />
-
-            </LinearLayout>
-        </ScrollView>
-        <LinearLayout
-            android:id="@+id/estadisticas"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:orientation="horizontal"/>
+            android:layout_margin="6dp"
+            android:text="Estadisticas referente a distritos de Arequipa donde se adquiere mas los plasticos. "
+            android:textAlignment="center"
+            android:textColor="#0C0C0C"
+            android:textSize="18sp"
+            android:textStyle="italic" />
+
+
+        <LinearLayout
+            android:id="@+id/estadisticas"
+            android:layout_width="350dp"
+            android:layout_height="350dp"
+            android:layout_gravity="center"
+            android:orientation="vertical"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:text="Leyenda"
+            android:textAlignment="center"
+            android:textColor="#0C0C0C"
+            android:textSize="18sp"
+            android:textStyle="italic" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        <TextView
+            android:id="@+id/leyenda"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="6dp"
+            android:text="example"
+            android:textColor="#0C0C0C"
+            android:textSize="14sp"
+            android:textStyle="italic" />
+        </ScrollView>
     </LinearLayout>
-
-
 </RelativeLayout>

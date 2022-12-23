@@ -78,15 +78,29 @@
                     android:textSize="18sp"
                     android:textStyle="italic" />
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="6dp"
+                    android:text="Estadisticas referente a distritos de Arequipa donde se adquiere mas los plasticos. "
+                    android:textAlignment="center"
+                    android:textColor="#0C0C0C"
+                    android:textSize="18sp"
+                    android:textStyle="italic" />
+                <LinearLayout
+                    android:id="@+id/estadisticas"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:orientation="horizontal"/>
             </LinearLayout>
+
         </ScrollView>
-        <LinearLayout
-            android:id="@+id/estadisticas"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:orientation="horizontal"/>
+
+
     </LinearLayout>
+
 
 
 </RelativeLayout>

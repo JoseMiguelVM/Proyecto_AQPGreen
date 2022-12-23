@@ -5,7 +5,15 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
+import android.os.Bundle;
 import android.view.View;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.navigation.NavController;
+import androidx.navigation.Navigation;
+
+import com.example.aqpgreen.database.Noticias.NoticiaDBController;
 
 public class VistaGraficoCircular extends View {
     float start=0;
@@ -24,6 +32,7 @@ public class VistaGraficoCircular extends View {
     }
 
     @Override
+
     protected void onDraw(Canvas canvas) {
         if (data.length==0)
             return;
@@ -48,7 +57,7 @@ public class VistaGraficoCircular extends View {
                     p.setTextAlign(Paint.Align.RIGHT);
                 else
                     p.setTextAlign(Paint.Align.LEFT);
-                canvas.drawText(lugares[i]+":"+data[i], (float) (centerX + (radius * Math.cos(medianAngle))), (float) (centerY + (radius * Math.sin(medianAngle))), p);
+                canvas.drawText((int)(data[i]/getTotal()*100)+" %", (float) (centerX + (radius * Math.cos(medianAngle))), (float) (centerY + (radius * Math.sin(medianAngle))), p);
 
             }
             start=start+scaledValues[i];
