@@ -36,7 +36,6 @@
     <string name="titulo_comunidad_green">Comunidad Green</string>
     <string name="boton_lista_premios">Lista de Premios</string>
     <string name="boton_denuncias">Denuncias</string>
-    <string name="titulo_estadisticas">Estadisticas</string>
     <string name="titulo_tipos_plasticos">Tipos de Plásticos</string>
     <string name="boton_salir">Desloguearse</string>
     <string name="label_nombre_usuario">Nombre de Usuario</string>
@@ -103,4 +102,9 @@
     <string name="label_pastas_dentales">Pastas Dentales</string>
     <string name="label_vasos_plastico">Vasos de Plastico</string>
     <string name="label_otros_plasticos">Otros Plasticos</string>
+
+    <!-- Estadisticas -->
+    <string name="titulo_estadisticas">Estadisticas</string>
+    <string name="label_leyenda">Leyenda</string>
+    <string name="texto_estadistica">Estadisticas referente a distritos de Arequipa donde se adquiere mas los plásticos.</string>
 </resources>

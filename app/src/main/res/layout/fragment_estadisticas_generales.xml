@@ -1,102 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/EstadisticasGreen"
-    tools:context=".ui.ModuloOrganizacion.Estadisticas.EstadisticasGenerales">
+    tools:context=".ui.ModuloOrganizacion.Estadisticas.EstadisticasGenerales"
+    android:background="@drawable/background2" >
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/idLayoutFondo"
+        android:layout_width="match_parent"
+        android:layout_height="59dp"
+        android:layout_marginBottom="10dp"
+        android:background="#2196F3"
+        android:elevation="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/btnIcoAtras"
+            android:layout_width="60dp"
+            android:layout_height="49dp"
+            android:layout_marginStart="4dp"
+            android:backgroundTint="#03A9F4"
+            android:contentDescription="@string/boton_regresar"
+            android:src="?attr/actionModeCloseDrawable"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="#FFFFFF" />
+
+        <TextView
+            android:id="@+id/titulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/titulo_estadisticas"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/btnAyuda"
+            android:layout_width="60dp"
+            android:layout_height="50dp"
+            android:layout_marginEnd="4dp"
+            android:background="#03A9F4"
+            android:contentDescription="@string/boton_ayuda"
+            android:src="@android:drawable/ic_menu_help"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/texto_estadisticas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="6dp"
+        android:text="@string/texto_estadistica"
+        android:textAlignment="center"
+        android:textColor="#0C0C0C"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/idLayoutFondo" />
 
     <LinearLayout
+        android:id="@+id/estadisticas"
+        android:layout_width="350dp"
+        android:layout_height="350dp"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/texto_estadisticas" />
+
+    <TextView
+        android:id="@+id/titulo_leyenda"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="6dp"
+        android:text="@string/label_leyenda"
+        android:textAlignment="center"
+        android:textColor="#0C0C0C"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/estadisticas" />
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@drawable/background2"
-        android:orientation="vertical">
-
-        <RelativeLayout
-            android:id="@+id/idLayoutFondo"
-            android:layout_width="match_parent"
-            android:layout_height="59dp"
-            android:layout_marginBottom="10dp"
-            android:background="#2196F3"
-            android:elevation="8dp"
-            android:gravity="center">
-
-            <TextView
-                android:id="@+id/titulo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="139dp"
-                android:layout_marginTop="14dp"
-                android:text="@string/titulo_estadisticas"
-                android:textColor="@android:color/white"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <ImageButton
-                android:id="@+id/btnIcoAtras"
-                android:layout_width="60dp"
-                android:layout_height="49dp"
-                android:backgroundTint="#03A9F4"
-                android:contentDescription="@string/boton_regresar"
-                android:src="?attr/actionModeCloseDrawable"
-                app:tint="#FFFFFF" />
-
-
-            <ImageButton
-                android:id="@+id/btnAyuda"
-                android:layout_width="60dp"
-                android:layout_height="50dp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginTop="0dp"
-                android:background="#03A9F4"
-                android:contentDescription="@string/boton_ayuda"
-                android:src="@android:drawable/ic_menu_help" />
-
-        </RelativeLayout>
+        android:layout_height="0dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titulo_leyenda" >
 
         <TextView
+            android:id="@+id/leyenda"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="6dp"
-            android:text="Estadisticas referente a distritos de Arequipa donde se adquiere mas los plasticos. "
-            android:textAlignment="center"
+            android:text="@string/hello_blank_fragment"
+            android:background="#FFFFFF"
             android:textColor="#0C0C0C"
             android:textSize="18sp"
-            android:textStyle="italic" />
+            android:textStyle="bold" />
+    </ScrollView>
 
-
-        <LinearLayout
-            android:id="@+id/estadisticas"
-            android:layout_width="350dp"
-            android:layout_height="350dp"
-            android:layout_gravity="center"
-            android:orientation="vertical"/>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="6dp"
-            android:text="Leyenda"
-            android:textAlignment="center"
-            android:textColor="#0C0C0C"
-            android:textSize="18sp"
-            android:textStyle="italic" />
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-            <TextView
-                android:id="@+id/leyenda"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="6dp"
-                android:text="example"
-                android:background="#FFFFFF"
-                android:textColor="#0C0C0C"
-                android:textSize="18sp"
-                android:textStyle="bold" />
-        </ScrollView>
-    </LinearLayout>
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
