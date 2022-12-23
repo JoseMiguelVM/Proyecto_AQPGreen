@@ -8,6 +8,10 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.aqpgreen.R;
 
 import java.util.ArrayList;
@@ -32,7 +36,13 @@ public class ListaPremiosAdaptador extends RecyclerView.Adapter<ListaPremiosAdap
     public void onBindViewHolder(PremiosViewHolder holder, int position) {
         holder.txtNombre.setText(listaPremios.get(position).getNombre());
         holder.txtInformacion.setText(listaPremios.get(position).getInfo());
-        holder.foto.setImageResource(listaPremios.get(position).getImagenId());
+        Glide.with(holder.itemView.getContext())
+                .load(listaPremios.get(position).getImagenId())
+                .centerCrop()
+                .placeholder(R.drawable.fragment_reciclaje_icon1)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .apply(RequestOptions.bitmapTransform(new RoundedCorners(20)))
+                .into(holder.foto);
     }
 
     public int getItemCount(){

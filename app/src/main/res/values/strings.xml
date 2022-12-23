@@ -78,4 +78,12 @@
     <!-- IDK -->
     <string name="btn_ayuda">Ayuda</string>
     <string name="label_descripcion_peticion">Descripción de la petición</string>
+    <string name="titulo_lista_premios">Lista de premios disponibles</string>
+    <string name="texto_huella_plastico">Este cuestionario nos ayudará a calcular la cantidad de plástico que utilizará a lo largo de su vida.</string>
+    <string name="label_nombre_organizacion">Nombre de Usuario</string>
+    <string name="label_contrasena_organizacion">Contraseña</string>
+    <string name="titulo_terminos_y_condiciones">Terminos y Condiciones</string>
+    <string name="titulo_informacion_de_opciones">Informacion de Opciones</string>
+    <string name="titulo_centro_de_ayuda">Centro de Ayuda</string>
+    <string name="titulo_menu_de_organizacion">Menu de Organizacion</string>
 </resources>

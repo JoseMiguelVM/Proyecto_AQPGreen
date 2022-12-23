@@ -35,12 +35,14 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class RevisarDenuncias extends Fragment {
+
     private DenunciaDBController db_peticiones;
     private SharedPreferences preferencias;
     private FloatingActionButton btn_crear_peticion_fragment;
     private ImageButton btn_regresar_fragment;
     private ProgressBar pb_icono_carga;
     private TextView tv_aviso_vacio;
+    private RecyclerView recyclerView;
 
     public RevisarDenuncias() {
         // Required empty public constructor
@@ -74,6 +76,7 @@ public class RevisarDenuncias extends Fragment {
         btn_regresar_fragment = view.findViewById(R.id.btnIcoAtras);
         pb_icono_carga = view.findViewById(R.id.pb_icono_carga);
         tv_aviso_vacio = view.findViewById(R.id.tv_lista_vacia);
+        recyclerView = view.findViewById(R.id.recycleView_listaDenuncias);
 
         preferencias = getContext().getSharedPreferences("var_sesion", Context.MODE_PRIVATE);
         //SharedPreferences.Editor editor_preferencias = preferencias.edit();
@@ -102,15 +105,15 @@ public class RevisarDenuncias extends Fragment {
                 }
             }
             else {
-                //Log.e("ListaPetCursorelse", "No hay registros");
+                recyclerView.setVisibility(View.GONE);
                 tv_aviso_vacio.setText("No hay denuncias");
             }
             db_peticiones.close();
 
             handler.post(() -> {
+                recyclerView.setVisibility(View.VISIBLE);
                 pb_icono_carga.setVisibility(View.GONE);
                 ListaDenunciaAdaptador adaptor = new ListaDenunciaAdaptador(lista_denuncias);
-                RecyclerView recyclerView = view.findViewById(R.id.recycleView_listaDenuncias);
                 recyclerView.setHasFixedSize(true);
                 recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 1));
                 recyclerView.setAdapter(adaptor);

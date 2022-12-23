@@ -41,6 +41,7 @@ public class ListaPeticionesFragment extends Fragment {
     private ImageButton btn_regresar_fragment;
     private ProgressBar pb_icono_carga;
     private TextView tv_aviso_vacio;
+    private RecyclerView recyclerView;
 
     public ListaPeticionesFragment() {
         // Required empty public constructor
@@ -75,6 +76,7 @@ public class ListaPeticionesFragment extends Fragment {
         btn_regresar_fragment = view.findViewById(R.id.btnIcoAtras);
         pb_icono_carga = view.findViewById(R.id.pb_icono_carga);
         tv_aviso_vacio = view.findViewById(R.id.tv_lista_vacia);
+        recyclerView = view.findViewById(R.id.recycleView_listaPeticiones);
 
         preferencias = getContext().getSharedPreferences("var_sesion", Context.MODE_PRIVATE);
         //SharedPreferences.Editor editor_preferencias = preferencias.edit();
@@ -106,14 +108,16 @@ public class ListaPeticionesFragment extends Fragment {
             }
             else {
                 //Log.e("ListaPetCursorelse", "No hay registros");
+                recyclerView.setVisibility(View.GONE);
                 tv_aviso_vacio.setText("No tienes peticiones\nCrea una nueva.");
             }
             db_peticiones.close();
 
             handler.post(() -> {
+                recyclerView.setVisibility(View.VISIBLE);
+                tv_aviso_vacio.setVisibility(View.GONE);
                 pb_icono_carga.setVisibility(View.GONE);
                 ListaPeticionUsuarioAdaptador adaptor = new ListaPeticionUsuarioAdaptador(lista_peticiones);
-                RecyclerView recyclerView = view.findViewById(R.id.recycleView_listaPeticiones);
                 recyclerView.setHasFixedSize(true);
                 recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
                 recyclerView.setAdapter(adaptor);

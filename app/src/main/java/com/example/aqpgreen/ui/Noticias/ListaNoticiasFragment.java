@@ -8,7 +8,6 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
@@ -20,7 +19,6 @@ import android.widget.TextView;
 
 import com.example.aqpgreen.R;
 import com.example.aqpgreen.database.Noticias.NoticiaDBController;
-import com.example.aqpgreen.modelo.ListaNoticiasUsuarioAdaptador;
 import com.example.aqpgreen.modelo.Noticia;
 
 import java.util.ArrayList;
@@ -32,6 +30,7 @@ public class ListaNoticiasFragment extends Fragment {
     private NoticiaDBController db_noticias;
     private ImageButton btn_regresar_fragment;
     private TextView tv_aviso_vacio;
+    private RecyclerView recyclerView;
 
     public ListaNoticiasFragment() {
         // Required empty public constructor
@@ -46,7 +45,7 @@ public class ListaNoticiasFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_noticias, container, false);
+        return inflater.inflate(R.layout.fragment_lista_noticias, container, false);
     }
 
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -63,6 +62,7 @@ public class ListaNoticiasFragment extends Fragment {
     private void inicializar_elementos (View view) {
         btn_regresar_fragment = view.findViewById(R.id.btnIcoAtras);
         tv_aviso_vacio = view.findViewById(R.id.tv_lista_vacia);
+        recyclerView = view.findViewById(R.id.recycleView_listaNoticias);
     }
 
     private void generar_recyclerView(View view) {
@@ -84,19 +84,20 @@ public class ListaNoticiasFragment extends Fragment {
             finally {
                 cursor.close();
             }
+            recyclerView.setVisibility(View.VISIBLE);
+            /*
+            ListaNoticiasUsuarioAdaptador adaptador = new ListaNoticiasUsuarioAdaptador(lista_noticias);
+            recyclerView.setHasFixedSize(true);
+            recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 1));
+            recyclerView.setAdapter(adaptador);
+            */
         }
         else {
+            recyclerView.setVisibility(View.GONE);
+            tv_aviso_vacio.setVisibility(View.VISIBLE);
             tv_aviso_vacio.setText("Aún no se han agregado noticias\nLo sentimos.");
         }
 
         db_noticias.close();
-
-       /* Establecemos en recycler view con los datos
-        ListaNoticiasUsuarioAdaptador adaptador = new ListaNoticiasUsuarioAdaptador(lista_noticias);
-        RecyclerView recyclerView = view.findViewById(R.id.recycleView_listaNoticias);
-        recyclerView.setHasFixedSize(true);
-        recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 1));
-        recyclerView.setAdapter(adaptador);
-*/
     }
 }

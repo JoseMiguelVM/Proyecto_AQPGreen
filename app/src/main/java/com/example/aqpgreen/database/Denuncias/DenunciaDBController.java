@@ -10,10 +10,9 @@ import android.database.sqlite.SQLiteException;
 
 
 public class DenunciaDBController {
+
     private ConectorDenunciasDB dbHelper;
-
     private Context context;
-
     private SQLiteDatabase database;
 
     public DenunciaDBController(Context c) {
@@ -30,14 +29,14 @@ public class DenunciaDBController {
         dbHelper.close();
     }
 
-    public void insert(String dni, String nombres, String ubicacion, String descripcion) {
+    public long insert(String dni, String nombres, String ubicacion, String descripcion) {
         try{
             ContentValues contentValue = new ContentValues();
             contentValue.put(ConectorDenunciasDB.DNI, dni);
             contentValue.put(ConectorDenunciasDB.NOMBRES_COMPLETOS, nombres);
             contentValue.put(ConectorDenunciasDB.UBICACION, ubicacion);
             contentValue.put(ConectorDenunciasDB.DESCRIPCION, descripcion);
-            database.insertOrThrow(ConectorDenunciasDB.TABLE_NAME, null, contentValue);
+            return database.insertOrThrow(ConectorDenunciasDB.TABLE_NAME, null, contentValue);
         }catch (SQLiteException e){
             dbHelper.DBcreateTable(database);
             ContentValues contentValue = new ContentValues();
@@ -45,7 +44,7 @@ public class DenunciaDBController {
             contentValue.put(ConectorDenunciasDB.NOMBRES_COMPLETOS, nombres);
             contentValue.put(ConectorDenunciasDB.UBICACION, ubicacion);
             contentValue.put(ConectorDenunciasDB.DESCRIPCION, descripcion);
-            database.insert(ConectorDenunciasDB.TABLE_NAME, null, contentValue);
+            return database.insert(ConectorDenunciasDB.TABLE_NAME, null, contentValue);
         }
 
     }

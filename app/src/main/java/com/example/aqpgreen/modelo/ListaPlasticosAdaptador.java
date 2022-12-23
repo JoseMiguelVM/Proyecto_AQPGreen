@@ -23,7 +23,7 @@ public class ListaPlasticosAdaptador extends RecyclerView.Adapter<ListaPlasticos
 
     @Override
     public PlasticosViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.item_list,null,false);
+        View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.elemento_lista_categorias,parent,false);
         view.setOnClickListener(this);
         return new PlasticosViewHolder(view);
     }

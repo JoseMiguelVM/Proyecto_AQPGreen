@@ -5,28 +5,27 @@
     android:layout_height="wrap_content"
     app:cardCornerRadius="10dp"
     app:cardElevation="2dp"
-    app:cardUseCompatPadding="true">
+    app:cardUseCompatPadding="true"
+    >
 
     <LinearLayout
-        android:layout_width="361dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="25dp"
         android:orientation="horizontal"
+        android:animateLayoutChanges="true"
+        android:gravity="center"
         android:padding="2dp">
 
         <ImageView
             android:id="@+id/idImagen"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_margin="2dp"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
             android:src="@drawable/logo_pet" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginStart="4dp"
-            android:layout_marginTop="2dp"
-            android:gravity="center"
             android:orientation="vertical">
 
             <TextView
@@ -34,15 +33,19 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="2dp"
-                android:text="Nombre"
+                android:text="@string/hello_blank_fragment"
                 android:textColor="@android:color/black"
                 android:textSize="23sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/idInfo"
-                android:layout_width="214dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:paddingBottom="2dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginEnd="4dp"
+                android:text="@string/hello_blank_fragment"
                 android:textSize="14sp" />
         </LinearLayout>
 

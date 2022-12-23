@@ -7,51 +7,56 @@
     android:background="@drawable/fondo4"
     tools:context=".ui.ModuloOrganizacion.MenuOrganizacion">
 
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/idLayoutFondo"
         android:layout_width="match_parent"
         android:layout_height="59dp"
-        android:layout_marginBottom="10dp"
         android:background="#2196F3"
         android:elevation="8dp"
-        android:gravity="center"
         tools:ignore="MissingConstraints">
-
-        <TextView
-            android:id="@+id/titulo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="100dp"
-            android:layout_marginTop="15dp"
-            android:text="Menu de Organizacion"
-            android:textColor="@android:color/white"
-            android:textSize="20sp"
-            android:textStyle="bold" />
 
         <ImageButton
             android:id="@+id/btnIcoAtras"
             android:layout_width="60dp"
             android:layout_height="49dp"
+            android:layout_marginStart="4dp"
             android:backgroundTint="#03A9F4"
+            android:visibility="invisible"
             android:contentDescription="@string/boton_regresar"
             android:src="?attr/actionModeCloseDrawable"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:tint="#FFFFFF" />
 
+        <TextView
+            android:id="@+id/titulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/titulo_menu_de_organizacion"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
             android:id="@+id/btnAyuda"
             android:layout_width="60dp"
             android:layout_height="50dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="0dp"
+            android:layout_marginEnd="4dp"
             android:background="#03A9F4"
             android:contentDescription="@string/boton_ayuda"
-            android:src="@android:drawable/ic_menu_help" />
+            android:src="@android:drawable/ic_menu_help"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <TextView
         android:id="@+id/textView_tituloMenu"
         android:layout_width="wrap_content"
@@ -59,15 +64,12 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="36dp"
         android:layout_marginEnd="16dp"
-        android:text="."
         android:textColor="@color/c_cabecera_boton"
         android:textSize="28sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-
-        />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"

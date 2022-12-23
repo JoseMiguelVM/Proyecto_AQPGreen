@@ -7,50 +7,55 @@
     android:background="#FFFFFF"
     tools:context=".ui.ModuloOrganizacion.ItemsOrganizacion.TerminosYcondiciones">
 
-    <RelativeLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/idLayoutFondo"
         android:layout_width="match_parent"
         android:layout_height="59dp"
         android:layout_marginBottom="10dp"
         android:background="#2196F3"
-        android:elevation="8dp"
-        android:gravity="center">
-
-        <TextView
-            android:id="@+id/titulo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="96dp"
-            android:layout_marginTop="15dp"
-            android:text="Terminos y Condiciones"
-            android:textColor="@android:color/white"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+        android:elevation="8dp">
 
         <ImageButton
             android:id="@+id/btnIcoAtras"
             android:layout_width="60dp"
             android:layout_height="49dp"
+            android:layout_marginStart="4dp"
             android:backgroundTint="#03A9F4"
             android:contentDescription="@string/boton_regresar"
             android:src="?attr/actionModeCloseDrawable"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:tint="#FFFFFF" />
 
+        <TextView
+            android:id="@+id/titulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/titulo_terminos_y_condiciones"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageButton
             android:id="@+id/btnAyuda"
             android:layout_width="60dp"
             android:layout_height="50dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true"
-            android:layout_marginTop="0dp"
+            android:layout_marginEnd="4dp"
             android:background="#03A9F4"
             android:contentDescription="@string/boton_ayuda"
-            android:src="@android:drawable/ic_menu_help" />
+            android:src="@android:drawable/ic_menu_help"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    </RelativeLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <LinearLayout
 

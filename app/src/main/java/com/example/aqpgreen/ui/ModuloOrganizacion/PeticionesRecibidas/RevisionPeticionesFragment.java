@@ -43,6 +43,7 @@ public class RevisionPeticionesFragment extends Fragment {
     private ImageButton btn_regresar_fragment;
     private ProgressBar pb_icono_carga;
     private TextView tv_aviso_vacio;
+    private RecyclerView recyclerView;
 
     public RevisionPeticionesFragment() {
         // Required empty public constructor
@@ -66,16 +67,15 @@ public class RevisionPeticionesFragment extends Fragment {
         db_peticiones = new PeticionDBController(getContext());
         navController = Navigation.findNavController(view);
         inicializar_elementos(view);
-
-        btn_regresar_fragment.setOnClickListener(view1 -> navController.popBackStack());
-
         generar_recyclerView (view);
+        btn_regresar_fragment.setOnClickListener(v -> navController.popBackStack());
     }
 
     public void inicializar_elementos (View view) {
         btn_regresar_fragment = view.findViewById(R.id.btnIcoAtras);
         pb_icono_carga = view.findViewById(R.id.pb_icono_carga);
         tv_aviso_vacio = view.findViewById(R.id.tv_lista_vacia);
+        recyclerView = view.findViewById(R.id.recycleView_listaPeticiones);
 
         preferencias = getContext().getSharedPreferences("var_sesion", Context.MODE_PRIVATE);
         //SharedPreferences.Editor editor_preferencias = preferencias.edit();
@@ -104,13 +104,16 @@ public class RevisionPeticionesFragment extends Fragment {
                 }
             }
             else {
+                recyclerView.setVisibility(View.GONE);
                 tv_aviso_vacio.setText("No hay peticiones");
             }
             db_peticiones.close();
 
             handler.post(() -> {
+                recyclerView.setVisibility(View.VISIBLE);
+                tv_aviso_vacio.setVisibility(View.GONE);
                 pb_icono_carga.setVisibility(View.GONE);
-                RecyclerView recyclerView = view.findViewById(R.id.recycleView_listaPeticiones);
+
                 recyclerView.setHasFixedSize(true);
                 recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 1));
                 ListaPeticionOrganizacionAdaptador adaptor = new ListaPeticionOrganizacionAdaptador(lista_peticiones);

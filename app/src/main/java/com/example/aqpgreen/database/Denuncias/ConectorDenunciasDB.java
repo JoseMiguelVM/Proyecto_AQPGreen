@@ -9,9 +9,7 @@ import android.util.Log;
 
 public class ConectorDenunciasDB  extends SQLiteOpenHelper {
 
-
     public static final String TABLE_NAME = "DENUNCIAS";
-
     public static final String IDDENUNCIAS = "iddenuncias";
     public static final String DNI = "dni";
     public static final String NOMBRES_COMPLETOS = "nombres";
@@ -19,7 +17,6 @@ public class ConectorDenunciasDB  extends SQLiteOpenHelper {
     public static final String DESCRIPCION = "descripcion";
 
     static final String DB_NAME = "aqpgreen.db";
-
     static final int DB_VERSION = 3;
 
     private static final String CREATE_TABLE = "create table " + TABLE_NAME + "(" + IDDENUNCIAS

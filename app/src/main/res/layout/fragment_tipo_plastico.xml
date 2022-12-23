@@ -1,74 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/TipoPlastico"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.TiposPlastico.TipoPlasticoFragment">
+    tools:context=".ui.TiposPlastico.TipoPlasticoFragment"
+    android:background="@drawable/background">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/idLayoutFondo"
         android:layout_width="match_parent"
-        android:layout_height="662dp"
-        android:background="@drawable/background"
-        android:orientation="vertical">
+        android:layout_height="59dp"
+        android:background="#2193F0"
+        android:elevation="8dp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-        <RelativeLayout
-            android:id="@+id/idLayoutFondo"
-            android:layout_width="match_parent"
-            android:layout_height="59dp"
-            android:layout_marginBottom="10dp"
-            android:background="#2193F0"
-            android:elevation="8dp"
-            android:gravity="center">
+        <ImageButton
+            android:id="@+id/btnIcoAtras"
+            android:layout_width="60dp"
+            android:layout_height="49dp"
+            android:layout_marginStart="4dp"
+            android:backgroundTint="@color/c_cabecera_boton"
+            android:contentDescription="TODO"
+            android:src="?attr/actionModeCloseDrawable"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="#FFFFFF" />
 
-            <TextView
-                android:id="@+id/titulo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="62dp"
-                android:layout_marginTop="10dp"
-                android:text="@string/titulo_tipos_plasticos"
-                android:textColor="#FFFFFF"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-            <ImageButton
-                android:id="@+id/btnIcoAtras"
-                android:layout_width="60dp"
-                android:layout_height="49dp"
-                android:backgroundTint="@color/c_cabecera_boton"
-                android:contentDescription="TODO"
-                android:src="?attr/actionModeCloseDrawable"
-                app:tint="#FFFFFF" />
-
-            <ImageButton
-                android:id="@+id/btnAyuda"
-                android:layout_width="60dp"
-                android:layout_height="50dp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginTop="0dp"
-                android:background="#2194F1"
-                app:tint="#FFFFFF" />
-
-        </RelativeLayout>
-
-        <ImageView
-            android:id="@+id/imageView7"
-            android:layout_width="match_parent"
-            android:layout_height="134dp"
-            android:src="@drawable/baner" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView_listaCategorias"
-            android:layout_width="383dp"
+        <TextView
+            android:id="@+id/titulo"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="17dp" />
+            android:text="@string/titulo_tipos_plasticos"
+            android:textColor="#FFFFFF"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    </LinearLayout>
 
-</FrameLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="match_parent"
+        android:layout_height="134dp"
+        android:layout_marginTop="8dp"
+        android:src="@drawable/baner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/idLayoutFondo" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView_listaCategorias"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView7" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
