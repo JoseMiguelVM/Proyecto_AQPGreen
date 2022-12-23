@@ -340,13 +340,13 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/redireccionMapa"
+            android:id="@+id/redireccionONG"
             android:layout_width="259dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="62dp"
             android:layout_marginTop="12dp"
             android:backgroundTint="#FF9800"
-            android:text="Ver mapa de ubicacion" />
+            android:text="saber mas" />
     </LinearLayout>
 
 </RelativeLayout>

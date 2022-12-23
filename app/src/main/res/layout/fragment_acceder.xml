@@ -10,8 +10,8 @@
 
     <ImageView
         android:id="@+id/iv_logo"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
         android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,7 +21,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="1dp"
         android:layout_marginEnd="32dp"
         android:layout_marginBottom="8dp"
         app:cardCornerRadius="25dp"
@@ -34,7 +34,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/menu_principal_layout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="430dp">
 
             <Button
                 android:id="@+id/redireccionOrganizacion"
@@ -170,7 +170,6 @@
                     android:id="@+id/checkbox_guardarSesion"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center"
                     android:text="@string/label_guardar_sesion"
                     android:textColor="#616161"
                     android:textSize="12sp"
@@ -180,7 +179,7 @@
 
             <Button
                 android:id="@+id/botonLoginCompleto"
-                android:layout_width="wrap_content"
+                android:layout_width="185dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
                 android:elevation="10dp"

@@ -57,7 +57,7 @@ public class MenuFragment extends Fragment{
 
         inicializar_elementos(view);
 
-        btn_cerrar_sesion.setOnClickListener(view1 -> {
+        btn_cerrar_sesion.setOnClickListener(view1 ->{
             editor_preferencias.putBoolean("sesion", false);
             editor_preferencias.apply();
             Toast.makeText(getContext(), "Sesión Cerrada", Toast.LENGTH_SHORT).show();
