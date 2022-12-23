@@ -173,6 +173,7 @@
                     android:text="@string/label_guardar_sesion"
                     android:textColor="#616161"
                     android:textSize="12sp"
+                    android:layout_gravity="center"
                     android:textStyle="normal" />
 
             </LinearLayout>
