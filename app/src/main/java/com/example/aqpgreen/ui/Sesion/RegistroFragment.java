@@ -1,5 +1,6 @@
 package com.example.aqpgreen.ui.Sesion;
 
+import android.database.Cursor;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -13,63 +14,30 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
+import com.bumptech.glide.request.RequestOptions;
 import com.example.aqpgreen.R;
 import com.example.aqpgreen.database.Usuarios.UsuariosDBController;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link RegistroFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class RegistroFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
     // TODO: Declaracion de variables
-    private UsuariosDBController dbManager;
+    private UsuariosDBController db_usuarios;
+    private NavController navController;
     private EditText et_usuario;
     private EditText et_correo;
     private EditText et_contrasena;
     private Button btn_registrar;
     private Button btn_regresar_acceso;
+    private ImageView iv_logo;
 
     public RegistroFragment() {
         // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment RegistroFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static RegistroFragment newInstance(String param1, String param2) {
-        RegistroFragment fragment = new RegistroFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
     }
 
     @Override
@@ -83,23 +51,37 @@ public class RegistroFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        dbManager = new UsuariosDBController(getContext());
-        final NavController navController = Navigation.findNavController(view);
+        db_usuarios = new UsuariosDBController(getContext());
+        navController = Navigation.findNavController(view);
         inicializar_elementos(view);
 
-        dbManager.open();
-
-        btn_registrar.setOnClickListener(v -> {
-            String et_usuario_string = et_usuario.getText().toString();
-            String et_correo_string = et_correo.getText().toString();
-            String et_contrasena_string = et_contrasena.getText().toString();
-
-            dbManager.insert(et_usuario_string, et_correo_string, et_contrasena_string);
-            dbManager.close();
-            navController.popBackStack();
-        });
-
+        btn_registrar.setOnClickListener(v -> registrar_datos());
         btn_regresar_acceso.setOnClickListener(v -> navController.popBackStack());
+    }
+
+    private void registrar_datos (){
+
+        String et_usuario_string = et_usuario.getText().toString();
+        String et_correo_string = et_correo.getText().toString();
+        String et_contrasena_string = et_contrasena.getText().toString();
+
+        if (et_usuario_string.isEmpty() || et_contrasena_string.isEmpty() || et_contrasena_string.isEmpty()) {
+            Toast.makeText(getContext(), "NO deje campos vacíos", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            db_usuarios.open();
+            Cursor cursor = db_usuarios.fetch(et_usuario_string);
+            if (cursor.getCount() != 0){
+                Toast.makeText(getContext(), "Ya existen un usuario con ese nombre", Toast.LENGTH_SHORT).show();
+                db_usuarios.close();
+            }
+            else {
+                db_usuarios.insert(et_usuario_string, et_correo_string, et_contrasena_string);
+                db_usuarios.close();
+                Toast.makeText(getContext(), "Usuario creado exitosamente", Toast.LENGTH_SHORT).show();
+                navController.popBackStack();
+            }
+        }
     }
 
     private void inicializar_elementos (View view) {
@@ -108,5 +90,14 @@ public class RegistroFragment extends Fragment {
         et_contrasena = view.findViewById(R.id.RcontraseñaEdit);
         btn_registrar = view.findViewById(R.id.botonRegistroCompleto);
         btn_regresar_acceso = view.findViewById(R.id.logIn);
+        iv_logo = view.findViewById(R.id.iv_logo);
+
+        Glide.with(getContext())
+                .load(R.drawable.aqpgreen_logo)
+                .centerCrop()
+                .placeholder(R.drawable.fragment_reciclaje_icon1)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .apply(RequestOptions.bitmapTransform(new RoundedCorners(20)))
+                .into(iv_logo);
     }
 }
