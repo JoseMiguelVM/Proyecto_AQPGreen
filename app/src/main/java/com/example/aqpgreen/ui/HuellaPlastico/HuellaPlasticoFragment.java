@@ -141,13 +141,12 @@ public class HuellaPlasticoFragment extends Fragment {
                 +(envaCosmetic*0.080)
                 +(cepDientes*0.020)
                 +(pastaDental*0.015)
-                +(vasoPlastico*0.003)+(otroPlastic));
+                +(vasoPlastico*0.003));
 
-        double HuellaPlasticoAnual = calculandoHuellaSemanal * 48;
+        double CepilloPastaOtrosTrimestral= (cepDientes*0.020) +(pastaDental*0.015) + (otroPlastic);
+        double HuellaPlasticoAnual = calculandoHuellaSemanal * 48 + (CepilloPastaOtrosTrimestral*4);
         double HuellaPlasticoVidasinredondear = HuellaPlasticoAnual*65;
         double HuellaPlasticoVida = Math.round(HuellaPlasticoVidasinredondear*100.0)/100.0;
-
-        System.out.println("CONSUMES  "+HuellaPlasticoVida+ "KG A LA LARGO DE TU VIDA");
 
         return HuellaPlasticoVida;
 

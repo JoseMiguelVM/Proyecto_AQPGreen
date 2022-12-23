@@ -107,4 +107,5 @@
     <string name="titulo_estadisticas">Estadisticas</string>
     <string name="label_leyenda">Leyenda</string>
     <string name="texto_estadistica">Estadisticas referente a distritos de Arequipa donde se adquiere mas los plásticos.</string>
+    <string name="titulo_ongs_asociadas">Lista de ONGs Asociadas</string>
 </resources>

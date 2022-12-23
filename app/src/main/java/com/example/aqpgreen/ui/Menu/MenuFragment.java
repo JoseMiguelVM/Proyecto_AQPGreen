@@ -61,6 +61,7 @@ public class MenuFragment extends Fragment{
             editor_preferencias.putBoolean("sesion", false);
             editor_preferencias.apply();
             Toast.makeText(getContext(), "Sesión Cerrada", Toast.LENGTH_SHORT).show();
+            navController.navigate(R.id.accederFragment);
         });
 
         c_huella.setOnClickListener(v -> navController.navigate(R.id.huellaPlasticoFragment));
