@@ -20,20 +20,19 @@ public class ListaNoticiasUsuarioAdaptador extends RecyclerView.Adapter<ListaNot
 
         public ViewHolder (@NonNull View itemView) {
             super(itemView);
-            // estas son los campos del elemento del recyclerView, estan con sus ids, para mayor facilidad de creacion
-            //titulo_noticia = itemView.findViewById(R.id.tv_titulo_noticia);
-            //descripcion_noticia = itemView.findViewById(R.id.tv_descripcion_noticia);
-            //fecha_noticia = itemView.findViewById(R.id.tv_fecha_noticia);
+            titulo_noticia = itemView.findViewById(R.id.tv_titulo_noticia);
+            descripcion_noticia = itemView.findViewById(R.id.tv_descripcion_noticia);
+            fecha_noticia = itemView.findViewById(R.id.tv_fecha_noticia);
         }
 
-        public void bindData (final Noticia elemento, @NonNull ListaNoticiasUsuarioAdaptador.ViewHolder holder) {
-            titulo_noticia.setText(elemento.getTitulo());
-            fecha_noticia.setText(elemento.getFecha());
-            descripcion_noticia.setText(elemento.getDescripcion());
+        public void bindData (final Noticia _not) {
+            titulo_noticia.setText(_not.getTitulo());
+            fecha_noticia.setText(_not.getFecha());
+            descripcion_noticia.setText(_not.getDescripcion());
         }
     }
 
-    private List<Noticia> lista_noticias;
+    private final List<Noticia> lista_noticias;
 
     public ListaNoticiasUsuarioAdaptador(List<Noticia> _lista_noticias) {
         this.lista_noticias = _lista_noticias;
@@ -42,14 +41,13 @@ public class ListaNoticiasUsuarioAdaptador extends RecyclerView.Adapter<ListaNot
     @NonNull
     @Override
     public ListaNoticiasUsuarioAdaptador.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                                                                            //aqui deberia ir el elemenento que se usar para el recyclerView
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.elemento_lista_peticiones_usuario, null, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.elemento_lista_noticias_usuario, parent, false);
         return new ListaNoticiasUsuarioAdaptador.ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ListaNoticiasUsuarioAdaptador.ViewHolder holder, int position) {
-        holder.bindData(lista_noticias.get(position), holder);
+        holder.bindData(lista_noticias.get(position));
     }
 
     @Override

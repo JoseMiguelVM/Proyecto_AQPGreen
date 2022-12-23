@@ -8,6 +8,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
@@ -19,6 +20,7 @@ import android.widget.TextView;
 
 import com.example.aqpgreen.R;
 import com.example.aqpgreen.database.Noticias.NoticiaDBController;
+import com.example.aqpgreen.modelo.ListaNoticiasUsuarioAdaptador;
 import com.example.aqpgreen.modelo.Noticia;
 
 import java.util.ArrayList;
@@ -85,12 +87,11 @@ public class ListaNoticiasFragment extends Fragment {
                 cursor.close();
             }
             recyclerView.setVisibility(View.VISIBLE);
-            /*
             ListaNoticiasUsuarioAdaptador adaptador = new ListaNoticiasUsuarioAdaptador(lista_noticias);
             recyclerView.setHasFixedSize(true);
             recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 1));
             recyclerView.setAdapter(adaptador);
-            */
+
         }
         else {
             recyclerView.setVisibility(View.GONE);

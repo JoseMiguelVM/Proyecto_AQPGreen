@@ -65,7 +65,7 @@
     <string name="label_titulo_de_noticia">Titulo de Noticia (*):</string>
     <string name="placeholder_titulo_de_noticia">Ingrese titulo de noticia breve</string>
     <string name="label_fecha_noticia">Fecha de Noticia (*):</string>
-    <string name="placeholder_fecha_noticia">dd/mm/aa</string>
+    <string name="placeholder_fecha_noticia">dd/mm/aaaa</string>
     <string name="label_descripcion_noticia">Descripcion de Noticia (*):</string>
     <string name="placeholder_descripcion_noticia">Ingrese descripcion de noticia</string>
     <string name="titulo_publicar_noticias">Publicar Noticias</string>

@@ -14,7 +14,6 @@
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="#2196F3"
-        android:text="@string/hello_blank_fragment"
         android:textSize="20sp"
         android:textStyle="bold"
         android:visibility="visible"
