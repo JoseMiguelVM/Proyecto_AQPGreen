@@ -36,7 +36,7 @@ import java.util.concurrent.Executors;
 
 public class RevisarDenuncias extends Fragment {
 
-    private DenunciaDBController db_peticiones;
+    private DenunciaDBController db_denuncias;
     private SharedPreferences preferencias;
     private FloatingActionButton btn_crear_peticion_fragment;
     private ImageButton btn_regresar_fragment;
@@ -49,12 +49,6 @@ public class RevisarDenuncias extends Fragment {
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-    }
-
-    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -63,13 +57,14 @@ public class RevisarDenuncias extends Fragment {
 
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        db_peticiones = new DenunciaDBController(getContext());
-        final NavController navController = Navigation.findNavController(view);
+        db_denuncias = new DenunciaDBController(getContext());
+        NavController navController = Navigation.findNavController(view);
         inicializar_elementos(view);
+        generar_recyclerView (view);
 
         btn_regresar_fragment.setOnClickListener(view1 -> navController.popBackStack());
 
-        generar_recyclerView (view);
+
     }
 
     public void inicializar_elementos (View view) {
@@ -89,35 +84,37 @@ public class RevisarDenuncias extends Fragment {
         Handler handler = new Handler(Looper.getMainLooper());
         List<Denuncia> lista_denuncias = new ArrayList<>();
 
-        hilo.execute(() -> {
-            db_peticiones.open();
-            Cursor cursor = db_peticiones.fetch();
-            if(cursor.getCount() != 0){
+        db_denuncias.open();
+        Cursor cursor = db_denuncias.fetch();
+
+        if(cursor.getCount() != 0){
+            hilo.execute(() -> {
                 try{
                     for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
                         lista_denuncias.add(new Denuncia(cursor.getInt(0), cursor.getInt(1), cursor.getString(2),
                                 cursor.getString(3), cursor.getString(4)));
                     }
                 } catch (Exception e){
-                    Log.e("ListaPetOrgFragment", e.toString());
+                    Log.e("ListaDenOrgFragment", e.toString());
                 } finally {
                     cursor.close();
                 }
-            }
-            else {
-                recyclerView.setVisibility(View.GONE);
-                tv_aviso_vacio.setText("No hay denuncias");
-            }
-            db_peticiones.close();
-
-            handler.post(() -> {
-                recyclerView.setVisibility(View.VISIBLE);
-                pb_icono_carga.setVisibility(View.GONE);
-                ListaDenunciaAdaptador adaptor = new ListaDenunciaAdaptador(lista_denuncias);
-                recyclerView.setHasFixedSize(true);
-                recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 1));
-                recyclerView.setAdapter(adaptor);
+                handler.post(() -> {
+                    tv_aviso_vacio.setVisibility(View.GONE);
+                    pb_icono_carga.setVisibility(View.GONE);
+                    ListaDenunciaAdaptador adaptor = new ListaDenunciaAdaptador(lista_denuncias);
+                    recyclerView.setHasFixedSize(true);
+                    recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 1));
+                    recyclerView.setAdapter(adaptor);
+                });
             });
-        });
+        }
+        else {
+            recyclerView.setVisibility(View.GONE);
+            pb_icono_carga.setVisibility(View.GONE);
+            tv_aviso_vacio.setText("No hay denuncias");
+        }
+        db_denuncias.close();
+
     }
 }

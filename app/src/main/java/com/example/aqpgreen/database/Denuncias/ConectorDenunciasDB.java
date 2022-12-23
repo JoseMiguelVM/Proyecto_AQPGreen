@@ -1,16 +1,13 @@
 package com.example.aqpgreen.database.Denuncias;
 
-import static android.content.ContentValues.TAG;
-
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 public class ConectorDenunciasDB  extends SQLiteOpenHelper {
 
     public static final String TABLE_NAME = "DENUNCIAS";
-    public static final String IDDENUNCIAS = "iddenuncias";
+    public static final String IDDENUNCIAS = "iddenuncia";
     public static final String DNI = "dni";
     public static final String NOMBRES_COMPLETOS = "nombres";
     public static final String UBICACION = "ubicacion";
@@ -19,9 +16,10 @@ public class ConectorDenunciasDB  extends SQLiteOpenHelper {
     static final String DB_NAME = "aqpgreen.db";
     static final int DB_VERSION = 3;
 
-    private static final String CREATE_TABLE = "create table " + TABLE_NAME + "(" + IDDENUNCIAS
-            + " INTEGER PRIMARY KEY AUTOINCREMENT, " + DNI + " TEXT NOT NULL, " + NOMBRES_COMPLETOS + " TEXT NOT NULL, " + UBICACION
-            + "  TEXT NOT NULL, " + DESCRIPCION + "  TEXT NOT NULL);";
+    private static final String CREATE_TABLE = "create table " + TABLE_NAME + "("
+            + IDDENUNCIAS + " INTEGER PRIMARY KEY AUTOINCREMENT, "
+            + DNI + " TEXT NOT NULL, " + NOMBRES_COMPLETOS + " TEXT NOT NULL, "
+            + UBICACION + "  TEXT NOT NULL, " + DESCRIPCION + "  TEXT NOT NULL);";
 
     public ConectorDenunciasDB(Context context) {
         super(context, DB_NAME, null, DB_VERSION);

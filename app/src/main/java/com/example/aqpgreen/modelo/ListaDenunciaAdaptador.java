@@ -26,14 +26,14 @@ public class ListaDenunciaAdaptador extends RecyclerView.Adapter<ListaDenunciaAd
 
         public ViewHolder (@NonNull View itemView) {
             super(itemView);
-            iv_foto_peticion = itemView.findViewById(R.id.iv_imagen_peticion);
+            iv_foto_peticion = itemView.findViewById(R.id.iv_imagen_denuncia);
             usuario_dni = itemView.findViewById(R.id.rescate_dni);
             usuario_nombres = itemView.findViewById(R.id.rescate_nombres);
             usuario_ubicacion = itemView.findViewById(R.id.rescate_ubicacion);
             usuario_descripcion = itemView.findViewById(R.id.rescate_descripcion);
         }
 
-        public void bindData (final Denuncia elemento, @NonNull ListaDenunciaAdaptador.ViewHolder holder) {
+        public void bindData (final Denuncia elemento) {
             usuario_dni.setText("DNI: " + elemento.getDni());
             usuario_nombres.setText("Usuario: " + elemento.getNombre());
             usuario_ubicacion.setText("Ubicacion: " + elemento.getUbicacion());
@@ -56,7 +56,7 @@ public class ListaDenunciaAdaptador extends RecyclerView.Adapter<ListaDenunciaAd
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.bindData(lista_denuncias.get(position), holder);
+        holder.bindData(lista_denuncias.get(position));
     }
 
     @Override
