@@ -1,78 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@drawable/aqp"
     tools:context=".ui.Sesion.AccederFragment">
 
-    <!-- Titulo de Marca -->
-
-    <Button
-        android:id="@+id/redireccionOrganizacion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="250dp"
-        android:layout_marginTop="12dp"
-        android:backgroundTint="#2196F3"
-        android:text="@string/boton_organizacion"
-        android:textSize="13sp" />
-
     <ImageView
-        android:id="@+id/imageView9"
-        android:layout_width="221dp"
-        android:layout_height="146dp"
-        android:layout_marginLeft="94dp"
-        android:layout_marginTop="-50dp"
-        android:src="@drawable/aqpgreen_logo" />
+        android:id="@+id/iv_logo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginStart="38dp"
-        android:layout_marginTop="-20dp"
-        android:layout_marginEnd="38dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="8dp"
         app:cardCornerRadius="25dp"
-        app:cardElevation="10dp"
-        app:cardUseCompatPadding="true">
+        app:cardElevation="2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_logo">
 
-        <!-- Contenedor grande de todo los datos -->
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/menu_principal_layout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <!-- Contenedor de opciones de login y registro-->
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/redireccionOrganizacion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:backgroundTint="#2196F3"
+                android:text="@string/boton_organizacion"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <LinearLayout
+                android:id="@+id/linearLayout3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="30dp"
-                android:layout_marginEnd="20dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="30dp"
                 android:background="@drawable/switch_tumbs"
                 android:gravity="center"
                 android:orientation="horizontal"
-                android:weightSum="2">
+                android:weightSum="2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/redireccionOrganizacion">
 
                 <Button
                     android:id="@+id/logIn"
                     style="?android:attr/buttonBarButtonStyle"
-                    android:layout_width="1dp"
-                    android:layout_height="40dp"
-                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@drawable/switch_trcks"
-                    android:gravity="center"
-                    android:paddingLeft="15dp"
-                    android:paddingTop="5dp"
-                    android:paddingRight="15dp"
-                    android:paddingBottom="5dp"
                     android:text="@string/boton_acceder"
-                    android:textAlignment="center"
                     android:textColor="@color/textColor"
                     android:textSize="14sp"
                     android:textStyle="bold|normal"
@@ -80,33 +78,33 @@
 
                 <Button
                     android:id="@+id/singUp"
-                    android:layout_width="0dp"
-                    android:layout_height="48dp"
-                    android:layout_gravity="center"
-                    android:layout_weight="0.9"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
                     android:gravity="center"
-                    android:paddingLeft="15dp"
-                    android:paddingTop="5dp"
-                    android:paddingRight="15dp"
-                    android:paddingBottom="5dp"
                     android:text="@string/label_button_registrarse"
                     android:textAlignment="center"
                     android:textColor="@color/pinkColor"
                     android:textSize="14sp"
                     android:textStyle="bold|normal"
-                    app:backgroundTint="#FFFFFF" />
+                    app:backgroundTint="#FFFFFF"
+                    app:shapeAppearanceOverlay="@style/Button5" />
             </LinearLayout>
 
             <!-- Contenedor de ingreso de datos -->
             <LinearLayout
                 android:id="@+id/logInLayout"
                 android:layout_width="match_parent"
-                android:layout_height="213dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="24dp"
                 android:background="@color/white"
-                android:gravity="center"
                 android:orientation="vertical"
-                android:padding="25dp">
-
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
 
                 <com.google.android.material.textfield.TextInputLayout
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
@@ -165,76 +163,86 @@
                     android:textAlignment="textEnd"
                     android:textColor="#616161"
                     android:textSize="11sp"
-                    android:textStyle="normal" />
+                    android:textStyle="normal"
+                    android:visibility="gone" />
 
                 <CheckBox
                     android:id="@+id/checkbox_guardarSesion"
-                    android:layout_width="match_parent"
-                    android:layout_height="48dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:text="@string/label_guardar_sesion"
                     android:textColor="#616161"
                     android:textSize="12sp"
                     android:textStyle="normal" />
 
             </LinearLayout>
-            <!-- Boton de login-->
 
             <Button
                 android:id="@+id/botonLoginCompleto"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp"
-                android:elevation="15dp"
-                android:gravity="center"
+                android:layout_marginTop="8dp"
+                android:elevation="10dp"
                 android:text="@string/label_button_acceder"
-                android:textAllCaps="false"
                 android:textColor="@color/textColor"
-                android:textSize="17sp"
+                android:textSize="16sp"
                 app:backgroundTint="#3FC644"
+                app:layout_constraintBottom_toTopOf="@+id/tv_texto_ingrese"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/logInLayout"
                 app:shapeAppearanceOverlay="@style/Button5" />
 
+
             <TextView
-                android:layout_width="match_parent"
+                android:id="@+id/tv_texto_ingrese"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginTop="16dp"
-                android:layout_marginBottom="16dp"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="8dp"
                 android:gravity="center"
                 android:text="@string/label_formas_registrarse"
-                android:textAlignment="center"
                 android:textColor="#474646"
                 android:textSize="14sp"
-                android:textStyle="normal" />
+                android:textStyle="normal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/botonLoginCompleto" />
 
-            <LinearLayout
-                android:layout_width="match_parent"
+            <ImageView
+                android:id="@+id/iv_facebook"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_marginBottom="20dp"
-                android:gravity="center"
-                android:orientation="horizontal">
+                android:layout_marginStart="70dp"
+                android:layout_marginBottom="16dp"
+                android:src="@drawable/ic_facebook"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
 
-                <ImageView
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:layout_margin="10dp"
-                    android:src="@drawable/ic_facebook" />
+            <ImageView
+                android:id="@+id/iv_google"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                android:src="@drawable/ic_google"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/iv_twitter"
+                app:layout_constraintStart_toEndOf="@+id/iv_facebook"
+                app:layout_constraintTop_toBottomOf="@+id/tv_texto_ingrese" />
 
-                <ImageView
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:layout_margin="10dp"
-                    android:src="@drawable/ic_google" />
+            <ImageView
+                android:id="@+id/iv_twitter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="70dp"
+                android:layout_marginBottom="16dp"
+                android:src="@drawable/ic_twitter"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
 
-                <ImageView
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:layout_margin="10dp"
-                    android:src="@drawable/ic_twitter" />
-            </LinearLayout>
-        </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.cardview.widget.CardView>
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
